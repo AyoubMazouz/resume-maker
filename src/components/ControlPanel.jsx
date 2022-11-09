@@ -11,8 +11,10 @@ const ControlPanel = () => {
                     {cvs.map((_cv) => (
                         <button
                             key={_cv}
-                            className={`capitalize text-xs font-semibold rounded w-12 h-12 bg-${cp}-primary ${
-                                cv === _cv ? "opacity-50" : ""
+                            className={`capitalize text-sm font-semibold rounded shadow-md w-16 py-1 px-2 ${
+                                cv === _cv
+                                    ? "bg-gray-200 text-gray-900"
+                                    : "bg-gray-900 text-gray-200"
                             }`}
                             onClick={() => {
                                 setCv(_cv);
@@ -26,7 +28,7 @@ const ControlPanel = () => {
                     {cps.map((_cp) => (
                         <button
                             key={_cp}
-                            className={`capitalize text-xs rounded-full w-8 h-8 bg-${_cp}-primary flex justify-center items-center shadow-md`}
+                            className={`capitalize rounded-full w-8 h-8 bg-${_cp}-primary flex justify-center items-center shadow-md`}
                             onClick={() => {
                                 setCp(_cp);
                             }}

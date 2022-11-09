@@ -22,17 +22,29 @@ module.exports = {
                     primary: "#533E85",
                     secondary: "#B1A8B3",
                 },
-                orange: {
+                gray: {
+                    light: "#F0F5F9",
+                    dark: "#1E2022",
+                    primary: "#52616B",
+                    secondary: "#C9D6DF",
+                },
+                "carmine-pink": {
                     light: "#FFFDF6",
-                    dark: "#1B1A17",
-                    primary: "#F0A500",
+                    dark: "#2B2E4A",
+                    primary: "#E84545",
                     secondary: "#F2E7D5",
                 },
-                "fire-opal": {
-                    light: "#DDDDDD",
-                    dark: "#222831",
-                    primary: "#F05454",
-                    secondary: "#C4B9BA",
+                "viridian-green": {
+                    light: "#E4F9F5",
+                    dark: "#40514E",
+                    primary: "#11999E",
+                    secondary: "#30E3CA",
+                },
+                "light-taupe": {
+                    light: "#FAF3E0",
+                    dark: "#1E212D",
+                    primary: "#B68973",
+                    secondary: "#EABF9F",
                 },
             },
             fontFamily: {
@@ -50,17 +62,17 @@ module.exports = {
         "w-5/6",
         {
             pattern:
-                /bg-(alabaster|steel-blue|cyber-grape|orange|fire-opal)-(light|dark|primary|secondary)/,
+                /bg-(alabaster|steel-blue|cyber-grape|carmine-pink|viridian-green|gray|light-taupe)-(light|dark|primary|secondary)/,
             variants: [],
         },
         {
             pattern:
-                /text-(alabaster|steel-blue|cyber-grape|orange|fire-opal)-(light|dark|primary|secondary)/,
+                /text-(alabaster|steel-blue|cyber-grape|carmine-pink|viridian-green|gray|light-taupe)-(light|dark|primary|secondary)/,
             variants: [],
         },
         {
             pattern:
-                /border-(alabaster|steel-blue|cyber-grape|orange|fire-opal)-(light|dark|primary|secondary)/,
+                /border-(alabaster|steel-blue|cyber-grape|carmine-pink|viridian-green|gray|light-taupe)-(light|dark|primary|secondary)/,
             variants: [],
         },
     ],

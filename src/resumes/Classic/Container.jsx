@@ -4,7 +4,40 @@ import { useGlobalContext } from "../../GlobalContext";
 const Container = ({ content }) => {
     const { cp } = useGlobalContext();
 
-    console.log(content);
+    if (content.type === "header")
+        return (
+            <div className="grid grid-cols-12 -mx-4">
+                <img
+                    src={content.data.img}
+                    className="h-[156px] shadow col-span-4"
+                />
+                <div className="col-span-8 flex flex-col justify-between">
+                    <div>
+                        <div
+                            className={`text-5xl space-x-2 text-${cp}-primary font-lora`}
+                        >
+                            <span className="font-semibold">
+                                {content.data.fullName[0]}
+                            </span>
+                            <span>{content.data.fullName[1]}</span>
+                        </div>
+                        <div className="text-xl capitalize font-lora">
+                            {content.data.title}
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap gap-x-1">
+                        {content.data.details.map((detail, index) => (
+                            <>
+                                <div>{detail}</div>
+                                {index !== content.data.details.length - 1
+                                    ? " | "
+                                    : null}
+                            </>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        );
 
     if (content.type === "date_list")
         return (
@@ -19,7 +52,7 @@ const Container = ({ content }) => {
         );
     else if (content.type === "list")
         return (
-            <ul className="list-disc">
+            <ul className="list-disc pl-4">
                 {content.data.map((item) => (
                     <li>{item}</li>
                 ))}
@@ -46,7 +79,7 @@ const Container = ({ content }) => {
         return (
             <div>
                 {content.data.map((item) => (
-                    <div className="-my-1.5">
+                    <div className="-my-3">
                         <span>{item[0]}</span>
                         <div
                             className={`relative bg-${cp}-secondary h-2 w-full`}

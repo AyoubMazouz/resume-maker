@@ -1,38 +1,38 @@
-# COMMENT EXÉCUTER EN LOCAL:
+# HOW TO RUN LOCALLY:
 
-Assurez-vous que NodeJs est installé sinon installez-le à partir d'ici: [NodeJs](https://nodejs.org/en/download/)
+Make sure you have NodeJs installed if not install it from here: [NodeJs](https://nodejs.org/en/download/)
 
-Ouvrir une nouvelle instance de terminal dans le dossier`resume-maker-master`.
-Tapez `npm i` pour installer les dépendances.
-Une fois l'installation terminée, exécutez le serveur local à l'aide de `npm start`.
+open a new terminal instance inside the folder `resume-maker-master`.
+Type `npm i` to install dependencies.
+After the installation is complete, run the local server using `npm start`.
 
-### COMMENT CHANGER LE DESIGN ET LA PALETTE DE COULEURS:
+### HOW TO CHANGE DESIGN AND COLOR PALETTE:
 
-En haut de la page, vous trouverez des boutons à gauche pour les conceptions et à l'extrémité opposée, il y a des options pour changer la palette de couleurs, cliquez simplement sur une option et elle sera appliquée.
+At the top of the page, you'll find buttons on left for designs and at the opposite end there is options to change color palette, just click on an option and it will be applied.
 
-### COMMENT IMPRIMER:
+### HOW TO PRINT:
 
-L'impression du produit final est très simple, vous devez modifier certaines variables d'impression dans votre navigateur.
+Printing the final product is very straightforward, you need to change some printing variables in your browser.
 
-##### marge: none
+##### margin: none
 
-##### graphique de fond: true
+##### background graphic: true
 
-##### taille de papier: A4
+##### paper size: A4
 
 ![](/public/screenshots/print.png)
 
 ### DATA FILE:
 
-Dans `resume-make-master/src`, vous trouverez un dossier nommé data.js à partir duquel vous pourrez modifier toutes les informations.
+Inside `resume-make-master/src` you will find folder named data.js from there you can modify all information.
 
-L'objet de données consiste en une liste d'objets, chaque objet représentant une section.
-Les sections ont un titre et une liste de contenu.
-Chaque liste de contenu a un type, les types permettent au programme de savoir à quel type de données il doit s'attendre.
+The data Object consist of a list of object each object represent a section.
+Sections has a title and content list.
+Each content list has a type, types allow the programme to know which type of data should it expect.
 
-### TYPES DISPONIBLES:
+### AVAILABLE TYPES:
 
-##### Entête:
+##### Header:
 
 ```{
         title: "",
@@ -55,7 +55,7 @@ Chaque liste de contenu a un type, les types permettent au programme de savoir �
     },
 ```
 
-##### Liste:
+##### List:
 
 ```
     {
@@ -76,7 +76,7 @@ Chaque liste de contenu a un type, les types permettent au programme de savoir �
     },
 ```
 
-##### Liste des dates:
+##### Date List:
 
 ```
     {
@@ -93,7 +93,7 @@ Chaque liste de contenu a un type, les types permettent au programme de savoir �
     },
 ```
 
-##### Étiquettes:
+##### Labels:
 
 ```
     {
@@ -110,7 +110,7 @@ Chaque liste de contenu a un type, les types permettent au programme de savoir �
     },
 ```
 
-##### Glissière:
+##### Meters:
 
 ```
     {

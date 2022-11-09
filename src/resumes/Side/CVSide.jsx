@@ -3,20 +3,22 @@ import { d } from "../../data";
 import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
-const CVClassic = () => {
+const CVSide = () => {
     const { cp } = useGlobalContext();
     return (
         <div
-            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light px-8 py-2 text-sm text-${cp}-dark font-dm leading-5`}
+            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-light leading-5 grid grid-cols-12 font-montserrat font-semibold`}
         >
             {/* Header */}
-            <div className={`col-span-4 mb-16`}>
+            <div
+                className={`col-span-4 bg-${cp}-primary px-4 py-12 overflow-hidden`}
+            >
                 {d.map((section) =>
                     section.pos === "head" ? <Section {...section} /> : null
                 )}
             </div>
             {/* Body */}
-            <div className={`col-span-8 text-${cp}-dark`}>
+            <div className={`col-span-8 px-4 py-12 text-${cp}-dark`}>
                 {d.map((section) =>
                     section.pos === "body" ? <Section {...section} /> : null
                 )}
@@ -25,4 +27,4 @@ const CVClassic = () => {
     );
 };
 
-export default CVClassic;
+export default CVSide;
