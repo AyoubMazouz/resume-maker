@@ -1,38 +1,4972 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Lora:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+/*
+! tailwindcss v3.2.2 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::before,
+::after {
+  --tw-content: '';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+*/
+
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  /* 3 */
+  tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+  -webkit-font-feature-settings: normal;
+          font-feature-settings: normal;
+  /* 5 */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden] {
+  display: none;
+}
+
+*, ::before, ::after{
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+::-webkit-backdrop{
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+::backdrop{
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.top-0{
+  top: 0px;
+}
+
+.left-0{
+  left: 0px;
+}
+
+.-top-5{
+  top: -1.25rem;
+}
+
+.right-\[50\%\]{
+  right: 50%;
+}
+
+.col-span-3{
+  grid-column: span 3 / span 3;
+}
+
+.col-span-9{
+  grid-column: span 9 / span 9;
+}
+
+.col-span-4{
+  grid-column: span 4 / span 4;
+}
+
+.col-span-8{
+  grid-column: span 8 / span 8;
+}
+
+.m-1{
+  margin: 0.25rem;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-1{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.-my-1\.5{
+  margin-top: -0.375rem;
+  margin-bottom: -0.375rem;
+}
+
+.-my-1{
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem;
+}
+
+.-my-4{
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+.mb-12{
+  margin-bottom: 3rem;
+}
+
+.mb-16{
+  margin-bottom: 4rem;
+}
+
+.mt-4{
+  margin-top: 1rem;
+}
+
+.mt-\[-\.35rem\]{
+  margin-top: -.35rem;
+}
+
+.mt-\[-\.25rem\]{
+  margin-top: -.25rem;
+}
+
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
+.flex{
   display: flex;
+}
+
+.grid{
+  display: grid;
+}
+
+.h-12{
+  height: 3rem;
+}
+
+.h-\[297mm\]{
+  height: 297mm;
+}
+
+.h-2{
+  height: 0.5rem;
+}
+
+.h-full{
+  height: 100%;
+}
+
+.h-\[295mm\]{
+  height: 295mm;
+}
+
+.h-\[156px\]{
+  height: 156px;
+}
+
+.h-\[188px\]{
+  height: 188px;
+}
+
+.h-8{
+  height: 2rem;
+}
+
+.h-6{
+  height: 1.5rem;
+}
+
+.h-4{
+  height: 1rem;
+}
+
+.w-1\/6{
+  width: 16.666667%;
+}
+
+.w-2\/6{
+  width: 33.333333%;
+}
+
+.w-3\/6{
+  width: 50%;
+}
+
+.w-4\/6{
+  width: 66.666667%;
+}
+
+.w-5\/6{
+  width: 83.333333%;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.w-12{
+  width: 3rem;
+}
+
+.w-\[210mm\]{
+  width: 210mm;
+}
+
+.w-8{
+  width: 2rem;
+}
+
+.w-6{
+  width: 1.5rem;
+}
+
+.w-4{
+  width: 1rem;
+}
+
+.max-w-\[1400px\]{
+  max-width: 1400px;
+}
+
+.max-w-\[16ch\]{
+  max-width: 16ch;
+}
+
+.translate-x-\[50\%\]{
+  --tw-translate-x: 50%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.list-disc{
+  list-style-type: disc;
+}
+
+.grid-cols-12{
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-col{
   flex-direction: column;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.place-content-center{
+  place-content: center;
+}
+
+.place-items-center{
+  place-items: center;
+}
+
+.items-center{
   align-items: center;
+}
+
+.justify-center{
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.justify-between{
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.gap-2{
+  gap: 0.5rem;
+}
+
+.gap-x-2{
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+}
+
+.gap-x-1{
+  -webkit-column-gap: 0.25rem;
+          column-gap: 0.25rem;
+}
+
+.gap-y-1{
+  row-gap: 0.25rem;
+}
+
+.space-y-24 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(6rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(6rem * var(--tw-space-y-reverse));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
+}
+
+.space-y-1 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.space-x-2 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.rounded-full{
+  border-radius: 9999px;
+}
+
+.rounded-lg{
+  border-radius: 0.5rem;
+}
+
+.rounded{
+  border-radius: 0.25rem;
+}
+
+.border-\[3px\]{
+  border-width: 3px;
+}
+
+.border-2{
+  border-width: 2px;
+}
+
+.border{
+  border-width: 1px;
+}
+
+.border-t-2{
+  border-top-width: 2px;
+}
+
+.border-b-2{
+  border-bottom-width: 2px;
+}
+
+.border-orange-light{
+  --tw-border-opacity: 1;
+  border-color: rgb(255 253 246 / var(--tw-border-opacity));
+}
+
+.border-orange-dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(27 26 23 / var(--tw-border-opacity));
+}
+
+.border-orange-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(240 165 0 / var(--tw-border-opacity));
+}
+
+.border-orange-secondary{
+  --tw-border-opacity: 1;
+  border-color: rgb(242 231 213 / var(--tw-border-opacity));
+}
+
+.border-alabaster-light{
+  --tw-border-opacity: 1;
+  border-color: rgb(240 238 226 / var(--tw-border-opacity));
+}
+
+.border-alabaster-dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(39 39 39 / var(--tw-border-opacity));
+}
+
+.border-alabaster-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(30 85 89 / var(--tw-border-opacity));
+}
+
+.border-alabaster-secondary{
+  --tw-border-opacity: 1;
+  border-color: rgb(198 197 187 / var(--tw-border-opacity));
+}
+
+.border-steel-blue-light{
+  --tw-border-opacity: 1;
+  border-color: rgb(249 247 247 / var(--tw-border-opacity));
+}
+
+.border-steel-blue-dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(17 45 78 / var(--tw-border-opacity));
+}
+
+.border-steel-blue-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(63 114 175 / var(--tw-border-opacity));
+}
+
+.border-steel-blue-secondary{
+  --tw-border-opacity: 1;
+  border-color: rgb(224 222 222 / var(--tw-border-opacity));
+}
+
+.border-cyber-grape-light{
+  --tw-border-opacity: 1;
+  border-color: rgb(236 236 236 / var(--tw-border-opacity));
+}
+
+.border-cyber-grape-dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(21 29 59 / var(--tw-border-opacity));
+}
+
+.border-cyber-grape-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(83 62 133 / var(--tw-border-opacity));
+}
+
+.border-cyber-grape-secondary{
+  --tw-border-opacity: 1;
+  border-color: rgb(177 168 179 / var(--tw-border-opacity));
+}
+
+.border-fire-opal-light{
+  --tw-border-opacity: 1;
+  border-color: rgb(221 221 221 / var(--tw-border-opacity));
+}
+
+.border-fire-opal-dark{
+  --tw-border-opacity: 1;
+  border-color: rgb(34 40 49 / var(--tw-border-opacity));
+}
+
+.border-fire-opal-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(240 84 84 / var(--tw-border-opacity));
+}
+
+.border-fire-opal-secondary{
+  --tw-border-opacity: 1;
+  border-color: rgb(196 185 186 / var(--tw-border-opacity));
+}
+
+.border-orange-light\/0{
+  border-color: rgb(255 253 246 / 0);
+}
+
+.border-orange-light\/5{
+  border-color: rgb(255 253 246 / 0.05);
+}
+
+.border-orange-light\/10{
+  border-color: rgb(255 253 246 / 0.1);
+}
+
+.border-orange-light\/20{
+  border-color: rgb(255 253 246 / 0.2);
+}
+
+.border-orange-light\/25{
+  border-color: rgb(255 253 246 / 0.25);
+}
+
+.border-orange-light\/30{
+  border-color: rgb(255 253 246 / 0.3);
+}
+
+.border-orange-light\/40{
+  border-color: rgb(255 253 246 / 0.4);
+}
+
+.border-orange-light\/50{
+  border-color: rgb(255 253 246 / 0.5);
+}
+
+.border-orange-light\/60{
+  border-color: rgb(255 253 246 / 0.6);
+}
+
+.border-orange-light\/70{
+  border-color: rgb(255 253 246 / 0.7);
+}
+
+.border-orange-light\/75{
+  border-color: rgb(255 253 246 / 0.75);
+}
+
+.border-orange-light\/80{
+  border-color: rgb(255 253 246 / 0.8);
+}
+
+.border-orange-light\/90{
+  border-color: rgb(255 253 246 / 0.9);
+}
+
+.border-orange-light\/95{
+  border-color: rgb(255 253 246 / 0.95);
+}
+
+.border-orange-light\/100{
+  border-color: rgb(255 253 246 / 1);
+}
+
+.border-orange-dark\/0{
+  border-color: rgb(27 26 23 / 0);
+}
+
+.border-orange-dark\/5{
+  border-color: rgb(27 26 23 / 0.05);
+}
+
+.border-orange-dark\/10{
+  border-color: rgb(27 26 23 / 0.1);
+}
+
+.border-orange-dark\/20{
+  border-color: rgb(27 26 23 / 0.2);
+}
+
+.border-orange-dark\/25{
+  border-color: rgb(27 26 23 / 0.25);
+}
+
+.border-orange-dark\/30{
+  border-color: rgb(27 26 23 / 0.3);
+}
+
+.border-orange-dark\/40{
+  border-color: rgb(27 26 23 / 0.4);
+}
+
+.border-orange-dark\/50{
+  border-color: rgb(27 26 23 / 0.5);
+}
+
+.border-orange-dark\/60{
+  border-color: rgb(27 26 23 / 0.6);
+}
+
+.border-orange-dark\/70{
+  border-color: rgb(27 26 23 / 0.7);
+}
+
+.border-orange-dark\/75{
+  border-color: rgb(27 26 23 / 0.75);
+}
+
+.border-orange-dark\/80{
+  border-color: rgb(27 26 23 / 0.8);
+}
+
+.border-orange-dark\/90{
+  border-color: rgb(27 26 23 / 0.9);
+}
+
+.border-orange-dark\/95{
+  border-color: rgb(27 26 23 / 0.95);
+}
+
+.border-orange-dark\/100{
+  border-color: rgb(27 26 23 / 1);
+}
+
+.border-orange-primary\/0{
+  border-color: rgb(240 165 0 / 0);
+}
+
+.border-orange-primary\/5{
+  border-color: rgb(240 165 0 / 0.05);
+}
+
+.border-orange-primary\/10{
+  border-color: rgb(240 165 0 / 0.1);
+}
+
+.border-orange-primary\/20{
+  border-color: rgb(240 165 0 / 0.2);
+}
+
+.border-orange-primary\/25{
+  border-color: rgb(240 165 0 / 0.25);
+}
+
+.border-orange-primary\/30{
+  border-color: rgb(240 165 0 / 0.3);
+}
+
+.border-orange-primary\/40{
+  border-color: rgb(240 165 0 / 0.4);
+}
+
+.border-orange-primary\/50{
+  border-color: rgb(240 165 0 / 0.5);
+}
+
+.border-orange-primary\/60{
+  border-color: rgb(240 165 0 / 0.6);
+}
+
+.border-orange-primary\/70{
+  border-color: rgb(240 165 0 / 0.7);
+}
+
+.border-orange-primary\/75{
+  border-color: rgb(240 165 0 / 0.75);
+}
+
+.border-orange-primary\/80{
+  border-color: rgb(240 165 0 / 0.8);
+}
+
+.border-orange-primary\/90{
+  border-color: rgb(240 165 0 / 0.9);
+}
+
+.border-orange-primary\/95{
+  border-color: rgb(240 165 0 / 0.95);
+}
+
+.border-orange-primary\/100{
+  border-color: rgb(240 165 0 / 1);
+}
+
+.border-orange-secondary\/0{
+  border-color: rgb(242 231 213 / 0);
+}
+
+.border-orange-secondary\/5{
+  border-color: rgb(242 231 213 / 0.05);
+}
+
+.border-orange-secondary\/10{
+  border-color: rgb(242 231 213 / 0.1);
+}
+
+.border-orange-secondary\/20{
+  border-color: rgb(242 231 213 / 0.2);
+}
+
+.border-orange-secondary\/25{
+  border-color: rgb(242 231 213 / 0.25);
+}
+
+.border-orange-secondary\/30{
+  border-color: rgb(242 231 213 / 0.3);
+}
+
+.border-orange-secondary\/40{
+  border-color: rgb(242 231 213 / 0.4);
+}
+
+.border-orange-secondary\/50{
+  border-color: rgb(242 231 213 / 0.5);
+}
+
+.border-orange-secondary\/60{
+  border-color: rgb(242 231 213 / 0.6);
+}
+
+.border-orange-secondary\/70{
+  border-color: rgb(242 231 213 / 0.7);
+}
+
+.border-orange-secondary\/75{
+  border-color: rgb(242 231 213 / 0.75);
+}
+
+.border-orange-secondary\/80{
+  border-color: rgb(242 231 213 / 0.8);
+}
+
+.border-orange-secondary\/90{
+  border-color: rgb(242 231 213 / 0.9);
+}
+
+.border-orange-secondary\/95{
+  border-color: rgb(242 231 213 / 0.95);
+}
+
+.border-orange-secondary\/100{
+  border-color: rgb(242 231 213 / 1);
+}
+
+.border-alabaster-light\/0{
+  border-color: rgb(240 238 226 / 0);
+}
+
+.border-alabaster-light\/5{
+  border-color: rgb(240 238 226 / 0.05);
+}
+
+.border-alabaster-light\/10{
+  border-color: rgb(240 238 226 / 0.1);
+}
+
+.border-alabaster-light\/20{
+  border-color: rgb(240 238 226 / 0.2);
+}
+
+.border-alabaster-light\/25{
+  border-color: rgb(240 238 226 / 0.25);
+}
+
+.border-alabaster-light\/30{
+  border-color: rgb(240 238 226 / 0.3);
+}
+
+.border-alabaster-light\/40{
+  border-color: rgb(240 238 226 / 0.4);
+}
+
+.border-alabaster-light\/50{
+  border-color: rgb(240 238 226 / 0.5);
+}
+
+.border-alabaster-light\/60{
+  border-color: rgb(240 238 226 / 0.6);
+}
+
+.border-alabaster-light\/70{
+  border-color: rgb(240 238 226 / 0.7);
+}
+
+.border-alabaster-light\/75{
+  border-color: rgb(240 238 226 / 0.75);
+}
+
+.border-alabaster-light\/80{
+  border-color: rgb(240 238 226 / 0.8);
+}
+
+.border-alabaster-light\/90{
+  border-color: rgb(240 238 226 / 0.9);
+}
+
+.border-alabaster-light\/95{
+  border-color: rgb(240 238 226 / 0.95);
+}
+
+.border-alabaster-light\/100{
+  border-color: rgb(240 238 226 / 1);
+}
+
+.border-alabaster-dark\/0{
+  border-color: rgb(39 39 39 / 0);
+}
+
+.border-alabaster-dark\/5{
+  border-color: rgb(39 39 39 / 0.05);
+}
+
+.border-alabaster-dark\/10{
+  border-color: rgb(39 39 39 / 0.1);
+}
+
+.border-alabaster-dark\/20{
+  border-color: rgb(39 39 39 / 0.2);
+}
+
+.border-alabaster-dark\/25{
+  border-color: rgb(39 39 39 / 0.25);
+}
+
+.border-alabaster-dark\/30{
+  border-color: rgb(39 39 39 / 0.3);
+}
+
+.border-alabaster-dark\/40{
+  border-color: rgb(39 39 39 / 0.4);
+}
+
+.border-alabaster-dark\/50{
+  border-color: rgb(39 39 39 / 0.5);
+}
+
+.border-alabaster-dark\/60{
+  border-color: rgb(39 39 39 / 0.6);
+}
+
+.border-alabaster-dark\/70{
+  border-color: rgb(39 39 39 / 0.7);
+}
+
+.border-alabaster-dark\/75{
+  border-color: rgb(39 39 39 / 0.75);
+}
+
+.border-alabaster-dark\/80{
+  border-color: rgb(39 39 39 / 0.8);
+}
+
+.border-alabaster-dark\/90{
+  border-color: rgb(39 39 39 / 0.9);
+}
+
+.border-alabaster-dark\/95{
+  border-color: rgb(39 39 39 / 0.95);
+}
+
+.border-alabaster-dark\/100{
+  border-color: rgb(39 39 39 / 1);
+}
+
+.border-alabaster-primary\/0{
+  border-color: rgb(30 85 89 / 0);
+}
+
+.border-alabaster-primary\/5{
+  border-color: rgb(30 85 89 / 0.05);
+}
+
+.border-alabaster-primary\/10{
+  border-color: rgb(30 85 89 / 0.1);
+}
+
+.border-alabaster-primary\/20{
+  border-color: rgb(30 85 89 / 0.2);
+}
+
+.border-alabaster-primary\/25{
+  border-color: rgb(30 85 89 / 0.25);
+}
+
+.border-alabaster-primary\/30{
+  border-color: rgb(30 85 89 / 0.3);
+}
+
+.border-alabaster-primary\/40{
+  border-color: rgb(30 85 89 / 0.4);
+}
+
+.border-alabaster-primary\/50{
+  border-color: rgb(30 85 89 / 0.5);
+}
+
+.border-alabaster-primary\/60{
+  border-color: rgb(30 85 89 / 0.6);
+}
+
+.border-alabaster-primary\/70{
+  border-color: rgb(30 85 89 / 0.7);
+}
+
+.border-alabaster-primary\/75{
+  border-color: rgb(30 85 89 / 0.75);
+}
+
+.border-alabaster-primary\/80{
+  border-color: rgb(30 85 89 / 0.8);
+}
+
+.border-alabaster-primary\/90{
+  border-color: rgb(30 85 89 / 0.9);
+}
+
+.border-alabaster-primary\/95{
+  border-color: rgb(30 85 89 / 0.95);
+}
+
+.border-alabaster-primary\/100{
+  border-color: rgb(30 85 89 / 1);
+}
+
+.border-alabaster-secondary\/0{
+  border-color: rgb(198 197 187 / 0);
+}
+
+.border-alabaster-secondary\/5{
+  border-color: rgb(198 197 187 / 0.05);
+}
+
+.border-alabaster-secondary\/10{
+  border-color: rgb(198 197 187 / 0.1);
+}
+
+.border-alabaster-secondary\/20{
+  border-color: rgb(198 197 187 / 0.2);
+}
+
+.border-alabaster-secondary\/25{
+  border-color: rgb(198 197 187 / 0.25);
+}
+
+.border-alabaster-secondary\/30{
+  border-color: rgb(198 197 187 / 0.3);
+}
+
+.border-alabaster-secondary\/40{
+  border-color: rgb(198 197 187 / 0.4);
+}
+
+.border-alabaster-secondary\/50{
+  border-color: rgb(198 197 187 / 0.5);
+}
+
+.border-alabaster-secondary\/60{
+  border-color: rgb(198 197 187 / 0.6);
+}
+
+.border-alabaster-secondary\/70{
+  border-color: rgb(198 197 187 / 0.7);
+}
+
+.border-alabaster-secondary\/75{
+  border-color: rgb(198 197 187 / 0.75);
+}
+
+.border-alabaster-secondary\/80{
+  border-color: rgb(198 197 187 / 0.8);
+}
+
+.border-alabaster-secondary\/90{
+  border-color: rgb(198 197 187 / 0.9);
+}
+
+.border-alabaster-secondary\/95{
+  border-color: rgb(198 197 187 / 0.95);
+}
+
+.border-alabaster-secondary\/100{
+  border-color: rgb(198 197 187 / 1);
+}
+
+.border-steel-blue-light\/0{
+  border-color: rgb(249 247 247 / 0);
+}
+
+.border-steel-blue-light\/5{
+  border-color: rgb(249 247 247 / 0.05);
+}
+
+.border-steel-blue-light\/10{
+  border-color: rgb(249 247 247 / 0.1);
+}
+
+.border-steel-blue-light\/20{
+  border-color: rgb(249 247 247 / 0.2);
+}
+
+.border-steel-blue-light\/25{
+  border-color: rgb(249 247 247 / 0.25);
+}
+
+.border-steel-blue-light\/30{
+  border-color: rgb(249 247 247 / 0.3);
+}
+
+.border-steel-blue-light\/40{
+  border-color: rgb(249 247 247 / 0.4);
+}
+
+.border-steel-blue-light\/50{
+  border-color: rgb(249 247 247 / 0.5);
+}
+
+.border-steel-blue-light\/60{
+  border-color: rgb(249 247 247 / 0.6);
+}
+
+.border-steel-blue-light\/70{
+  border-color: rgb(249 247 247 / 0.7);
+}
+
+.border-steel-blue-light\/75{
+  border-color: rgb(249 247 247 / 0.75);
+}
+
+.border-steel-blue-light\/80{
+  border-color: rgb(249 247 247 / 0.8);
+}
+
+.border-steel-blue-light\/90{
+  border-color: rgb(249 247 247 / 0.9);
+}
+
+.border-steel-blue-light\/95{
+  border-color: rgb(249 247 247 / 0.95);
+}
+
+.border-steel-blue-light\/100{
+  border-color: rgb(249 247 247 / 1);
+}
+
+.border-steel-blue-dark\/0{
+  border-color: rgb(17 45 78 / 0);
+}
+
+.border-steel-blue-dark\/5{
+  border-color: rgb(17 45 78 / 0.05);
+}
+
+.border-steel-blue-dark\/10{
+  border-color: rgb(17 45 78 / 0.1);
+}
+
+.border-steel-blue-dark\/20{
+  border-color: rgb(17 45 78 / 0.2);
+}
+
+.border-steel-blue-dark\/25{
+  border-color: rgb(17 45 78 / 0.25);
+}
+
+.border-steel-blue-dark\/30{
+  border-color: rgb(17 45 78 / 0.3);
+}
+
+.border-steel-blue-dark\/40{
+  border-color: rgb(17 45 78 / 0.4);
+}
+
+.border-steel-blue-dark\/50{
+  border-color: rgb(17 45 78 / 0.5);
+}
+
+.border-steel-blue-dark\/60{
+  border-color: rgb(17 45 78 / 0.6);
+}
+
+.border-steel-blue-dark\/70{
+  border-color: rgb(17 45 78 / 0.7);
+}
+
+.border-steel-blue-dark\/75{
+  border-color: rgb(17 45 78 / 0.75);
+}
+
+.border-steel-blue-dark\/80{
+  border-color: rgb(17 45 78 / 0.8);
+}
+
+.border-steel-blue-dark\/90{
+  border-color: rgb(17 45 78 / 0.9);
+}
+
+.border-steel-blue-dark\/95{
+  border-color: rgb(17 45 78 / 0.95);
+}
+
+.border-steel-blue-dark\/100{
+  border-color: rgb(17 45 78 / 1);
+}
+
+.border-steel-blue-primary\/0{
+  border-color: rgb(63 114 175 / 0);
+}
+
+.border-steel-blue-primary\/5{
+  border-color: rgb(63 114 175 / 0.05);
+}
+
+.border-steel-blue-primary\/10{
+  border-color: rgb(63 114 175 / 0.1);
+}
+
+.border-steel-blue-primary\/20{
+  border-color: rgb(63 114 175 / 0.2);
+}
+
+.border-steel-blue-primary\/25{
+  border-color: rgb(63 114 175 / 0.25);
+}
+
+.border-steel-blue-primary\/30{
+  border-color: rgb(63 114 175 / 0.3);
+}
+
+.border-steel-blue-primary\/40{
+  border-color: rgb(63 114 175 / 0.4);
+}
+
+.border-steel-blue-primary\/50{
+  border-color: rgb(63 114 175 / 0.5);
+}
+
+.border-steel-blue-primary\/60{
+  border-color: rgb(63 114 175 / 0.6);
+}
+
+.border-steel-blue-primary\/70{
+  border-color: rgb(63 114 175 / 0.7);
+}
+
+.border-steel-blue-primary\/75{
+  border-color: rgb(63 114 175 / 0.75);
+}
+
+.border-steel-blue-primary\/80{
+  border-color: rgb(63 114 175 / 0.8);
+}
+
+.border-steel-blue-primary\/90{
+  border-color: rgb(63 114 175 / 0.9);
+}
+
+.border-steel-blue-primary\/95{
+  border-color: rgb(63 114 175 / 0.95);
+}
+
+.border-steel-blue-primary\/100{
+  border-color: rgb(63 114 175 / 1);
+}
+
+.border-steel-blue-secondary\/0{
+  border-color: rgb(224 222 222 / 0);
+}
+
+.border-steel-blue-secondary\/5{
+  border-color: rgb(224 222 222 / 0.05);
+}
+
+.border-steel-blue-secondary\/10{
+  border-color: rgb(224 222 222 / 0.1);
+}
+
+.border-steel-blue-secondary\/20{
+  border-color: rgb(224 222 222 / 0.2);
+}
+
+.border-steel-blue-secondary\/25{
+  border-color: rgb(224 222 222 / 0.25);
+}
+
+.border-steel-blue-secondary\/30{
+  border-color: rgb(224 222 222 / 0.3);
+}
+
+.border-steel-blue-secondary\/40{
+  border-color: rgb(224 222 222 / 0.4);
+}
+
+.border-steel-blue-secondary\/50{
+  border-color: rgb(224 222 222 / 0.5);
+}
+
+.border-steel-blue-secondary\/60{
+  border-color: rgb(224 222 222 / 0.6);
+}
+
+.border-steel-blue-secondary\/70{
+  border-color: rgb(224 222 222 / 0.7);
+}
+
+.border-steel-blue-secondary\/75{
+  border-color: rgb(224 222 222 / 0.75);
+}
+
+.border-steel-blue-secondary\/80{
+  border-color: rgb(224 222 222 / 0.8);
+}
+
+.border-steel-blue-secondary\/90{
+  border-color: rgb(224 222 222 / 0.9);
+}
+
+.border-steel-blue-secondary\/95{
+  border-color: rgb(224 222 222 / 0.95);
+}
+
+.border-steel-blue-secondary\/100{
+  border-color: rgb(224 222 222 / 1);
+}
+
+.border-cyber-grape-light\/0{
+  border-color: rgb(236 236 236 / 0);
+}
+
+.border-cyber-grape-light\/5{
+  border-color: rgb(236 236 236 / 0.05);
+}
+
+.border-cyber-grape-light\/10{
+  border-color: rgb(236 236 236 / 0.1);
+}
+
+.border-cyber-grape-light\/20{
+  border-color: rgb(236 236 236 / 0.2);
+}
+
+.border-cyber-grape-light\/25{
+  border-color: rgb(236 236 236 / 0.25);
+}
+
+.border-cyber-grape-light\/30{
+  border-color: rgb(236 236 236 / 0.3);
+}
+
+.border-cyber-grape-light\/40{
+  border-color: rgb(236 236 236 / 0.4);
+}
+
+.border-cyber-grape-light\/50{
+  border-color: rgb(236 236 236 / 0.5);
+}
+
+.border-cyber-grape-light\/60{
+  border-color: rgb(236 236 236 / 0.6);
+}
+
+.border-cyber-grape-light\/70{
+  border-color: rgb(236 236 236 / 0.7);
+}
+
+.border-cyber-grape-light\/75{
+  border-color: rgb(236 236 236 / 0.75);
+}
+
+.border-cyber-grape-light\/80{
+  border-color: rgb(236 236 236 / 0.8);
+}
+
+.border-cyber-grape-light\/90{
+  border-color: rgb(236 236 236 / 0.9);
+}
+
+.border-cyber-grape-light\/95{
+  border-color: rgb(236 236 236 / 0.95);
+}
+
+.border-cyber-grape-light\/100{
+  border-color: rgb(236 236 236 / 1);
+}
+
+.border-cyber-grape-dark\/0{
+  border-color: rgb(21 29 59 / 0);
+}
+
+.border-cyber-grape-dark\/5{
+  border-color: rgb(21 29 59 / 0.05);
+}
+
+.border-cyber-grape-dark\/10{
+  border-color: rgb(21 29 59 / 0.1);
+}
+
+.border-cyber-grape-dark\/20{
+  border-color: rgb(21 29 59 / 0.2);
+}
+
+.border-cyber-grape-dark\/25{
+  border-color: rgb(21 29 59 / 0.25);
+}
+
+.border-cyber-grape-dark\/30{
+  border-color: rgb(21 29 59 / 0.3);
+}
+
+.border-cyber-grape-dark\/40{
+  border-color: rgb(21 29 59 / 0.4);
+}
+
+.border-cyber-grape-dark\/50{
+  border-color: rgb(21 29 59 / 0.5);
+}
+
+.border-cyber-grape-dark\/60{
+  border-color: rgb(21 29 59 / 0.6);
+}
+
+.border-cyber-grape-dark\/70{
+  border-color: rgb(21 29 59 / 0.7);
+}
+
+.border-cyber-grape-dark\/75{
+  border-color: rgb(21 29 59 / 0.75);
+}
+
+.border-cyber-grape-dark\/80{
+  border-color: rgb(21 29 59 / 0.8);
+}
+
+.border-cyber-grape-dark\/90{
+  border-color: rgb(21 29 59 / 0.9);
+}
+
+.border-cyber-grape-dark\/95{
+  border-color: rgb(21 29 59 / 0.95);
+}
+
+.border-cyber-grape-dark\/100{
+  border-color: rgb(21 29 59 / 1);
+}
+
+.border-cyber-grape-primary\/0{
+  border-color: rgb(83 62 133 / 0);
+}
+
+.border-cyber-grape-primary\/5{
+  border-color: rgb(83 62 133 / 0.05);
+}
+
+.border-cyber-grape-primary\/10{
+  border-color: rgb(83 62 133 / 0.1);
+}
+
+.border-cyber-grape-primary\/20{
+  border-color: rgb(83 62 133 / 0.2);
+}
+
+.border-cyber-grape-primary\/25{
+  border-color: rgb(83 62 133 / 0.25);
+}
+
+.border-cyber-grape-primary\/30{
+  border-color: rgb(83 62 133 / 0.3);
+}
+
+.border-cyber-grape-primary\/40{
+  border-color: rgb(83 62 133 / 0.4);
+}
+
+.border-cyber-grape-primary\/50{
+  border-color: rgb(83 62 133 / 0.5);
+}
+
+.border-cyber-grape-primary\/60{
+  border-color: rgb(83 62 133 / 0.6);
+}
+
+.border-cyber-grape-primary\/70{
+  border-color: rgb(83 62 133 / 0.7);
+}
+
+.border-cyber-grape-primary\/75{
+  border-color: rgb(83 62 133 / 0.75);
+}
+
+.border-cyber-grape-primary\/80{
+  border-color: rgb(83 62 133 / 0.8);
+}
+
+.border-cyber-grape-primary\/90{
+  border-color: rgb(83 62 133 / 0.9);
+}
+
+.border-cyber-grape-primary\/95{
+  border-color: rgb(83 62 133 / 0.95);
+}
+
+.border-cyber-grape-primary\/100{
+  border-color: rgb(83 62 133 / 1);
+}
+
+.border-cyber-grape-secondary\/0{
+  border-color: rgb(177 168 179 / 0);
+}
+
+.border-cyber-grape-secondary\/5{
+  border-color: rgb(177 168 179 / 0.05);
+}
+
+.border-cyber-grape-secondary\/10{
+  border-color: rgb(177 168 179 / 0.1);
+}
+
+.border-cyber-grape-secondary\/20{
+  border-color: rgb(177 168 179 / 0.2);
+}
+
+.border-cyber-grape-secondary\/25{
+  border-color: rgb(177 168 179 / 0.25);
+}
+
+.border-cyber-grape-secondary\/30{
+  border-color: rgb(177 168 179 / 0.3);
+}
+
+.border-cyber-grape-secondary\/40{
+  border-color: rgb(177 168 179 / 0.4);
+}
+
+.border-cyber-grape-secondary\/50{
+  border-color: rgb(177 168 179 / 0.5);
+}
+
+.border-cyber-grape-secondary\/60{
+  border-color: rgb(177 168 179 / 0.6);
+}
+
+.border-cyber-grape-secondary\/70{
+  border-color: rgb(177 168 179 / 0.7);
+}
+
+.border-cyber-grape-secondary\/75{
+  border-color: rgb(177 168 179 / 0.75);
+}
+
+.border-cyber-grape-secondary\/80{
+  border-color: rgb(177 168 179 / 0.8);
+}
+
+.border-cyber-grape-secondary\/90{
+  border-color: rgb(177 168 179 / 0.9);
+}
+
+.border-cyber-grape-secondary\/95{
+  border-color: rgb(177 168 179 / 0.95);
+}
+
+.border-cyber-grape-secondary\/100{
+  border-color: rgb(177 168 179 / 1);
+}
+
+.border-fire-opal-light\/0{
+  border-color: rgb(221 221 221 / 0);
+}
+
+.border-fire-opal-light\/5{
+  border-color: rgb(221 221 221 / 0.05);
+}
+
+.border-fire-opal-light\/10{
+  border-color: rgb(221 221 221 / 0.1);
+}
+
+.border-fire-opal-light\/20{
+  border-color: rgb(221 221 221 / 0.2);
+}
+
+.border-fire-opal-light\/25{
+  border-color: rgb(221 221 221 / 0.25);
+}
+
+.border-fire-opal-light\/30{
+  border-color: rgb(221 221 221 / 0.3);
+}
+
+.border-fire-opal-light\/40{
+  border-color: rgb(221 221 221 / 0.4);
+}
+
+.border-fire-opal-light\/50{
+  border-color: rgb(221 221 221 / 0.5);
+}
+
+.border-fire-opal-light\/60{
+  border-color: rgb(221 221 221 / 0.6);
+}
+
+.border-fire-opal-light\/70{
+  border-color: rgb(221 221 221 / 0.7);
+}
+
+.border-fire-opal-light\/75{
+  border-color: rgb(221 221 221 / 0.75);
+}
+
+.border-fire-opal-light\/80{
+  border-color: rgb(221 221 221 / 0.8);
+}
+
+.border-fire-opal-light\/90{
+  border-color: rgb(221 221 221 / 0.9);
+}
+
+.border-fire-opal-light\/95{
+  border-color: rgb(221 221 221 / 0.95);
+}
+
+.border-fire-opal-light\/100{
+  border-color: rgb(221 221 221 / 1);
+}
+
+.border-fire-opal-dark\/0{
+  border-color: rgb(34 40 49 / 0);
+}
+
+.border-fire-opal-dark\/5{
+  border-color: rgb(34 40 49 / 0.05);
+}
+
+.border-fire-opal-dark\/10{
+  border-color: rgb(34 40 49 / 0.1);
+}
+
+.border-fire-opal-dark\/20{
+  border-color: rgb(34 40 49 / 0.2);
+}
+
+.border-fire-opal-dark\/25{
+  border-color: rgb(34 40 49 / 0.25);
+}
+
+.border-fire-opal-dark\/30{
+  border-color: rgb(34 40 49 / 0.3);
+}
+
+.border-fire-opal-dark\/40{
+  border-color: rgb(34 40 49 / 0.4);
+}
+
+.border-fire-opal-dark\/50{
+  border-color: rgb(34 40 49 / 0.5);
+}
+
+.border-fire-opal-dark\/60{
+  border-color: rgb(34 40 49 / 0.6);
+}
+
+.border-fire-opal-dark\/70{
+  border-color: rgb(34 40 49 / 0.7);
+}
+
+.border-fire-opal-dark\/75{
+  border-color: rgb(34 40 49 / 0.75);
+}
+
+.border-fire-opal-dark\/80{
+  border-color: rgb(34 40 49 / 0.8);
+}
+
+.border-fire-opal-dark\/90{
+  border-color: rgb(34 40 49 / 0.9);
+}
+
+.border-fire-opal-dark\/95{
+  border-color: rgb(34 40 49 / 0.95);
+}
+
+.border-fire-opal-dark\/100{
+  border-color: rgb(34 40 49 / 1);
+}
+
+.border-fire-opal-primary\/0{
+  border-color: rgb(240 84 84 / 0);
+}
+
+.border-fire-opal-primary\/5{
+  border-color: rgb(240 84 84 / 0.05);
+}
+
+.border-fire-opal-primary\/10{
+  border-color: rgb(240 84 84 / 0.1);
+}
+
+.border-fire-opal-primary\/20{
+  border-color: rgb(240 84 84 / 0.2);
+}
+
+.border-fire-opal-primary\/25{
+  border-color: rgb(240 84 84 / 0.25);
+}
+
+.border-fire-opal-primary\/30{
+  border-color: rgb(240 84 84 / 0.3);
+}
+
+.border-fire-opal-primary\/40{
+  border-color: rgb(240 84 84 / 0.4);
+}
+
+.border-fire-opal-primary\/50{
+  border-color: rgb(240 84 84 / 0.5);
+}
+
+.border-fire-opal-primary\/60{
+  border-color: rgb(240 84 84 / 0.6);
+}
+
+.border-fire-opal-primary\/70{
+  border-color: rgb(240 84 84 / 0.7);
+}
+
+.border-fire-opal-primary\/75{
+  border-color: rgb(240 84 84 / 0.75);
+}
+
+.border-fire-opal-primary\/80{
+  border-color: rgb(240 84 84 / 0.8);
+}
+
+.border-fire-opal-primary\/90{
+  border-color: rgb(240 84 84 / 0.9);
+}
+
+.border-fire-opal-primary\/95{
+  border-color: rgb(240 84 84 / 0.95);
+}
+
+.border-fire-opal-primary\/100{
+  border-color: rgb(240 84 84 / 1);
+}
+
+.border-fire-opal-secondary\/0{
+  border-color: rgb(196 185 186 / 0);
+}
+
+.border-fire-opal-secondary\/5{
+  border-color: rgb(196 185 186 / 0.05);
+}
+
+.border-fire-opal-secondary\/10{
+  border-color: rgb(196 185 186 / 0.1);
+}
+
+.border-fire-opal-secondary\/20{
+  border-color: rgb(196 185 186 / 0.2);
+}
+
+.border-fire-opal-secondary\/25{
+  border-color: rgb(196 185 186 / 0.25);
+}
+
+.border-fire-opal-secondary\/30{
+  border-color: rgb(196 185 186 / 0.3);
+}
+
+.border-fire-opal-secondary\/40{
+  border-color: rgb(196 185 186 / 0.4);
+}
+
+.border-fire-opal-secondary\/50{
+  border-color: rgb(196 185 186 / 0.5);
+}
+
+.border-fire-opal-secondary\/60{
+  border-color: rgb(196 185 186 / 0.6);
+}
+
+.border-fire-opal-secondary\/70{
+  border-color: rgb(196 185 186 / 0.7);
+}
+
+.border-fire-opal-secondary\/75{
+  border-color: rgb(196 185 186 / 0.75);
+}
+
+.border-fire-opal-secondary\/80{
+  border-color: rgb(196 185 186 / 0.8);
+}
+
+.border-fire-opal-secondary\/90{
+  border-color: rgb(196 185 186 / 0.9);
+}
+
+.border-fire-opal-secondary\/95{
+  border-color: rgb(196 185 186 / 0.95);
+}
+
+.border-fire-opal-secondary\/100{
+  border-color: rgb(196 185 186 / 1);
+}
+
+.border-black{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.bg-orange-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 253 246 / var(--tw-bg-opacity));
+}
+
+.bg-orange-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(27 26 23 / var(--tw-bg-opacity));
+}
+
+.bg-orange-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 165 0 / var(--tw-bg-opacity));
+}
+
+.bg-orange-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 231 213 / var(--tw-bg-opacity));
+}
+
+.bg-alabaster-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 238 226 / var(--tw-bg-opacity));
+}
+
+.bg-alabaster-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(39 39 39 / var(--tw-bg-opacity));
+}
+
+.bg-alabaster-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 85 89 / var(--tw-bg-opacity));
+}
+
+.bg-alabaster-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(198 197 187 / var(--tw-bg-opacity));
+}
+
+.bg-steel-blue-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 247 247 / var(--tw-bg-opacity));
+}
+
+.bg-steel-blue-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 45 78 / var(--tw-bg-opacity));
+}
+
+.bg-steel-blue-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 114 175 / var(--tw-bg-opacity));
+}
+
+.bg-steel-blue-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 222 222 / var(--tw-bg-opacity));
+}
+
+.bg-cyber-grape-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 236 236 / var(--tw-bg-opacity));
+}
+
+.bg-cyber-grape-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 29 59 / var(--tw-bg-opacity));
+}
+
+.bg-cyber-grape-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(83 62 133 / var(--tw-bg-opacity));
+}
+
+.bg-cyber-grape-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(177 168 179 / var(--tw-bg-opacity));
+}
+
+.bg-fire-opal-light{
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 221 221 / var(--tw-bg-opacity));
+}
+
+.bg-fire-opal-dark{
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 40 49 / var(--tw-bg-opacity));
+}
+
+.bg-fire-opal-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 84 84 / var(--tw-bg-opacity));
+}
+
+.bg-fire-opal-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(196 185 186 / var(--tw-bg-opacity));
+}
+
+.bg-orange-light\/0{
+  background-color: rgb(255 253 246 / 0);
+}
+
+.bg-orange-light\/5{
+  background-color: rgb(255 253 246 / 0.05);
+}
+
+.bg-orange-light\/10{
+  background-color: rgb(255 253 246 / 0.1);
+}
+
+.bg-orange-light\/20{
+  background-color: rgb(255 253 246 / 0.2);
+}
+
+.bg-orange-light\/25{
+  background-color: rgb(255 253 246 / 0.25);
+}
+
+.bg-orange-light\/30{
+  background-color: rgb(255 253 246 / 0.3);
+}
+
+.bg-orange-light\/40{
+  background-color: rgb(255 253 246 / 0.4);
+}
+
+.bg-orange-light\/50{
+  background-color: rgb(255 253 246 / 0.5);
+}
+
+.bg-orange-light\/60{
+  background-color: rgb(255 253 246 / 0.6);
+}
+
+.bg-orange-light\/70{
+  background-color: rgb(255 253 246 / 0.7);
+}
+
+.bg-orange-light\/75{
+  background-color: rgb(255 253 246 / 0.75);
+}
+
+.bg-orange-light\/80{
+  background-color: rgb(255 253 246 / 0.8);
+}
+
+.bg-orange-light\/90{
+  background-color: rgb(255 253 246 / 0.9);
+}
+
+.bg-orange-light\/95{
+  background-color: rgb(255 253 246 / 0.95);
+}
+
+.bg-orange-light\/100{
+  background-color: rgb(255 253 246 / 1);
+}
+
+.bg-orange-dark\/0{
+  background-color: rgb(27 26 23 / 0);
+}
+
+.bg-orange-dark\/5{
+  background-color: rgb(27 26 23 / 0.05);
+}
+
+.bg-orange-dark\/10{
+  background-color: rgb(27 26 23 / 0.1);
+}
+
+.bg-orange-dark\/20{
+  background-color: rgb(27 26 23 / 0.2);
+}
+
+.bg-orange-dark\/25{
+  background-color: rgb(27 26 23 / 0.25);
+}
+
+.bg-orange-dark\/30{
+  background-color: rgb(27 26 23 / 0.3);
+}
+
+.bg-orange-dark\/40{
+  background-color: rgb(27 26 23 / 0.4);
+}
+
+.bg-orange-dark\/50{
+  background-color: rgb(27 26 23 / 0.5);
+}
+
+.bg-orange-dark\/60{
+  background-color: rgb(27 26 23 / 0.6);
+}
+
+.bg-orange-dark\/70{
+  background-color: rgb(27 26 23 / 0.7);
+}
+
+.bg-orange-dark\/75{
+  background-color: rgb(27 26 23 / 0.75);
+}
+
+.bg-orange-dark\/80{
+  background-color: rgb(27 26 23 / 0.8);
+}
+
+.bg-orange-dark\/90{
+  background-color: rgb(27 26 23 / 0.9);
+}
+
+.bg-orange-dark\/95{
+  background-color: rgb(27 26 23 / 0.95);
+}
+
+.bg-orange-dark\/100{
+  background-color: rgb(27 26 23 / 1);
+}
+
+.bg-orange-primary\/0{
+  background-color: rgb(240 165 0 / 0);
+}
+
+.bg-orange-primary\/5{
+  background-color: rgb(240 165 0 / 0.05);
+}
+
+.bg-orange-primary\/10{
+  background-color: rgb(240 165 0 / 0.1);
+}
+
+.bg-orange-primary\/20{
+  background-color: rgb(240 165 0 / 0.2);
+}
+
+.bg-orange-primary\/25{
+  background-color: rgb(240 165 0 / 0.25);
+}
+
+.bg-orange-primary\/30{
+  background-color: rgb(240 165 0 / 0.3);
+}
+
+.bg-orange-primary\/40{
+  background-color: rgb(240 165 0 / 0.4);
+}
+
+.bg-orange-primary\/50{
+  background-color: rgb(240 165 0 / 0.5);
+}
+
+.bg-orange-primary\/60{
+  background-color: rgb(240 165 0 / 0.6);
+}
+
+.bg-orange-primary\/70{
+  background-color: rgb(240 165 0 / 0.7);
+}
+
+.bg-orange-primary\/75{
+  background-color: rgb(240 165 0 / 0.75);
+}
+
+.bg-orange-primary\/80{
+  background-color: rgb(240 165 0 / 0.8);
+}
+
+.bg-orange-primary\/90{
+  background-color: rgb(240 165 0 / 0.9);
+}
+
+.bg-orange-primary\/95{
+  background-color: rgb(240 165 0 / 0.95);
+}
+
+.bg-orange-primary\/100{
+  background-color: rgb(240 165 0 / 1);
+}
+
+.bg-orange-secondary\/0{
+  background-color: rgb(242 231 213 / 0);
+}
+
+.bg-orange-secondary\/5{
+  background-color: rgb(242 231 213 / 0.05);
+}
+
+.bg-orange-secondary\/10{
+  background-color: rgb(242 231 213 / 0.1);
+}
+
+.bg-orange-secondary\/20{
+  background-color: rgb(242 231 213 / 0.2);
+}
+
+.bg-orange-secondary\/25{
+  background-color: rgb(242 231 213 / 0.25);
+}
+
+.bg-orange-secondary\/30{
+  background-color: rgb(242 231 213 / 0.3);
+}
+
+.bg-orange-secondary\/40{
+  background-color: rgb(242 231 213 / 0.4);
+}
+
+.bg-orange-secondary\/50{
+  background-color: rgb(242 231 213 / 0.5);
+}
+
+.bg-orange-secondary\/60{
+  background-color: rgb(242 231 213 / 0.6);
+}
+
+.bg-orange-secondary\/70{
+  background-color: rgb(242 231 213 / 0.7);
+}
+
+.bg-orange-secondary\/75{
+  background-color: rgb(242 231 213 / 0.75);
+}
+
+.bg-orange-secondary\/80{
+  background-color: rgb(242 231 213 / 0.8);
+}
+
+.bg-orange-secondary\/90{
+  background-color: rgb(242 231 213 / 0.9);
+}
+
+.bg-orange-secondary\/95{
+  background-color: rgb(242 231 213 / 0.95);
+}
+
+.bg-orange-secondary\/100{
+  background-color: rgb(242 231 213 / 1);
+}
+
+.bg-alabaster-light\/0{
+  background-color: rgb(240 238 226 / 0);
+}
+
+.bg-alabaster-light\/5{
+  background-color: rgb(240 238 226 / 0.05);
+}
+
+.bg-alabaster-light\/10{
+  background-color: rgb(240 238 226 / 0.1);
+}
+
+.bg-alabaster-light\/20{
+  background-color: rgb(240 238 226 / 0.2);
+}
+
+.bg-alabaster-light\/25{
+  background-color: rgb(240 238 226 / 0.25);
+}
+
+.bg-alabaster-light\/30{
+  background-color: rgb(240 238 226 / 0.3);
+}
+
+.bg-alabaster-light\/40{
+  background-color: rgb(240 238 226 / 0.4);
+}
+
+.bg-alabaster-light\/50{
+  background-color: rgb(240 238 226 / 0.5);
+}
+
+.bg-alabaster-light\/60{
+  background-color: rgb(240 238 226 / 0.6);
+}
+
+.bg-alabaster-light\/70{
+  background-color: rgb(240 238 226 / 0.7);
+}
+
+.bg-alabaster-light\/75{
+  background-color: rgb(240 238 226 / 0.75);
+}
+
+.bg-alabaster-light\/80{
+  background-color: rgb(240 238 226 / 0.8);
+}
+
+.bg-alabaster-light\/90{
+  background-color: rgb(240 238 226 / 0.9);
+}
+
+.bg-alabaster-light\/95{
+  background-color: rgb(240 238 226 / 0.95);
+}
+
+.bg-alabaster-light\/100{
+  background-color: rgb(240 238 226 / 1);
+}
+
+.bg-alabaster-dark\/0{
+  background-color: rgb(39 39 39 / 0);
+}
+
+.bg-alabaster-dark\/5{
+  background-color: rgb(39 39 39 / 0.05);
+}
+
+.bg-alabaster-dark\/10{
+  background-color: rgb(39 39 39 / 0.1);
+}
+
+.bg-alabaster-dark\/20{
+  background-color: rgb(39 39 39 / 0.2);
+}
+
+.bg-alabaster-dark\/25{
+  background-color: rgb(39 39 39 / 0.25);
+}
+
+.bg-alabaster-dark\/30{
+  background-color: rgb(39 39 39 / 0.3);
+}
+
+.bg-alabaster-dark\/40{
+  background-color: rgb(39 39 39 / 0.4);
+}
+
+.bg-alabaster-dark\/50{
+  background-color: rgb(39 39 39 / 0.5);
+}
+
+.bg-alabaster-dark\/60{
+  background-color: rgb(39 39 39 / 0.6);
+}
+
+.bg-alabaster-dark\/70{
+  background-color: rgb(39 39 39 / 0.7);
+}
+
+.bg-alabaster-dark\/75{
+  background-color: rgb(39 39 39 / 0.75);
+}
+
+.bg-alabaster-dark\/80{
+  background-color: rgb(39 39 39 / 0.8);
+}
+
+.bg-alabaster-dark\/90{
+  background-color: rgb(39 39 39 / 0.9);
+}
+
+.bg-alabaster-dark\/95{
+  background-color: rgb(39 39 39 / 0.95);
+}
+
+.bg-alabaster-dark\/100{
+  background-color: rgb(39 39 39 / 1);
+}
+
+.bg-alabaster-primary\/0{
+  background-color: rgb(30 85 89 / 0);
+}
+
+.bg-alabaster-primary\/5{
+  background-color: rgb(30 85 89 / 0.05);
+}
+
+.bg-alabaster-primary\/10{
+  background-color: rgb(30 85 89 / 0.1);
+}
+
+.bg-alabaster-primary\/20{
+  background-color: rgb(30 85 89 / 0.2);
+}
+
+.bg-alabaster-primary\/25{
+  background-color: rgb(30 85 89 / 0.25);
+}
+
+.bg-alabaster-primary\/30{
+  background-color: rgb(30 85 89 / 0.3);
+}
+
+.bg-alabaster-primary\/40{
+  background-color: rgb(30 85 89 / 0.4);
+}
+
+.bg-alabaster-primary\/50{
+  background-color: rgb(30 85 89 / 0.5);
+}
+
+.bg-alabaster-primary\/60{
+  background-color: rgb(30 85 89 / 0.6);
+}
+
+.bg-alabaster-primary\/70{
+  background-color: rgb(30 85 89 / 0.7);
+}
+
+.bg-alabaster-primary\/75{
+  background-color: rgb(30 85 89 / 0.75);
+}
+
+.bg-alabaster-primary\/80{
+  background-color: rgb(30 85 89 / 0.8);
+}
+
+.bg-alabaster-primary\/90{
+  background-color: rgb(30 85 89 / 0.9);
+}
+
+.bg-alabaster-primary\/95{
+  background-color: rgb(30 85 89 / 0.95);
+}
+
+.bg-alabaster-primary\/100{
+  background-color: rgb(30 85 89 / 1);
+}
+
+.bg-alabaster-secondary\/0{
+  background-color: rgb(198 197 187 / 0);
+}
+
+.bg-alabaster-secondary\/5{
+  background-color: rgb(198 197 187 / 0.05);
+}
+
+.bg-alabaster-secondary\/10{
+  background-color: rgb(198 197 187 / 0.1);
+}
+
+.bg-alabaster-secondary\/20{
+  background-color: rgb(198 197 187 / 0.2);
+}
+
+.bg-alabaster-secondary\/25{
+  background-color: rgb(198 197 187 / 0.25);
+}
+
+.bg-alabaster-secondary\/30{
+  background-color: rgb(198 197 187 / 0.3);
+}
+
+.bg-alabaster-secondary\/40{
+  background-color: rgb(198 197 187 / 0.4);
+}
+
+.bg-alabaster-secondary\/50{
+  background-color: rgb(198 197 187 / 0.5);
+}
+
+.bg-alabaster-secondary\/60{
+  background-color: rgb(198 197 187 / 0.6);
+}
+
+.bg-alabaster-secondary\/70{
+  background-color: rgb(198 197 187 / 0.7);
+}
+
+.bg-alabaster-secondary\/75{
+  background-color: rgb(198 197 187 / 0.75);
+}
+
+.bg-alabaster-secondary\/80{
+  background-color: rgb(198 197 187 / 0.8);
+}
+
+.bg-alabaster-secondary\/90{
+  background-color: rgb(198 197 187 / 0.9);
+}
+
+.bg-alabaster-secondary\/95{
+  background-color: rgb(198 197 187 / 0.95);
+}
+
+.bg-alabaster-secondary\/100{
+  background-color: rgb(198 197 187 / 1);
+}
+
+.bg-steel-blue-light\/0{
+  background-color: rgb(249 247 247 / 0);
+}
+
+.bg-steel-blue-light\/5{
+  background-color: rgb(249 247 247 / 0.05);
+}
+
+.bg-steel-blue-light\/10{
+  background-color: rgb(249 247 247 / 0.1);
+}
+
+.bg-steel-blue-light\/20{
+  background-color: rgb(249 247 247 / 0.2);
+}
+
+.bg-steel-blue-light\/25{
+  background-color: rgb(249 247 247 / 0.25);
+}
+
+.bg-steel-blue-light\/30{
+  background-color: rgb(249 247 247 / 0.3);
+}
+
+.bg-steel-blue-light\/40{
+  background-color: rgb(249 247 247 / 0.4);
+}
+
+.bg-steel-blue-light\/50{
+  background-color: rgb(249 247 247 / 0.5);
+}
+
+.bg-steel-blue-light\/60{
+  background-color: rgb(249 247 247 / 0.6);
+}
+
+.bg-steel-blue-light\/70{
+  background-color: rgb(249 247 247 / 0.7);
+}
+
+.bg-steel-blue-light\/75{
+  background-color: rgb(249 247 247 / 0.75);
+}
+
+.bg-steel-blue-light\/80{
+  background-color: rgb(249 247 247 / 0.8);
+}
+
+.bg-steel-blue-light\/90{
+  background-color: rgb(249 247 247 / 0.9);
+}
+
+.bg-steel-blue-light\/95{
+  background-color: rgb(249 247 247 / 0.95);
+}
+
+.bg-steel-blue-light\/100{
+  background-color: rgb(249 247 247 / 1);
+}
+
+.bg-steel-blue-dark\/0{
+  background-color: rgb(17 45 78 / 0);
+}
+
+.bg-steel-blue-dark\/5{
+  background-color: rgb(17 45 78 / 0.05);
+}
+
+.bg-steel-blue-dark\/10{
+  background-color: rgb(17 45 78 / 0.1);
+}
+
+.bg-steel-blue-dark\/20{
+  background-color: rgb(17 45 78 / 0.2);
+}
+
+.bg-steel-blue-dark\/25{
+  background-color: rgb(17 45 78 / 0.25);
+}
+
+.bg-steel-blue-dark\/30{
+  background-color: rgb(17 45 78 / 0.3);
+}
+
+.bg-steel-blue-dark\/40{
+  background-color: rgb(17 45 78 / 0.4);
+}
+
+.bg-steel-blue-dark\/50{
+  background-color: rgb(17 45 78 / 0.5);
+}
+
+.bg-steel-blue-dark\/60{
+  background-color: rgb(17 45 78 / 0.6);
+}
+
+.bg-steel-blue-dark\/70{
+  background-color: rgb(17 45 78 / 0.7);
+}
+
+.bg-steel-blue-dark\/75{
+  background-color: rgb(17 45 78 / 0.75);
+}
+
+.bg-steel-blue-dark\/80{
+  background-color: rgb(17 45 78 / 0.8);
+}
+
+.bg-steel-blue-dark\/90{
+  background-color: rgb(17 45 78 / 0.9);
+}
+
+.bg-steel-blue-dark\/95{
+  background-color: rgb(17 45 78 / 0.95);
+}
+
+.bg-steel-blue-dark\/100{
+  background-color: rgb(17 45 78 / 1);
+}
+
+.bg-steel-blue-primary\/0{
+  background-color: rgb(63 114 175 / 0);
+}
+
+.bg-steel-blue-primary\/5{
+  background-color: rgb(63 114 175 / 0.05);
+}
+
+.bg-steel-blue-primary\/10{
+  background-color: rgb(63 114 175 / 0.1);
+}
+
+.bg-steel-blue-primary\/20{
+  background-color: rgb(63 114 175 / 0.2);
+}
+
+.bg-steel-blue-primary\/25{
+  background-color: rgb(63 114 175 / 0.25);
+}
+
+.bg-steel-blue-primary\/30{
+  background-color: rgb(63 114 175 / 0.3);
+}
+
+.bg-steel-blue-primary\/40{
+  background-color: rgb(63 114 175 / 0.4);
+}
+
+.bg-steel-blue-primary\/50{
+  background-color: rgb(63 114 175 / 0.5);
+}
+
+.bg-steel-blue-primary\/60{
+  background-color: rgb(63 114 175 / 0.6);
+}
+
+.bg-steel-blue-primary\/70{
+  background-color: rgb(63 114 175 / 0.7);
+}
+
+.bg-steel-blue-primary\/75{
+  background-color: rgb(63 114 175 / 0.75);
+}
+
+.bg-steel-blue-primary\/80{
+  background-color: rgb(63 114 175 / 0.8);
+}
+
+.bg-steel-blue-primary\/90{
+  background-color: rgb(63 114 175 / 0.9);
+}
+
+.bg-steel-blue-primary\/95{
+  background-color: rgb(63 114 175 / 0.95);
+}
+
+.bg-steel-blue-primary\/100{
+  background-color: rgb(63 114 175 / 1);
+}
+
+.bg-steel-blue-secondary\/0{
+  background-color: rgb(224 222 222 / 0);
+}
+
+.bg-steel-blue-secondary\/5{
+  background-color: rgb(224 222 222 / 0.05);
+}
+
+.bg-steel-blue-secondary\/10{
+  background-color: rgb(224 222 222 / 0.1);
+}
+
+.bg-steel-blue-secondary\/20{
+  background-color: rgb(224 222 222 / 0.2);
+}
+
+.bg-steel-blue-secondary\/25{
+  background-color: rgb(224 222 222 / 0.25);
+}
+
+.bg-steel-blue-secondary\/30{
+  background-color: rgb(224 222 222 / 0.3);
+}
+
+.bg-steel-blue-secondary\/40{
+  background-color: rgb(224 222 222 / 0.4);
+}
+
+.bg-steel-blue-secondary\/50{
+  background-color: rgb(224 222 222 / 0.5);
+}
+
+.bg-steel-blue-secondary\/60{
+  background-color: rgb(224 222 222 / 0.6);
+}
+
+.bg-steel-blue-secondary\/70{
+  background-color: rgb(224 222 222 / 0.7);
+}
+
+.bg-steel-blue-secondary\/75{
+  background-color: rgb(224 222 222 / 0.75);
+}
+
+.bg-steel-blue-secondary\/80{
+  background-color: rgb(224 222 222 / 0.8);
+}
+
+.bg-steel-blue-secondary\/90{
+  background-color: rgb(224 222 222 / 0.9);
+}
+
+.bg-steel-blue-secondary\/95{
+  background-color: rgb(224 222 222 / 0.95);
+}
+
+.bg-steel-blue-secondary\/100{
+  background-color: rgb(224 222 222 / 1);
+}
+
+.bg-cyber-grape-light\/0{
+  background-color: rgb(236 236 236 / 0);
+}
+
+.bg-cyber-grape-light\/5{
+  background-color: rgb(236 236 236 / 0.05);
+}
+
+.bg-cyber-grape-light\/10{
+  background-color: rgb(236 236 236 / 0.1);
+}
+
+.bg-cyber-grape-light\/20{
+  background-color: rgb(236 236 236 / 0.2);
+}
+
+.bg-cyber-grape-light\/25{
+  background-color: rgb(236 236 236 / 0.25);
+}
+
+.bg-cyber-grape-light\/30{
+  background-color: rgb(236 236 236 / 0.3);
+}
+
+.bg-cyber-grape-light\/40{
+  background-color: rgb(236 236 236 / 0.4);
+}
+
+.bg-cyber-grape-light\/50{
+  background-color: rgb(236 236 236 / 0.5);
+}
+
+.bg-cyber-grape-light\/60{
+  background-color: rgb(236 236 236 / 0.6);
+}
+
+.bg-cyber-grape-light\/70{
+  background-color: rgb(236 236 236 / 0.7);
+}
+
+.bg-cyber-grape-light\/75{
+  background-color: rgb(236 236 236 / 0.75);
+}
+
+.bg-cyber-grape-light\/80{
+  background-color: rgb(236 236 236 / 0.8);
+}
+
+.bg-cyber-grape-light\/90{
+  background-color: rgb(236 236 236 / 0.9);
+}
+
+.bg-cyber-grape-light\/95{
+  background-color: rgb(236 236 236 / 0.95);
+}
+
+.bg-cyber-grape-light\/100{
+  background-color: rgb(236 236 236 / 1);
+}
+
+.bg-cyber-grape-dark\/0{
+  background-color: rgb(21 29 59 / 0);
+}
+
+.bg-cyber-grape-dark\/5{
+  background-color: rgb(21 29 59 / 0.05);
+}
+
+.bg-cyber-grape-dark\/10{
+  background-color: rgb(21 29 59 / 0.1);
+}
+
+.bg-cyber-grape-dark\/20{
+  background-color: rgb(21 29 59 / 0.2);
+}
+
+.bg-cyber-grape-dark\/25{
+  background-color: rgb(21 29 59 / 0.25);
+}
+
+.bg-cyber-grape-dark\/30{
+  background-color: rgb(21 29 59 / 0.3);
+}
+
+.bg-cyber-grape-dark\/40{
+  background-color: rgb(21 29 59 / 0.4);
+}
+
+.bg-cyber-grape-dark\/50{
+  background-color: rgb(21 29 59 / 0.5);
+}
+
+.bg-cyber-grape-dark\/60{
+  background-color: rgb(21 29 59 / 0.6);
+}
+
+.bg-cyber-grape-dark\/70{
+  background-color: rgb(21 29 59 / 0.7);
+}
+
+.bg-cyber-grape-dark\/75{
+  background-color: rgb(21 29 59 / 0.75);
+}
+
+.bg-cyber-grape-dark\/80{
+  background-color: rgb(21 29 59 / 0.8);
+}
+
+.bg-cyber-grape-dark\/90{
+  background-color: rgb(21 29 59 / 0.9);
+}
+
+.bg-cyber-grape-dark\/95{
+  background-color: rgb(21 29 59 / 0.95);
+}
+
+.bg-cyber-grape-dark\/100{
+  background-color: rgb(21 29 59 / 1);
+}
+
+.bg-cyber-grape-primary\/0{
+  background-color: rgb(83 62 133 / 0);
+}
+
+.bg-cyber-grape-primary\/5{
+  background-color: rgb(83 62 133 / 0.05);
+}
+
+.bg-cyber-grape-primary\/10{
+  background-color: rgb(83 62 133 / 0.1);
+}
+
+.bg-cyber-grape-primary\/20{
+  background-color: rgb(83 62 133 / 0.2);
+}
+
+.bg-cyber-grape-primary\/25{
+  background-color: rgb(83 62 133 / 0.25);
+}
+
+.bg-cyber-grape-primary\/30{
+  background-color: rgb(83 62 133 / 0.3);
+}
+
+.bg-cyber-grape-primary\/40{
+  background-color: rgb(83 62 133 / 0.4);
+}
+
+.bg-cyber-grape-primary\/50{
+  background-color: rgb(83 62 133 / 0.5);
+}
+
+.bg-cyber-grape-primary\/60{
+  background-color: rgb(83 62 133 / 0.6);
+}
+
+.bg-cyber-grape-primary\/70{
+  background-color: rgb(83 62 133 / 0.7);
+}
+
+.bg-cyber-grape-primary\/75{
+  background-color: rgb(83 62 133 / 0.75);
+}
+
+.bg-cyber-grape-primary\/80{
+  background-color: rgb(83 62 133 / 0.8);
+}
+
+.bg-cyber-grape-primary\/90{
+  background-color: rgb(83 62 133 / 0.9);
+}
+
+.bg-cyber-grape-primary\/95{
+  background-color: rgb(83 62 133 / 0.95);
+}
+
+.bg-cyber-grape-primary\/100{
+  background-color: rgb(83 62 133 / 1);
+}
+
+.bg-cyber-grape-secondary\/0{
+  background-color: rgb(177 168 179 / 0);
+}
+
+.bg-cyber-grape-secondary\/5{
+  background-color: rgb(177 168 179 / 0.05);
+}
+
+.bg-cyber-grape-secondary\/10{
+  background-color: rgb(177 168 179 / 0.1);
+}
+
+.bg-cyber-grape-secondary\/20{
+  background-color: rgb(177 168 179 / 0.2);
+}
+
+.bg-cyber-grape-secondary\/25{
+  background-color: rgb(177 168 179 / 0.25);
+}
+
+.bg-cyber-grape-secondary\/30{
+  background-color: rgb(177 168 179 / 0.3);
+}
+
+.bg-cyber-grape-secondary\/40{
+  background-color: rgb(177 168 179 / 0.4);
+}
+
+.bg-cyber-grape-secondary\/50{
+  background-color: rgb(177 168 179 / 0.5);
+}
+
+.bg-cyber-grape-secondary\/60{
+  background-color: rgb(177 168 179 / 0.6);
+}
+
+.bg-cyber-grape-secondary\/70{
+  background-color: rgb(177 168 179 / 0.7);
+}
+
+.bg-cyber-grape-secondary\/75{
+  background-color: rgb(177 168 179 / 0.75);
+}
+
+.bg-cyber-grape-secondary\/80{
+  background-color: rgb(177 168 179 / 0.8);
+}
+
+.bg-cyber-grape-secondary\/90{
+  background-color: rgb(177 168 179 / 0.9);
+}
+
+.bg-cyber-grape-secondary\/95{
+  background-color: rgb(177 168 179 / 0.95);
+}
+
+.bg-cyber-grape-secondary\/100{
+  background-color: rgb(177 168 179 / 1);
+}
+
+.bg-fire-opal-light\/0{
+  background-color: rgb(221 221 221 / 0);
+}
+
+.bg-fire-opal-light\/5{
+  background-color: rgb(221 221 221 / 0.05);
+}
+
+.bg-fire-opal-light\/10{
+  background-color: rgb(221 221 221 / 0.1);
+}
+
+.bg-fire-opal-light\/20{
+  background-color: rgb(221 221 221 / 0.2);
+}
+
+.bg-fire-opal-light\/25{
+  background-color: rgb(221 221 221 / 0.25);
+}
+
+.bg-fire-opal-light\/30{
+  background-color: rgb(221 221 221 / 0.3);
+}
+
+.bg-fire-opal-light\/40{
+  background-color: rgb(221 221 221 / 0.4);
+}
+
+.bg-fire-opal-light\/50{
+  background-color: rgb(221 221 221 / 0.5);
+}
+
+.bg-fire-opal-light\/60{
+  background-color: rgb(221 221 221 / 0.6);
+}
+
+.bg-fire-opal-light\/70{
+  background-color: rgb(221 221 221 / 0.7);
+}
+
+.bg-fire-opal-light\/75{
+  background-color: rgb(221 221 221 / 0.75);
+}
+
+.bg-fire-opal-light\/80{
+  background-color: rgb(221 221 221 / 0.8);
+}
+
+.bg-fire-opal-light\/90{
+  background-color: rgb(221 221 221 / 0.9);
+}
+
+.bg-fire-opal-light\/95{
+  background-color: rgb(221 221 221 / 0.95);
+}
+
+.bg-fire-opal-light\/100{
+  background-color: rgb(221 221 221 / 1);
+}
+
+.bg-fire-opal-dark\/0{
+  background-color: rgb(34 40 49 / 0);
+}
+
+.bg-fire-opal-dark\/5{
+  background-color: rgb(34 40 49 / 0.05);
+}
+
+.bg-fire-opal-dark\/10{
+  background-color: rgb(34 40 49 / 0.1);
+}
+
+.bg-fire-opal-dark\/20{
+  background-color: rgb(34 40 49 / 0.2);
+}
+
+.bg-fire-opal-dark\/25{
+  background-color: rgb(34 40 49 / 0.25);
+}
+
+.bg-fire-opal-dark\/30{
+  background-color: rgb(34 40 49 / 0.3);
+}
+
+.bg-fire-opal-dark\/40{
+  background-color: rgb(34 40 49 / 0.4);
+}
+
+.bg-fire-opal-dark\/50{
+  background-color: rgb(34 40 49 / 0.5);
+}
+
+.bg-fire-opal-dark\/60{
+  background-color: rgb(34 40 49 / 0.6);
+}
+
+.bg-fire-opal-dark\/70{
+  background-color: rgb(34 40 49 / 0.7);
+}
+
+.bg-fire-opal-dark\/75{
+  background-color: rgb(34 40 49 / 0.75);
+}
+
+.bg-fire-opal-dark\/80{
+  background-color: rgb(34 40 49 / 0.8);
+}
+
+.bg-fire-opal-dark\/90{
+  background-color: rgb(34 40 49 / 0.9);
+}
+
+.bg-fire-opal-dark\/95{
+  background-color: rgb(34 40 49 / 0.95);
+}
+
+.bg-fire-opal-dark\/100{
+  background-color: rgb(34 40 49 / 1);
+}
+
+.bg-fire-opal-primary\/0{
+  background-color: rgb(240 84 84 / 0);
+}
+
+.bg-fire-opal-primary\/5{
+  background-color: rgb(240 84 84 / 0.05);
+}
+
+.bg-fire-opal-primary\/10{
+  background-color: rgb(240 84 84 / 0.1);
+}
+
+.bg-fire-opal-primary\/20{
+  background-color: rgb(240 84 84 / 0.2);
+}
+
+.bg-fire-opal-primary\/25{
+  background-color: rgb(240 84 84 / 0.25);
+}
+
+.bg-fire-opal-primary\/30{
+  background-color: rgb(240 84 84 / 0.3);
+}
+
+.bg-fire-opal-primary\/40{
+  background-color: rgb(240 84 84 / 0.4);
+}
+
+.bg-fire-opal-primary\/50{
+  background-color: rgb(240 84 84 / 0.5);
+}
+
+.bg-fire-opal-primary\/60{
+  background-color: rgb(240 84 84 / 0.6);
+}
+
+.bg-fire-opal-primary\/70{
+  background-color: rgb(240 84 84 / 0.7);
+}
+
+.bg-fire-opal-primary\/75{
+  background-color: rgb(240 84 84 / 0.75);
+}
+
+.bg-fire-opal-primary\/80{
+  background-color: rgb(240 84 84 / 0.8);
+}
+
+.bg-fire-opal-primary\/90{
+  background-color: rgb(240 84 84 / 0.9);
+}
+
+.bg-fire-opal-primary\/95{
+  background-color: rgb(240 84 84 / 0.95);
+}
+
+.bg-fire-opal-primary\/100{
+  background-color: rgb(240 84 84 / 1);
+}
+
+.bg-fire-opal-secondary\/0{
+  background-color: rgb(196 185 186 / 0);
+}
+
+.bg-fire-opal-secondary\/5{
+  background-color: rgb(196 185 186 / 0.05);
+}
+
+.bg-fire-opal-secondary\/10{
+  background-color: rgb(196 185 186 / 0.1);
+}
+
+.bg-fire-opal-secondary\/20{
+  background-color: rgb(196 185 186 / 0.2);
+}
+
+.bg-fire-opal-secondary\/25{
+  background-color: rgb(196 185 186 / 0.25);
+}
+
+.bg-fire-opal-secondary\/30{
+  background-color: rgb(196 185 186 / 0.3);
+}
+
+.bg-fire-opal-secondary\/40{
+  background-color: rgb(196 185 186 / 0.4);
+}
+
+.bg-fire-opal-secondary\/50{
+  background-color: rgb(196 185 186 / 0.5);
+}
+
+.bg-fire-opal-secondary\/60{
+  background-color: rgb(196 185 186 / 0.6);
+}
+
+.bg-fire-opal-secondary\/70{
+  background-color: rgb(196 185 186 / 0.7);
+}
+
+.bg-fire-opal-secondary\/75{
+  background-color: rgb(196 185 186 / 0.75);
+}
+
+.bg-fire-opal-secondary\/80{
+  background-color: rgb(196 185 186 / 0.8);
+}
+
+.bg-fire-opal-secondary\/90{
+  background-color: rgb(196 185 186 / 0.9);
+}
+
+.bg-fire-opal-secondary\/95{
+  background-color: rgb(196 185 186 / 0.95);
+}
+
+.bg-fire-opal-secondary\/100{
+  background-color: rgb(196 185 186 / 1);
+}
+
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.p-4{
+  padding: 1rem;
+}
+
+.p-1{
+  padding: 0.25rem;
+}
+
+.px-8{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-12{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-1{
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
+.pt-12{
+  padding-top: 3rem;
+}
+
+.pt-6{
+  padding-top: 1.5rem;
+}
+
+.pt-4{
+  padding-top: 1rem;
+}
+
+.pb-3{
+  padding-bottom: 0.75rem;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.indent-4{
+  text-indent: 1rem;
+}
+
+.font-dm{
+  font-family: 'DM Mono', monospace;
+}
+
+.font-lora{
+  font-family: 'Lora', serif;
+}
+
+.font-\[\'bodoni-moda\'\]{
+  font-family: 'bodoni-moda';
+}
+
+.font-montserrat{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-\[\.60rem\]{
+  font-size: .60rem;
+}
+
+.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.font-bold{
+  font-weight: 700;
+}
+
+.font-semibold{
+  font-weight: 600;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.leading-5{
+  line-height: 1.25rem;
+}
+
+.text-orange-light{
+  --tw-text-opacity: 1;
+  color: rgb(255 253 246 / var(--tw-text-opacity));
+}
+
+.text-orange-dark{
+  --tw-text-opacity: 1;
+  color: rgb(27 26 23 / var(--tw-text-opacity));
+}
+
+.text-orange-primary{
+  --tw-text-opacity: 1;
+  color: rgb(240 165 0 / var(--tw-text-opacity));
+}
+
+.text-orange-secondary{
+  --tw-text-opacity: 1;
+  color: rgb(242 231 213 / var(--tw-text-opacity));
+}
+
+.text-alabaster-light{
+  --tw-text-opacity: 1;
+  color: rgb(240 238 226 / var(--tw-text-opacity));
+}
+
+.text-alabaster-dark{
+  --tw-text-opacity: 1;
+  color: rgb(39 39 39 / var(--tw-text-opacity));
+}
+
+.text-alabaster-primary{
+  --tw-text-opacity: 1;
+  color: rgb(30 85 89 / var(--tw-text-opacity));
+}
+
+.text-alabaster-secondary{
+  --tw-text-opacity: 1;
+  color: rgb(198 197 187 / var(--tw-text-opacity));
+}
+
+.text-steel-blue-light{
+  --tw-text-opacity: 1;
+  color: rgb(249 247 247 / var(--tw-text-opacity));
+}
+
+.text-steel-blue-dark{
+  --tw-text-opacity: 1;
+  color: rgb(17 45 78 / var(--tw-text-opacity));
+}
+
+.text-steel-blue-primary{
+  --tw-text-opacity: 1;
+  color: rgb(63 114 175 / var(--tw-text-opacity));
+}
+
+.text-steel-blue-secondary{
+  --tw-text-opacity: 1;
+  color: rgb(224 222 222 / var(--tw-text-opacity));
+}
+
+.text-cyber-grape-light{
+  --tw-text-opacity: 1;
+  color: rgb(236 236 236 / var(--tw-text-opacity));
+}
+
+.text-cyber-grape-dark{
+  --tw-text-opacity: 1;
+  color: rgb(21 29 59 / var(--tw-text-opacity));
+}
+
+.text-cyber-grape-primary{
+  --tw-text-opacity: 1;
+  color: rgb(83 62 133 / var(--tw-text-opacity));
+}
+
+.text-cyber-grape-secondary{
+  --tw-text-opacity: 1;
+  color: rgb(177 168 179 / var(--tw-text-opacity));
+}
+
+.text-fire-opal-light{
+  --tw-text-opacity: 1;
+  color: rgb(221 221 221 / var(--tw-text-opacity));
+}
+
+.text-fire-opal-dark{
+  --tw-text-opacity: 1;
+  color: rgb(34 40 49 / var(--tw-text-opacity));
+}
+
+.text-fire-opal-primary{
+  --tw-text-opacity: 1;
+  color: rgb(240 84 84 / var(--tw-text-opacity));
+}
+
+.text-fire-opal-secondary{
+  --tw-text-opacity: 1;
+  color: rgb(196 185 186 / var(--tw-text-opacity));
+}
+
+.text-orange-light\/0{
+  color: rgb(255 253 246 / 0);
+}
+
+.text-orange-light\/5{
+  color: rgb(255 253 246 / 0.05);
+}
+
+.text-orange-light\/10{
+  color: rgb(255 253 246 / 0.1);
+}
+
+.text-orange-light\/20{
+  color: rgb(255 253 246 / 0.2);
+}
+
+.text-orange-light\/25{
+  color: rgb(255 253 246 / 0.25);
+}
+
+.text-orange-light\/30{
+  color: rgb(255 253 246 / 0.3);
+}
+
+.text-orange-light\/40{
+  color: rgb(255 253 246 / 0.4);
+}
+
+.text-orange-light\/50{
+  color: rgb(255 253 246 / 0.5);
+}
+
+.text-orange-light\/60{
+  color: rgb(255 253 246 / 0.6);
+}
+
+.text-orange-light\/70{
+  color: rgb(255 253 246 / 0.7);
+}
+
+.text-orange-light\/75{
+  color: rgb(255 253 246 / 0.75);
+}
+
+.text-orange-light\/80{
+  color: rgb(255 253 246 / 0.8);
+}
+
+.text-orange-light\/90{
+  color: rgb(255 253 246 / 0.9);
+}
+
+.text-orange-light\/95{
+  color: rgb(255 253 246 / 0.95);
+}
+
+.text-orange-light\/100{
+  color: rgb(255 253 246 / 1);
+}
+
+.text-orange-dark\/0{
+  color: rgb(27 26 23 / 0);
+}
+
+.text-orange-dark\/5{
+  color: rgb(27 26 23 / 0.05);
+}
+
+.text-orange-dark\/10{
+  color: rgb(27 26 23 / 0.1);
+}
+
+.text-orange-dark\/20{
+  color: rgb(27 26 23 / 0.2);
+}
+
+.text-orange-dark\/25{
+  color: rgb(27 26 23 / 0.25);
+}
+
+.text-orange-dark\/30{
+  color: rgb(27 26 23 / 0.3);
+}
+
+.text-orange-dark\/40{
+  color: rgb(27 26 23 / 0.4);
+}
+
+.text-orange-dark\/50{
+  color: rgb(27 26 23 / 0.5);
+}
+
+.text-orange-dark\/60{
+  color: rgb(27 26 23 / 0.6);
+}
+
+.text-orange-dark\/70{
+  color: rgb(27 26 23 / 0.7);
+}
+
+.text-orange-dark\/75{
+  color: rgb(27 26 23 / 0.75);
+}
+
+.text-orange-dark\/80{
+  color: rgb(27 26 23 / 0.8);
+}
+
+.text-orange-dark\/90{
+  color: rgb(27 26 23 / 0.9);
+}
+
+.text-orange-dark\/95{
+  color: rgb(27 26 23 / 0.95);
+}
+
+.text-orange-dark\/100{
+  color: rgb(27 26 23 / 1);
+}
+
+.text-orange-primary\/0{
+  color: rgb(240 165 0 / 0);
+}
+
+.text-orange-primary\/5{
+  color: rgb(240 165 0 / 0.05);
+}
+
+.text-orange-primary\/10{
+  color: rgb(240 165 0 / 0.1);
+}
+
+.text-orange-primary\/20{
+  color: rgb(240 165 0 / 0.2);
+}
+
+.text-orange-primary\/25{
+  color: rgb(240 165 0 / 0.25);
+}
+
+.text-orange-primary\/30{
+  color: rgb(240 165 0 / 0.3);
+}
+
+.text-orange-primary\/40{
+  color: rgb(240 165 0 / 0.4);
+}
+
+.text-orange-primary\/50{
+  color: rgb(240 165 0 / 0.5);
+}
+
+.text-orange-primary\/60{
+  color: rgb(240 165 0 / 0.6);
+}
+
+.text-orange-primary\/70{
+  color: rgb(240 165 0 / 0.7);
+}
+
+.text-orange-primary\/75{
+  color: rgb(240 165 0 / 0.75);
+}
+
+.text-orange-primary\/80{
+  color: rgb(240 165 0 / 0.8);
+}
+
+.text-orange-primary\/90{
+  color: rgb(240 165 0 / 0.9);
+}
+
+.text-orange-primary\/95{
+  color: rgb(240 165 0 / 0.95);
+}
+
+.text-orange-primary\/100{
+  color: rgb(240 165 0 / 1);
+}
+
+.text-orange-secondary\/0{
+  color: rgb(242 231 213 / 0);
+}
+
+.text-orange-secondary\/5{
+  color: rgb(242 231 213 / 0.05);
+}
+
+.text-orange-secondary\/10{
+  color: rgb(242 231 213 / 0.1);
+}
+
+.text-orange-secondary\/20{
+  color: rgb(242 231 213 / 0.2);
+}
+
+.text-orange-secondary\/25{
+  color: rgb(242 231 213 / 0.25);
+}
+
+.text-orange-secondary\/30{
+  color: rgb(242 231 213 / 0.3);
+}
+
+.text-orange-secondary\/40{
+  color: rgb(242 231 213 / 0.4);
+}
+
+.text-orange-secondary\/50{
+  color: rgb(242 231 213 / 0.5);
+}
+
+.text-orange-secondary\/60{
+  color: rgb(242 231 213 / 0.6);
+}
+
+.text-orange-secondary\/70{
+  color: rgb(242 231 213 / 0.7);
+}
+
+.text-orange-secondary\/75{
+  color: rgb(242 231 213 / 0.75);
+}
+
+.text-orange-secondary\/80{
+  color: rgb(242 231 213 / 0.8);
+}
+
+.text-orange-secondary\/90{
+  color: rgb(242 231 213 / 0.9);
+}
+
+.text-orange-secondary\/95{
+  color: rgb(242 231 213 / 0.95);
+}
+
+.text-orange-secondary\/100{
+  color: rgb(242 231 213 / 1);
+}
+
+.text-alabaster-light\/0{
+  color: rgb(240 238 226 / 0);
+}
+
+.text-alabaster-light\/5{
+  color: rgb(240 238 226 / 0.05);
+}
+
+.text-alabaster-light\/10{
+  color: rgb(240 238 226 / 0.1);
+}
+
+.text-alabaster-light\/20{
+  color: rgb(240 238 226 / 0.2);
+}
+
+.text-alabaster-light\/25{
+  color: rgb(240 238 226 / 0.25);
+}
+
+.text-alabaster-light\/30{
+  color: rgb(240 238 226 / 0.3);
+}
+
+.text-alabaster-light\/40{
+  color: rgb(240 238 226 / 0.4);
+}
+
+.text-alabaster-light\/50{
+  color: rgb(240 238 226 / 0.5);
+}
+
+.text-alabaster-light\/60{
+  color: rgb(240 238 226 / 0.6);
+}
+
+.text-alabaster-light\/70{
+  color: rgb(240 238 226 / 0.7);
+}
+
+.text-alabaster-light\/75{
+  color: rgb(240 238 226 / 0.75);
+}
+
+.text-alabaster-light\/80{
+  color: rgb(240 238 226 / 0.8);
+}
+
+.text-alabaster-light\/90{
+  color: rgb(240 238 226 / 0.9);
+}
+
+.text-alabaster-light\/95{
+  color: rgb(240 238 226 / 0.95);
+}
+
+.text-alabaster-light\/100{
+  color: rgb(240 238 226 / 1);
+}
+
+.text-alabaster-dark\/0{
+  color: rgb(39 39 39 / 0);
+}
+
+.text-alabaster-dark\/5{
+  color: rgb(39 39 39 / 0.05);
+}
+
+.text-alabaster-dark\/10{
+  color: rgb(39 39 39 / 0.1);
+}
+
+.text-alabaster-dark\/20{
+  color: rgb(39 39 39 / 0.2);
+}
+
+.text-alabaster-dark\/25{
+  color: rgb(39 39 39 / 0.25);
+}
+
+.text-alabaster-dark\/30{
+  color: rgb(39 39 39 / 0.3);
+}
+
+.text-alabaster-dark\/40{
+  color: rgb(39 39 39 / 0.4);
+}
+
+.text-alabaster-dark\/50{
+  color: rgb(39 39 39 / 0.5);
+}
+
+.text-alabaster-dark\/60{
+  color: rgb(39 39 39 / 0.6);
+}
+
+.text-alabaster-dark\/70{
+  color: rgb(39 39 39 / 0.7);
+}
+
+.text-alabaster-dark\/75{
+  color: rgb(39 39 39 / 0.75);
+}
+
+.text-alabaster-dark\/80{
+  color: rgb(39 39 39 / 0.8);
+}
+
+.text-alabaster-dark\/90{
+  color: rgb(39 39 39 / 0.9);
+}
+
+.text-alabaster-dark\/95{
+  color: rgb(39 39 39 / 0.95);
+}
+
+.text-alabaster-dark\/100{
+  color: rgb(39 39 39 / 1);
+}
+
+.text-alabaster-primary\/0{
+  color: rgb(30 85 89 / 0);
+}
+
+.text-alabaster-primary\/5{
+  color: rgb(30 85 89 / 0.05);
+}
+
+.text-alabaster-primary\/10{
+  color: rgb(30 85 89 / 0.1);
+}
+
+.text-alabaster-primary\/20{
+  color: rgb(30 85 89 / 0.2);
+}
+
+.text-alabaster-primary\/25{
+  color: rgb(30 85 89 / 0.25);
+}
+
+.text-alabaster-primary\/30{
+  color: rgb(30 85 89 / 0.3);
+}
+
+.text-alabaster-primary\/40{
+  color: rgb(30 85 89 / 0.4);
+}
+
+.text-alabaster-primary\/50{
+  color: rgb(30 85 89 / 0.5);
+}
+
+.text-alabaster-primary\/60{
+  color: rgb(30 85 89 / 0.6);
+}
+
+.text-alabaster-primary\/70{
+  color: rgb(30 85 89 / 0.7);
+}
+
+.text-alabaster-primary\/75{
+  color: rgb(30 85 89 / 0.75);
+}
+
+.text-alabaster-primary\/80{
+  color: rgb(30 85 89 / 0.8);
+}
+
+.text-alabaster-primary\/90{
+  color: rgb(30 85 89 / 0.9);
+}
+
+.text-alabaster-primary\/95{
+  color: rgb(30 85 89 / 0.95);
+}
+
+.text-alabaster-primary\/100{
+  color: rgb(30 85 89 / 1);
+}
+
+.text-alabaster-secondary\/0{
+  color: rgb(198 197 187 / 0);
+}
+
+.text-alabaster-secondary\/5{
+  color: rgb(198 197 187 / 0.05);
+}
+
+.text-alabaster-secondary\/10{
+  color: rgb(198 197 187 / 0.1);
+}
+
+.text-alabaster-secondary\/20{
+  color: rgb(198 197 187 / 0.2);
+}
+
+.text-alabaster-secondary\/25{
+  color: rgb(198 197 187 / 0.25);
+}
+
+.text-alabaster-secondary\/30{
+  color: rgb(198 197 187 / 0.3);
+}
+
+.text-alabaster-secondary\/40{
+  color: rgb(198 197 187 / 0.4);
+}
+
+.text-alabaster-secondary\/50{
+  color: rgb(198 197 187 / 0.5);
+}
+
+.text-alabaster-secondary\/60{
+  color: rgb(198 197 187 / 0.6);
+}
+
+.text-alabaster-secondary\/70{
+  color: rgb(198 197 187 / 0.7);
+}
+
+.text-alabaster-secondary\/75{
+  color: rgb(198 197 187 / 0.75);
+}
+
+.text-alabaster-secondary\/80{
+  color: rgb(198 197 187 / 0.8);
+}
+
+.text-alabaster-secondary\/90{
+  color: rgb(198 197 187 / 0.9);
+}
+
+.text-alabaster-secondary\/95{
+  color: rgb(198 197 187 / 0.95);
+}
+
+.text-alabaster-secondary\/100{
+  color: rgb(198 197 187 / 1);
+}
+
+.text-steel-blue-light\/0{
+  color: rgb(249 247 247 / 0);
+}
+
+.text-steel-blue-light\/5{
+  color: rgb(249 247 247 / 0.05);
+}
+
+.text-steel-blue-light\/10{
+  color: rgb(249 247 247 / 0.1);
+}
+
+.text-steel-blue-light\/20{
+  color: rgb(249 247 247 / 0.2);
+}
+
+.text-steel-blue-light\/25{
+  color: rgb(249 247 247 / 0.25);
+}
+
+.text-steel-blue-light\/30{
+  color: rgb(249 247 247 / 0.3);
+}
+
+.text-steel-blue-light\/40{
+  color: rgb(249 247 247 / 0.4);
+}
+
+.text-steel-blue-light\/50{
+  color: rgb(249 247 247 / 0.5);
+}
+
+.text-steel-blue-light\/60{
+  color: rgb(249 247 247 / 0.6);
+}
+
+.text-steel-blue-light\/70{
+  color: rgb(249 247 247 / 0.7);
+}
+
+.text-steel-blue-light\/75{
+  color: rgb(249 247 247 / 0.75);
+}
+
+.text-steel-blue-light\/80{
+  color: rgb(249 247 247 / 0.8);
+}
+
+.text-steel-blue-light\/90{
+  color: rgb(249 247 247 / 0.9);
+}
+
+.text-steel-blue-light\/95{
+  color: rgb(249 247 247 / 0.95);
+}
+
+.text-steel-blue-light\/100{
+  color: rgb(249 247 247 / 1);
+}
+
+.text-steel-blue-dark\/0{
+  color: rgb(17 45 78 / 0);
+}
+
+.text-steel-blue-dark\/5{
+  color: rgb(17 45 78 / 0.05);
+}
+
+.text-steel-blue-dark\/10{
+  color: rgb(17 45 78 / 0.1);
+}
+
+.text-steel-blue-dark\/20{
+  color: rgb(17 45 78 / 0.2);
+}
+
+.text-steel-blue-dark\/25{
+  color: rgb(17 45 78 / 0.25);
+}
+
+.text-steel-blue-dark\/30{
+  color: rgb(17 45 78 / 0.3);
+}
+
+.text-steel-blue-dark\/40{
+  color: rgb(17 45 78 / 0.4);
+}
+
+.text-steel-blue-dark\/50{
+  color: rgb(17 45 78 / 0.5);
+}
+
+.text-steel-blue-dark\/60{
+  color: rgb(17 45 78 / 0.6);
+}
+
+.text-steel-blue-dark\/70{
+  color: rgb(17 45 78 / 0.7);
+}
+
+.text-steel-blue-dark\/75{
+  color: rgb(17 45 78 / 0.75);
+}
+
+.text-steel-blue-dark\/80{
+  color: rgb(17 45 78 / 0.8);
+}
+
+.text-steel-blue-dark\/90{
+  color: rgb(17 45 78 / 0.9);
+}
+
+.text-steel-blue-dark\/95{
+  color: rgb(17 45 78 / 0.95);
+}
+
+.text-steel-blue-dark\/100{
+  color: rgb(17 45 78 / 1);
+}
+
+.text-steel-blue-primary\/0{
+  color: rgb(63 114 175 / 0);
+}
+
+.text-steel-blue-primary\/5{
+  color: rgb(63 114 175 / 0.05);
+}
+
+.text-steel-blue-primary\/10{
+  color: rgb(63 114 175 / 0.1);
+}
+
+.text-steel-blue-primary\/20{
+  color: rgb(63 114 175 / 0.2);
+}
+
+.text-steel-blue-primary\/25{
+  color: rgb(63 114 175 / 0.25);
+}
+
+.text-steel-blue-primary\/30{
+  color: rgb(63 114 175 / 0.3);
+}
+
+.text-steel-blue-primary\/40{
+  color: rgb(63 114 175 / 0.4);
+}
+
+.text-steel-blue-primary\/50{
+  color: rgb(63 114 175 / 0.5);
+}
+
+.text-steel-blue-primary\/60{
+  color: rgb(63 114 175 / 0.6);
+}
+
+.text-steel-blue-primary\/70{
+  color: rgb(63 114 175 / 0.7);
+}
+
+.text-steel-blue-primary\/75{
+  color: rgb(63 114 175 / 0.75);
+}
+
+.text-steel-blue-primary\/80{
+  color: rgb(63 114 175 / 0.8);
+}
+
+.text-steel-blue-primary\/90{
+  color: rgb(63 114 175 / 0.9);
+}
+
+.text-steel-blue-primary\/95{
+  color: rgb(63 114 175 / 0.95);
+}
+
+.text-steel-blue-primary\/100{
+  color: rgb(63 114 175 / 1);
+}
+
+.text-steel-blue-secondary\/0{
+  color: rgb(224 222 222 / 0);
+}
+
+.text-steel-blue-secondary\/5{
+  color: rgb(224 222 222 / 0.05);
+}
+
+.text-steel-blue-secondary\/10{
+  color: rgb(224 222 222 / 0.1);
+}
+
+.text-steel-blue-secondary\/20{
+  color: rgb(224 222 222 / 0.2);
+}
+
+.text-steel-blue-secondary\/25{
+  color: rgb(224 222 222 / 0.25);
+}
+
+.text-steel-blue-secondary\/30{
+  color: rgb(224 222 222 / 0.3);
+}
+
+.text-steel-blue-secondary\/40{
+  color: rgb(224 222 222 / 0.4);
+}
+
+.text-steel-blue-secondary\/50{
+  color: rgb(224 222 222 / 0.5);
+}
+
+.text-steel-blue-secondary\/60{
+  color: rgb(224 222 222 / 0.6);
+}
+
+.text-steel-blue-secondary\/70{
+  color: rgb(224 222 222 / 0.7);
+}
+
+.text-steel-blue-secondary\/75{
+  color: rgb(224 222 222 / 0.75);
+}
+
+.text-steel-blue-secondary\/80{
+  color: rgb(224 222 222 / 0.8);
+}
+
+.text-steel-blue-secondary\/90{
+  color: rgb(224 222 222 / 0.9);
+}
+
+.text-steel-blue-secondary\/95{
+  color: rgb(224 222 222 / 0.95);
+}
+
+.text-steel-blue-secondary\/100{
+  color: rgb(224 222 222 / 1);
+}
+
+.text-cyber-grape-light\/0{
+  color: rgb(236 236 236 / 0);
+}
+
+.text-cyber-grape-light\/5{
+  color: rgb(236 236 236 / 0.05);
+}
+
+.text-cyber-grape-light\/10{
+  color: rgb(236 236 236 / 0.1);
+}
+
+.text-cyber-grape-light\/20{
+  color: rgb(236 236 236 / 0.2);
+}
+
+.text-cyber-grape-light\/25{
+  color: rgb(236 236 236 / 0.25);
+}
+
+.text-cyber-grape-light\/30{
+  color: rgb(236 236 236 / 0.3);
+}
+
+.text-cyber-grape-light\/40{
+  color: rgb(236 236 236 / 0.4);
+}
+
+.text-cyber-grape-light\/50{
+  color: rgb(236 236 236 / 0.5);
+}
+
+.text-cyber-grape-light\/60{
+  color: rgb(236 236 236 / 0.6);
+}
+
+.text-cyber-grape-light\/70{
+  color: rgb(236 236 236 / 0.7);
+}
+
+.text-cyber-grape-light\/75{
+  color: rgb(236 236 236 / 0.75);
+}
+
+.text-cyber-grape-light\/80{
+  color: rgb(236 236 236 / 0.8);
+}
+
+.text-cyber-grape-light\/90{
+  color: rgb(236 236 236 / 0.9);
+}
+
+.text-cyber-grape-light\/95{
+  color: rgb(236 236 236 / 0.95);
+}
+
+.text-cyber-grape-light\/100{
+  color: rgb(236 236 236 / 1);
+}
+
+.text-cyber-grape-dark\/0{
+  color: rgb(21 29 59 / 0);
+}
+
+.text-cyber-grape-dark\/5{
+  color: rgb(21 29 59 / 0.05);
+}
+
+.text-cyber-grape-dark\/10{
+  color: rgb(21 29 59 / 0.1);
+}
+
+.text-cyber-grape-dark\/20{
+  color: rgb(21 29 59 / 0.2);
+}
+
+.text-cyber-grape-dark\/25{
+  color: rgb(21 29 59 / 0.25);
+}
+
+.text-cyber-grape-dark\/30{
+  color: rgb(21 29 59 / 0.3);
+}
+
+.text-cyber-grape-dark\/40{
+  color: rgb(21 29 59 / 0.4);
+}
+
+.text-cyber-grape-dark\/50{
+  color: rgb(21 29 59 / 0.5);
+}
+
+.text-cyber-grape-dark\/60{
+  color: rgb(21 29 59 / 0.6);
+}
+
+.text-cyber-grape-dark\/70{
+  color: rgb(21 29 59 / 0.7);
+}
+
+.text-cyber-grape-dark\/75{
+  color: rgb(21 29 59 / 0.75);
+}
+
+.text-cyber-grape-dark\/80{
+  color: rgb(21 29 59 / 0.8);
+}
+
+.text-cyber-grape-dark\/90{
+  color: rgb(21 29 59 / 0.9);
+}
+
+.text-cyber-grape-dark\/95{
+  color: rgb(21 29 59 / 0.95);
+}
+
+.text-cyber-grape-dark\/100{
+  color: rgb(21 29 59 / 1);
+}
+
+.text-cyber-grape-primary\/0{
+  color: rgb(83 62 133 / 0);
+}
+
+.text-cyber-grape-primary\/5{
+  color: rgb(83 62 133 / 0.05);
+}
+
+.text-cyber-grape-primary\/10{
+  color: rgb(83 62 133 / 0.1);
+}
+
+.text-cyber-grape-primary\/20{
+  color: rgb(83 62 133 / 0.2);
+}
+
+.text-cyber-grape-primary\/25{
+  color: rgb(83 62 133 / 0.25);
+}
+
+.text-cyber-grape-primary\/30{
+  color: rgb(83 62 133 / 0.3);
+}
+
+.text-cyber-grape-primary\/40{
+  color: rgb(83 62 133 / 0.4);
+}
+
+.text-cyber-grape-primary\/50{
+  color: rgb(83 62 133 / 0.5);
+}
+
+.text-cyber-grape-primary\/60{
+  color: rgb(83 62 133 / 0.6);
+}
+
+.text-cyber-grape-primary\/70{
+  color: rgb(83 62 133 / 0.7);
+}
+
+.text-cyber-grape-primary\/75{
+  color: rgb(83 62 133 / 0.75);
+}
+
+.text-cyber-grape-primary\/80{
+  color: rgb(83 62 133 / 0.8);
+}
+
+.text-cyber-grape-primary\/90{
+  color: rgb(83 62 133 / 0.9);
+}
+
+.text-cyber-grape-primary\/95{
+  color: rgb(83 62 133 / 0.95);
+}
+
+.text-cyber-grape-primary\/100{
+  color: rgb(83 62 133 / 1);
+}
+
+.text-cyber-grape-secondary\/0{
+  color: rgb(177 168 179 / 0);
+}
+
+.text-cyber-grape-secondary\/5{
+  color: rgb(177 168 179 / 0.05);
+}
+
+.text-cyber-grape-secondary\/10{
+  color: rgb(177 168 179 / 0.1);
+}
+
+.text-cyber-grape-secondary\/20{
+  color: rgb(177 168 179 / 0.2);
+}
+
+.text-cyber-grape-secondary\/25{
+  color: rgb(177 168 179 / 0.25);
+}
+
+.text-cyber-grape-secondary\/30{
+  color: rgb(177 168 179 / 0.3);
+}
+
+.text-cyber-grape-secondary\/40{
+  color: rgb(177 168 179 / 0.4);
+}
+
+.text-cyber-grape-secondary\/50{
+  color: rgb(177 168 179 / 0.5);
+}
+
+.text-cyber-grape-secondary\/60{
+  color: rgb(177 168 179 / 0.6);
+}
+
+.text-cyber-grape-secondary\/70{
+  color: rgb(177 168 179 / 0.7);
+}
+
+.text-cyber-grape-secondary\/75{
+  color: rgb(177 168 179 / 0.75);
+}
+
+.text-cyber-grape-secondary\/80{
+  color: rgb(177 168 179 / 0.8);
+}
+
+.text-cyber-grape-secondary\/90{
+  color: rgb(177 168 179 / 0.9);
+}
+
+.text-cyber-grape-secondary\/95{
+  color: rgb(177 168 179 / 0.95);
+}
+
+.text-cyber-grape-secondary\/100{
+  color: rgb(177 168 179 / 1);
+}
+
+.text-fire-opal-light\/0{
+  color: rgb(221 221 221 / 0);
+}
+
+.text-fire-opal-light\/5{
+  color: rgb(221 221 221 / 0.05);
+}
+
+.text-fire-opal-light\/10{
+  color: rgb(221 221 221 / 0.1);
+}
+
+.text-fire-opal-light\/20{
+  color: rgb(221 221 221 / 0.2);
+}
+
+.text-fire-opal-light\/25{
+  color: rgb(221 221 221 / 0.25);
+}
+
+.text-fire-opal-light\/30{
+  color: rgb(221 221 221 / 0.3);
+}
+
+.text-fire-opal-light\/40{
+  color: rgb(221 221 221 / 0.4);
+}
+
+.text-fire-opal-light\/50{
+  color: rgb(221 221 221 / 0.5);
+}
+
+.text-fire-opal-light\/60{
+  color: rgb(221 221 221 / 0.6);
+}
+
+.text-fire-opal-light\/70{
+  color: rgb(221 221 221 / 0.7);
+}
+
+.text-fire-opal-light\/75{
+  color: rgb(221 221 221 / 0.75);
+}
+
+.text-fire-opal-light\/80{
+  color: rgb(221 221 221 / 0.8);
+}
+
+.text-fire-opal-light\/90{
+  color: rgb(221 221 221 / 0.9);
+}
+
+.text-fire-opal-light\/95{
+  color: rgb(221 221 221 / 0.95);
+}
+
+.text-fire-opal-light\/100{
+  color: rgb(221 221 221 / 1);
+}
+
+.text-fire-opal-dark\/0{
+  color: rgb(34 40 49 / 0);
+}
+
+.text-fire-opal-dark\/5{
+  color: rgb(34 40 49 / 0.05);
+}
+
+.text-fire-opal-dark\/10{
+  color: rgb(34 40 49 / 0.1);
+}
+
+.text-fire-opal-dark\/20{
+  color: rgb(34 40 49 / 0.2);
+}
+
+.text-fire-opal-dark\/25{
+  color: rgb(34 40 49 / 0.25);
+}
+
+.text-fire-opal-dark\/30{
+  color: rgb(34 40 49 / 0.3);
+}
+
+.text-fire-opal-dark\/40{
+  color: rgb(34 40 49 / 0.4);
+}
+
+.text-fire-opal-dark\/50{
+  color: rgb(34 40 49 / 0.5);
+}
+
+.text-fire-opal-dark\/60{
+  color: rgb(34 40 49 / 0.6);
+}
+
+.text-fire-opal-dark\/70{
+  color: rgb(34 40 49 / 0.7);
+}
+
+.text-fire-opal-dark\/75{
+  color: rgb(34 40 49 / 0.75);
+}
+
+.text-fire-opal-dark\/80{
+  color: rgb(34 40 49 / 0.8);
+}
+
+.text-fire-opal-dark\/90{
+  color: rgb(34 40 49 / 0.9);
+}
+
+.text-fire-opal-dark\/95{
+  color: rgb(34 40 49 / 0.95);
+}
+
+.text-fire-opal-dark\/100{
+  color: rgb(34 40 49 / 1);
+}
+
+.text-fire-opal-primary\/0{
+  color: rgb(240 84 84 / 0);
+}
+
+.text-fire-opal-primary\/5{
+  color: rgb(240 84 84 / 0.05);
+}
+
+.text-fire-opal-primary\/10{
+  color: rgb(240 84 84 / 0.1);
+}
+
+.text-fire-opal-primary\/20{
+  color: rgb(240 84 84 / 0.2);
+}
+
+.text-fire-opal-primary\/25{
+  color: rgb(240 84 84 / 0.25);
+}
+
+.text-fire-opal-primary\/30{
+  color: rgb(240 84 84 / 0.3);
+}
+
+.text-fire-opal-primary\/40{
+  color: rgb(240 84 84 / 0.4);
+}
+
+.text-fire-opal-primary\/50{
+  color: rgb(240 84 84 / 0.5);
+}
+
+.text-fire-opal-primary\/60{
+  color: rgb(240 84 84 / 0.6);
+}
+
+.text-fire-opal-primary\/70{
+  color: rgb(240 84 84 / 0.7);
+}
+
+.text-fire-opal-primary\/75{
+  color: rgb(240 84 84 / 0.75);
+}
+
+.text-fire-opal-primary\/80{
+  color: rgb(240 84 84 / 0.8);
+}
+
+.text-fire-opal-primary\/90{
+  color: rgb(240 84 84 / 0.9);
+}
+
+.text-fire-opal-primary\/95{
+  color: rgb(240 84 84 / 0.95);
+}
+
+.text-fire-opal-primary\/100{
+  color: rgb(240 84 84 / 1);
+}
+
+.text-fire-opal-secondary\/0{
+  color: rgb(196 185 186 / 0);
+}
+
+.text-fire-opal-secondary\/5{
+  color: rgb(196 185 186 / 0.05);
+}
+
+.text-fire-opal-secondary\/10{
+  color: rgb(196 185 186 / 0.1);
+}
+
+.text-fire-opal-secondary\/20{
+  color: rgb(196 185 186 / 0.2);
+}
+
+.text-fire-opal-secondary\/25{
+  color: rgb(196 185 186 / 0.25);
+}
+
+.text-fire-opal-secondary\/30{
+  color: rgb(196 185 186 / 0.3);
+}
+
+.text-fire-opal-secondary\/40{
+  color: rgb(196 185 186 / 0.4);
+}
+
+.text-fire-opal-secondary\/50{
+  color: rgb(196 185 186 / 0.5);
+}
+
+.text-fire-opal-secondary\/60{
+  color: rgb(196 185 186 / 0.6);
+}
+
+.text-fire-opal-secondary\/70{
+  color: rgb(196 185 186 / 0.7);
+}
+
+.text-fire-opal-secondary\/75{
+  color: rgb(196 185 186 / 0.75);
+}
+
+.text-fire-opal-secondary\/80{
+  color: rgb(196 185 186 / 0.8);
+}
+
+.text-fire-opal-secondary\/90{
+  color: rgb(196 185 186 / 0.9);
+}
+
+.text-fire-opal-secondary\/95{
+  color: rgb(196 185 186 / 0.95);
+}
+
+.text-fire-opal-secondary\/100{
+  color: rgb(196 185 186 / 1);
+}
+
+.opacity-50{
+  opacity: 0.5;
+}
+
+.shadow-xl{
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow{
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-md{
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+@media print{
+  .print\:hidden{
+    display: none;
   }
 }
