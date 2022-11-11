@@ -2,3 +2,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .input-div {
+        @apply flex flex-col justify-end
+    }
+    .input-div > label {
+        @apply font-semibold capitalize
+    }
+    .input-div > input {
+        @apply py-1 px-2 shadow rounded focus:outline-none ring-2 ring-sky-500 focus:ring-amber-500 font-semibold
+    }
+
+}

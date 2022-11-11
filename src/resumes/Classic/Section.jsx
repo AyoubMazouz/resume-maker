@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../../GlobalContext";
 import Container from "./Container";
 
-const Section = ({ title, content }) => {
+const Section = ({ title, contents, types }) => {
     const { cp } = useGlobalContext();
 
     return (
@@ -18,8 +18,8 @@ const Section = ({ title, content }) => {
                     {title}
                 </div>
             )}
-            {content.map((cont) => (
-                <Container content={cont} />
+            {contents.map((cont, i) => (
+                <Container content={cont} type={types[i]} />
             ))}
         </div>
     );
