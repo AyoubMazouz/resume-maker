@@ -1,150 +1,77 @@
-# COMMENT EXÉCUTER EN LOCAL:
+# RESUME MAKER
 
-Assurez-vous que NodeJs est installé sinon installez-le à partir d'ici: [NodeJs](https://nodejs.org/en/download/)
+##### An application made with react that helps you create profetionnal looking resumes fast (less than 3 min) and for free.
 
-Ouvrir une nouvelle instance de terminal dans le dossier`resume-maker-master`.
-Tapez `npm i` pour installer les dépendances.
-Une fois l'installation terminée, exécutez le serveur local à l'aide de `npm start`.
+##### You have many choices when it comes to colors and designs all uniq.
 
-### COMMENT CHANGER LE DESIGN ET LA PALETTE DE COULEURS:
+![](/public//screenshots/darkmode.png)
 
-En haut de la page, vous trouverez des boutons à gauche pour les conceptions et à l'extrémité opposée, il y a des options pour changer la palette de couleurs, cliquez simplement sur une option et elle sera appliquée.
+**[Live Demo -> Click Here!](https://resume-maker3.netlify.app)**
 
-### COMMENT IMPRIMER:
+# HOW TO RUN LOCALLY:
 
-L'impression du produit final est très simple, vous devez modifier certaines variables d'impression dans votre navigateur.
+Make sure you have NodeJs installed if not install it from here: [NodeJs](https://nodejs.org/en/download/)
 
-##### marge: none
+open a new terminal instance inside the folder `resume-maker-master`.
+Type `npm i` to install dependencies.
+After the installation is complete, run the local server using `npm start`.
 
-##### graphique de fond: true
+### HOW TO USE:
 
-##### taille de papier: A4
+##### CONTROL PANEL:
+
+At the top the page you'll find the control panel allows you to do couple of different things.
+
+![](/public//screenshots/control-panel.png)
+
+Let's start with most left, there you'll find couple of setting:
+
+**save:** let's you save you resume in your local browser storage, so when you came back or you have accidentally refresh the page, your hard work will not go down the drain.
+
+**reset:** this option delete all information stored in local storage and clears input fields, ready for a new resume.
+
+**export:** export your resume as JSON string copied to your clip board, this allows you to save multiple resumes.
+
+**import:** this option let's you supply a JSON string that is given by the export option, to load previous resumes.
+
+**darkmode / lightmode:** toggles between light and dark mode.
+
+In the center, all designs available you can switch between them in a blink.
+And at the far right there is many different options to choose from when it comes to color palette.
+
+##### EDITOR:
+
+On the left side or the middle depends on screen size, is the editor;
+The editor is splitted to sections each section has **(title, id and type)**
+You can manipulate a section using these options:
+
+![](/public//screenshots/section-header.png)
+
+-   You can move a section "up" or "down" using the arrows.
+-   Deleting it by clicking on bin icon.
+-   Change the title title.
+-   Remove / add new input fields.
+
+###### ADD NEW SECTION:
+
+To add a new section all you have to do is select which type using the drop down list in the middle then click the "folder+" icon.
+
+![](/public//screenshots/new-section.png)
+
+When you create a new section don't forget to give it a title and then fill you information, you can add as many fields or sections as you want, but some designs might break, when you fill a lot of information, it's up to you!
+
+##### AVAILABLE TYPES:
+
+### HOW TO PRINT:
+
+Printing the final product is very straightforward, you need to change some printing variables in your browser.
+
+##### margin: none
+
+##### background graphic: true
+
+##### paper size: A4
 
 ![](/public/screenshots/print.png)
 
-### DATA FILE:
-
-Dans `resume-make-master/src`, vous trouverez un dossier nommé data.js à partir duquel vous pourrez modifier toutes les informations.
-
-L'objet de données consiste en une liste d'objets, chaque objet représentant une section.
-Les sections ont un titre et une liste de contenu.
-Chaque liste de contenu a un type, les types permettent au programme de savoir à quel type de données il doit s'attendre.
-
-### TYPES DISPONIBLES:
-
-##### Entête:
-
-```{
-        title: "",
-        content: [
-            {
-                type: "header",
-                data: {
-                    img: "/assets/profile.png",
-                    fullName: ["FirstName", "LastName"],
-                    title: "Job Title",
-                    details: [
-                        "22 ans",
-                        "07 70 70 70 70",
-                        "john@mail.com",
-                        "Street address goes here",
-                    ],
-                },
-            },
-        ],
-    },
-```
-
-##### Liste:
-
-```
-    {
-        title: "title",
-        content: [
-            {
-                type: "list",
-                data: ["List item 01", "List item 02", "List item 03"],
-            },
-            {
-                type: "labels",
-                data: [
-                    ["efficient", ["JavaScript", "Python", "Git"]],
-                    ["familiar", ["C#", "C", "Lua"]],
-                ],
-            },
-        ],
-    },
-```
-
-##### Liste des dates:
-
-```
-    {
-        title: "title",
-        content: [
-            {
-                type: "date_list",
-                data: [
-                    ["date", "text"],
-                    ["date", "text"],
-                ],
-            },
-        ],
-    },
-```
-
-##### Étiquettes:
-
-```
-    {
-        title: "title",
-        content: [
-            {
-                type: "labels",
-                data: [
-                    ["efficient", ["JavaScript", "Python", "Git"]],
-                    ["familiar", ["C#", "C", "Lua"]],
-                ],
-            },
-        ],
-    },
-```
-
-##### Glissière:
-
-```
-    {
-        title: "title",
-        content: [
-            {
-                type: "meter",
-                data: [
-                    ["Français", "3/6", "bien"],
-                    ["Anglais", "5/6", "très bien"],
-                    ["Arabe", "full", "maternelle"],
-                ],
-            },
-        ],
-    },
-```
-
-##### You can put multiple different type in one section:
-
-```
-    {
-        title: "title",
-        content: [
-            {
-                type: "list",
-                data: ["List item 01", "List item 02", "List item 03"],
-            },
-            {
-                type: "labels",
-                data: [
-                    ["efficient", ["JavaScript", "Python", "Git"]],
-                    ["familiar", ["C#", "C", "Lua"]],
-                ],
-            },
-        ],
-    },
-```
+**THIS IS IT, YOU DID IT!!**

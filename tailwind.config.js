@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./src/**/*.{js,jsx}"],
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
@@ -46,8 +47,16 @@ module.exports = {
                     primary: "#B68973",
                     secondary: "#EABF9F",
                 },
+                success: "#36D399",
+                "success-dark": "#003320",
+                info: "#3ABFF8",
+                "info-dark": "#002B3D",
+                warn: "#FBBD23",
+                "warn-dark": "#382800",
+                error: "#F87272",
+                "error-dark": "#470000",
             },
-            fontFamily: {
+            Family: {
                 dm: "'DM Mono', monospace",
                 lora: "'Lora', serif",
                 montserrat: "'Montserrat', sans-serif",
@@ -60,6 +69,21 @@ module.exports = {
         "w-3/6",
         "w-4/6",
         "w-5/6",
+        {
+            pattern:
+                /bg-(success|warn|info|error|success-dark|warn-dark|info-dark|error-dark)/,
+            variants: [],
+        },
+        {
+            pattern:
+                /border-(success|warn|info|error|success-dark|info-dark|warn-dark|error-dark)/,
+            variants: [],
+        },
+        {
+            pattern:
+                /text-(success|warn|info|error|success-dark|warn-dark|info-dark|error-dark)/,
+            variants: [],
+        },
         {
             pattern:
                 /bg-(alabaster|steel-blue|cyber-grape|carmine-pink|viridian-green|gray|light-taupe)-(light|dark|primary|secondary)/,

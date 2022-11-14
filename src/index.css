@@ -8,11 +8,19 @@
     .input-div {
         @apply flex flex-col justify-end
     }
+    .input {
+        @apply py-1 px-3 shadow rounded focus:outline-none ring-2 ring-gray-300 focus:ring-amber-500 font-semibold dark:bg-gray-800 dark:ring-gray-600 dark:text-gray-200;
+    }
     .input-div > label {
-        @apply font-semibold capitalize
+        @apply font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5
     }
-    .input-div > input {
-        @apply py-1 px-2 shadow rounded focus:outline-none ring-2 ring-sky-500 focus:ring-amber-500 font-semibold
+    .btn {
+        @apply bg-gray-100 text-sm uppercase border-[1px] border-b-[4px] border-gray-300 text-gray-700 shadow-lg shadow-black/40 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300 disabled:text-opacity-75 disabled:border-opacity-75 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:shadow dark:text-gray-200 dark:disabled:bg-gray-700 dark:bg-gray-800 dark:border-gray-900;
     }
-
+    .btn-alert {
+        @apply uppercase shadow-lg shadow-black/50 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300
+    }
+    .icon {
+        @apply text-2xl hover:scale-110 opacity-80 transition duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+    }
 }

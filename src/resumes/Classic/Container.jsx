@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../../GlobalContext";
+import { LEVEL_LABELS } from "../../data";
 
 const Container = ({ content, type }) => {
     const { cp } = useGlobalContext();
@@ -7,14 +8,16 @@ const Container = ({ content, type }) => {
     if (type === "header")
         return (
             <div className="grid grid-cols-12 -mx-4">
-                <img
-                    src={content.img}
-                    className="h-[156px] shadow col-span-4"
-                />
+                <div className="col-span-4 h-[176px] w-[176px] shadow">
+                    <img
+                        src={content.img}
+                        className="w-full h-full object-cover aspect-square"
+                    />
+                </div>
                 <div className="col-span-8 flex flex-col justify-between">
                     <div>
                         <div
-                            className={`text-5xl space-x-2 text-${cp}-primary font-lora`}
+                            className={`text-5xl space-x-2 text-${cp}-primary font-serif`}
                         >
                             <span className="font-semibold">
                                 {content.firstName}
@@ -26,10 +29,10 @@ const Container = ({ content, type }) => {
                         </div>
                     </div>
                     <div className="flex flex-wrap gap-x-1">
-                        <div>{content.age}</div>
-                        <div>{content.phone}</div>
-                        <div>{content.email}</div>
-                        <div>{content.address}</div>
+                        <div>{content.age + " | "}</div>
+                        <div>{content.phone + " | "}</div>
+                        <div>{content.email + " | "}</div>
+                        <div>{content.address + "."}</div>
                     </div>
                 </div>
             </div>
@@ -57,30 +60,29 @@ const Container = ({ content, type }) => {
     else if (type === "labels")
         return (
             <ul className="list-disc pl-4">
-                <li>
-                    {content.label && content.label + ": "}
-                    <span className={`text-${cp}-dark font-semibold`}>
-                        {content.values.join(", ")}.
-                    </span>
+                <li className={`text-${cp}-dark font-semibold`}>
+                    {content.join(", ")}.
                 </li>
             </ul>
         );
     else if (type === "slider")
-        return (
+        return content.map((item) => (
             <div className="-my-3">
-                <span>{content.name}</span>
+                <span>{item.name}</span>
                 <div className={`relative bg-${cp}-secondary h-2 w-full`}>
                     <div
-                        className={`bg-${cp}-primary h-full w-${content.level} absolute top-0 left-0`}
+                        className={`bg-${cp}-primary h-full w-${
+                            item.level === "6" ? "full" : item.level + "/6"
+                        } absolute top-0 left-0`}
                     ></div>
                 </div>
                 <div
                     className={`text-${cp}-primary text-right uppercase text-[.60rem]`}
                 >
-                    {content.label}
+                    {LEVEL_LABELS[item.level]}
                 </div>
             </div>
-        );
+        ));
 };
 
 export default Container;

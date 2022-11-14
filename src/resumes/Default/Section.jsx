@@ -2,12 +2,12 @@ import React from "react";
 import Container from "./Container";
 import { useGlobalContext } from "../../GlobalContext";
 
-const Section = ({ title, contents, types }) => {
+const Section = ({ title, content, type }) => {
     const { cp } = useGlobalContext();
 
     let mb = "";
 
-    if (types[0] === "slider") mb = "mb-6";
+    if (type === "slider") mb = "mb-6";
 
     return (
         <div className={`relative py-3`}>
@@ -18,9 +18,9 @@ const Section = ({ title, contents, types }) => {
                     {title}
                 </div>
             )}
-            {contents.map((cont, i) => (
-                <Container content={cont} type={types[i]} />
-            ))}
+            <div className="px-4 mt-2">
+                <Container content={content} type={type} />
+            </div>
         </div>
     );
 };

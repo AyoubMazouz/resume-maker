@@ -3,13 +3,11 @@ import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
 const CVDefault = () => {
-    const { cp, data: d } = useGlobalContext();
+    const { cp, data } = useGlobalContext();
     return (
-        <div
-            className={`w-[210mm] mx-auto bg-${cp}-light text-sm text-${cp}-dark leading-5 font-montserrat`}
-        >
+        <div className={`w-[210mm] mx-auto text-sm leading-5 font-montserrat`}>
             <div className={`px-4`}>
-                {d.map((section) => (
+                {data.map((section) => (
                     <Section {...section} />
                 ))}
             </div>

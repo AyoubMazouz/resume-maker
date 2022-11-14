@@ -3,25 +3,21 @@ import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
 const CVDefault = () => {
-    const { cp, data: d } = useGlobalContext();
+    const { cp, data } = useGlobalContext();
     return (
         <div
-            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-dark leading-5 font-montserrat`}
+            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-dark leading-5 font-montserrat font-semibold`}
         >
             {/* Header */}
             <div className={`col-span-4 bg-${cp}-primary px-4`}>
-                {d.map((section) =>
-                    section.location === "head" ? (
-                        <Section {...section} />
-                    ) : null
+                {data.map(
+                    (section) => section.id === "0" && <Section {...section} />
                 )}
             </div>
             {/* Body */}
-            <div className={`col-span-8 text-${cp}-dark px-4`}>
-                {d.map((section) =>
-                    section.location === "body" ? (
-                        <Section {...section} />
-                    ) : null
+            <div className={`col-span-8 text-${cp}-dark px-4 mt-4`}>
+                {data.map(
+                    (section) => section.id > "0" && <Section {...section} />
                 )}
             </div>
         </div>

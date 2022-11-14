@@ -1,113 +1,86 @@
 import React from "react";
+import { LEVEL_LABELS } from "../../data";
 import { useGlobalContext } from "../../GlobalContext";
 
-const Container = ({ content, title }) => {
+const Container = ({ content, type }) => {
     const { cp } = useGlobalContext();
 
-    if (content.type === "header")
+    if (type === "header")
         return (
             <>
-                <img
-                    src={content.data.img}
-                    className="h-full shadow col-span-4"
-                />
+                <div className="w-full shadow col-span-4">
+                    <img
+                        src={content.img}
+                        className="h-full w-full object-cover aspect-square"
+                    />
+                </div>
                 <div className="text-center mt-8">
                     <div className={`text-3xl space-x-2 text-${cp}-light`}>
                         <span className="font-semibold">
-                            {content.data.fullName[0]}
+                            {content.firstName}
                         </span>
-                        <span>{content.data.fullName[1]}</span>
+                        <span>{content.lastName}</span>
                     </div>
-                    <div className={`text-lg capitalize`}>
-                        {content.data.title}
-                    </div>
+                    <div className={`text-lg capitalize`}>{content.title}</div>
                 </div>
-                <div className="flex flex-col flex-wrap gap-y-1 mt-24">
-                    <div className="text-2xl mb-4 font-semibold">Contact</div>
-                    {content.data.details.map((detail) => (
-                        <div>{detail}</div>
-                    ))}
+                <div className="flex flex-col flex-wrap gap-y-1 my-24">
+                    <div
+                        className={`text-2xl mb-2 font-semibold text-${cp}-secondary`}
+                    >
+                        Contact
+                    </div>
+                    <div>{content.age}</div>
+                    <div>{content.phone}</div>
+                    <div>{content.email}</div>
+                    <div>{content.address}</div>
                 </div>
             </>
         );
-    else if (content.type === "date_list")
+    else if (type === "date_list")
         return (
             <div className="space-y-1.5">
-                <div
-                    className={`text-${cp}-dark uppercase text-2xl font-semibold mb-2`}
-                >
-                    {title}
-                </div>
-                {content.data.map((item) => (
+                {content.map((item) => (
                     <div className="grid grid-cols-12">
-                        <span className="col-span-3">{item[0]}</span>
-                        <span className="col-span-9">{item[1]}</span>
+                        <span className="col-span-3">{item.date}</span>
+                        <span className="col-span-9">{item.text}</span>
                     </div>
                 ))}
             </div>
         );
-    else if (content.type === "list")
+    else if (type === "list")
         return (
-            <div className="mb-4">
-                <div
-                    className={`text-${cp}-dark uppercase text-2xl font-semibold mb-2`}
-                >
-                    {title}
-                </div>
-                <ul className="list-disc pl-4">
-                    {content.data.map((item) => (
-                        <li>{item}</li>
-                    ))}
-                </ul>
-            </div>
-        );
-    else if (content.type === "labels")
-        return (
-            <div>
-                <div
-                    className={`text-${cp}-dark uppercase text-2xl font-semibold mb-2`}
-                >
-                    {title}
-                </div>
-                <ul className="list-disc pl-4 font-semibold">
-                    {content.data.map((items) => (
-                        <li>
-                            <div className="capitalize text-base">
-                                {items[0] && items[0] + ": "}
-                            </div>
-                            <div className={`text-${cp}-primary`}>
-                                {items[1].join(", ")}.
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    else if (content.type === "meter")
-        return (
-            <div>
-                <div className={`text-${cp}-dark font-semibold text-2xl mb-6`}>
-                    {title}
-                </div>
-                {content.data.map((item) => (
-                    <div className="-my-4">
-                        <span>{item[0]}</span>
-                        <div
-                            className={`relative bg-${cp}-secondary h-2 w-full  rounded-full`}
-                        >
-                            <div
-                                className={`bg-${cp}-dark h-full w-${item[1]} absolute top-0 left-0 rounded-full`}
-                            ></div>
-                        </div>
-                        <div
-                            className={`text-${cp}-primary text-right uppercase text-[.60rem]`}
-                        >
-                            {item[2]}
-                        </div>
-                    </div>
+            <ul className="list-disc pl-4">
+                {content.map((item) => (
+                    <li>{item}</li>
                 ))}
-            </div>
+            </ul>
         );
+    else if (type === "labels")
+        return (
+            <ul className="list-disc pl-4 font-semibold">
+                <li className={`text-${cp}-primary`}>{content.join(", ")}.</li>
+            </ul>
+        );
+    else if (type === "slider")
+        return content.map((item) => (
+            <div className="-my-3">
+                <span>{item.name}</span>
+                <div
+                    className={`relative bg-${cp}-secondary h-2 w-full  rounded-full`}
+                >
+                    <div
+                        className={`bg-${cp}-dark h-full w-${
+                            item.level === "6" ? "full" : item.level + "/6"
+                        } absolute top-0 left-0 rounded-full`}
+                    ></div>
+                </div>
+                <div
+                    className={`text-${cp}-secondary text-right uppercase text-[.60rem]`}
+                >
+                    {LEVEL_LABELS[item.level]}
+                </div>
+            </div>
+        ));
 };
 
 export default Container;

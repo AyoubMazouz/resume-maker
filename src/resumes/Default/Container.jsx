@@ -1,4 +1,5 @@
 import React from "react";
+import { LEVEL_LABELS } from "../../data";
 import { useGlobalContext } from "../../GlobalContext";
 
 const Container = ({ content, type }) => {
@@ -7,10 +8,12 @@ const Container = ({ content, type }) => {
     if (type === "header")
         return (
             <div className="grid grid-cols-12">
-                <img
-                    src={content.img}
-                    className="h-[188px] shadow col-span-4 rounded-lg"
-                />
+                <div className="h-[198px] w-[198px] shadow col-span-4 rounded-lg overflow-hidden">
+                    <img
+                        src={content.img}
+                        className="w-full h-full object-cover aspect-square"
+                    />
+                </div>
                 <div
                     className={`col-span-8 flex flex-col justify-between text-${cp}-light mt-[-.35rem]`}
                 >
@@ -54,53 +57,48 @@ const Container = ({ content, type }) => {
         );
 
     if (type === "date_list")
-        return (
+        return content.map((item) => (
             <div className="grid grid-cols-12 my-1.5">
-                <span className="col-span-3">{content.date}</span>
-                <span className="col-span-9">{content.text}</span>
+                <span className="col-span-3">{item.date}</span>
+                <span className="col-span-9">{item.text}</span>
             </div>
-        );
+        ));
     else if (type === "list")
         return (
             <ul className="list-disc pl-4">
-                {content.map((item) => (
-                    <li>{item}</li>
+                {content.map((cont) => (
+                    <li>{cont}</li>
                 ))}
             </ul>
         );
     else if (type === "labels")
         return (
             <ul className="list-disc pl-4">
-                <li>
-                    {content.label && content.label + ": "}
-                    <span className={`text-${cp}-dark font-semibold`}>
-                        {content.values.join(", ")}.
-                    </span>
+                <li className={`text-${cp}-dark font-semibold`}>
+                    {content.join(", ")}.
                 </li>
             </ul>
         );
     else if (type === "slider")
-        return (
+        return content.map((item) => (
             <div className="-my-4">
-                <span>{content.name}</span>
+                <span>{item.name}</span>
                 <div
                     className={`relative bg-${cp}-secondary h-2 w-full  rounded-full`}
                 >
                     <div
                         className={`bg-${cp}-primary h-full w-${
-                            content.level === "6"
-                                ? "full"
-                                : content.level + "/6"
+                            item.level === "6" ? "full" : item.level + "/6"
                         } absolute top-0 left-0 rounded-full`}
                     ></div>
                 </div>
                 <div
                     className={`text-${cp}-primary text-right uppercase text-[.60rem]`}
                 >
-                    {content.label}
+                    {LEVEL_LABELS[item.level]}
                 </div>
             </div>
-        );
+        ));
 };
 
 export default Container;
