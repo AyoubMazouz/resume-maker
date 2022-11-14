@@ -32,7 +32,7 @@ export function useGlobalContext() {
 export function GlobalContextProvider({ children }) {
     const [alert, setAlert] = useState(false);
 
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
 
     const [cp, setCp] = useState(cps[0]);
     const [cv, setCv] = useState(cvs[0]);
