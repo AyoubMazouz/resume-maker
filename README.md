@@ -62,6 +62,38 @@ When you create a new section don't forget to give it a title and then fill you 
 
 ##### AVAILABLE TYPES:
 
+###### DATE LIST:
+
+This type allows you to provide two input fields.
+
+![](/public//screenshots/date-list.png)
+
+This type could be used for sections such as: Experience, Education...
+
+###### LIST:
+
+This one gives you a list and it is displayed vertically.
+
+![](/public//screenshots/list.png)
+
+This type could be used for sections such as: competences...
+
+###### labels:
+
+Same as list but it is displayed in line.
+
+![](/public//screenshots/labels.png)
+
+This type could be used for sections such as: hobbies, Software, Programing languages...
+
+###### Slider:
+
+The Slider type take in a name and a number between 0 and 6.
+
+![](/public//screenshots/slider.png)
+
+This type could be used for sections such as: languages, other skills...
+
 ### HOW TO PRINT:
 
 Printing the final product is very straightforward, you need to change some printing variables in your browser.
