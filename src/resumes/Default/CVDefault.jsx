@@ -6,12 +6,15 @@ const CVDefault = () => {
     const { cp, data } = useGlobalContext();
     return (
         <div
-            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-dark leading-5 font-montserrat font-semibold`}
+            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-dark font-semibold`}
         >
             {/* Header */}
             <div className={`col-span-4 bg-${cp}-primary px-4`}>
                 {data.map(
-                    (section) => section.id === "0" && <Section {...section} />
+                    (section) =>
+                        section.id === "0" && (
+                            <Section {...{ ...section, title: "" }} />
+                        )
                 )}
             </div>
             {/* Body */}

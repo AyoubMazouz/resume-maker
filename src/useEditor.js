@@ -1,4 +1,4 @@
-import { DEFAULT_DATA, INIT_SECTION, MESSAGES } from "./data";
+import { AVAILABLE_TYPES, DEFAULT_DATA, INIT_SECTION, MESSAGES } from "./data";
 import { useGlobalContext } from "./GlobalContext";
 
 const useEditor = () => {
@@ -217,8 +217,6 @@ const useEditor = () => {
             }
         });
 
-        console.log(didMove);
-
         setData(copiedData);
         return didMove;
     };
@@ -241,7 +239,53 @@ const useEditor = () => {
     };
 
     const importFromJSON = (e) => {
-        // setData();
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = (readerEvent) => {
+            const json = readerEvent.target.result;
+            const content = JSON.parse(json);
+            console.log(content);
+            setData(content);
+        };
+    };
+
+    const validateJSONData = (data) => {
+        const errorAlert = {
+            type: "error",
+            text: "This file might be corrupted!",
+        };
+
+        // Check if array empty or non array type:
+        if (!Array.isArray(data) || data.length < 1)
+            return setAlert(errorAlert);
+
+        // Header Validation:
+        if (
+            data[0].id !== "0" ||
+            data[0].type !== "header" ||
+            !data[0].content.hasOwnProperty("img") ||
+            !data[0].content.hasOwnProperty("firstName") ||
+            !data[0].content.hasOwnProperty("lastName") ||
+            !data[0].content.hasOwnProperty("title") ||
+            !data[0].content.hasOwnProperty("age") ||
+            !data[0].content.hasOwnProperty("email") ||
+            !data[0].content.hasOwnProperty("phone") ||
+            !data[0].content.hasOwnProperty("address")
+        )
+            return setAlert(errorAlert);
+
+        // Check if all sections has types:
+        const typeAttExist = data.some((section) => {
+            if (section.hasOwnProperty("type"))
+                if (!AVAILABLE_TYPES.includes(section.type)) return false;
+            if (!section.hasOwnProperty("title") && section.id !== "0")
+                return false;
+            return false;
+        });
+        if (!typeAttExist) return setAlert(errorAlert);
+
+        return true;
     };
 
     return {

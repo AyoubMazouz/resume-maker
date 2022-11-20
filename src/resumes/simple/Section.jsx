@@ -8,16 +8,20 @@ const Section = ({ title, content, type, id }) => {
         <div className={`relative pt-4 pb-3`}>
             {title && (
                 <div
-                    className={`${
-                        ["0", "5", "-1"].includes(id)
-                            ? `text-${cp}-dark bg-${cp}-light my-6`
-                            : `text-${cp}-light bg-${cp}-primary mb-2`
-                    } px-4 py-1 rounded-sm shadow-sm uppercase text-xl font-semibold`}
+                    className={`text-${cp}-primary capitalize text-lg font-bold mb-2`}
                 >
                     {title}
                 </div>
             )}
-            <Container content={content} type={type} />
+            <div
+                className={
+                    ["-1", "0", "4", "5"].includes(id)
+                        ? ""
+                        : `pl-6 border-l-2 border-${cp}-dark border-opacity-[15%]`
+                }
+            >
+                <Container content={content} type={type} />
+            </div>
         </div>
     );
 };

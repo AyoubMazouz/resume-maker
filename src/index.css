@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Lora:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Lora:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto:wght@300;400;500;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,12 +15,12 @@
         @apply font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5
     }
     .btn {
-        @apply bg-gray-100 text-sm uppercase border-[1px] border-b-[4px] border-gray-300 text-gray-700 shadow-lg shadow-black/40 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300 disabled:text-opacity-75 disabled:border-opacity-75 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:shadow dark:text-gray-200 dark:disabled:bg-gray-700 dark:bg-gray-800 dark:border-gray-900;
+        @apply bg-gray-100 text-sm uppercase border-[1px] border-b-[4px] border-gray-300 text-gray-700 shadow-md shadow-black/25 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300 disabled:text-opacity-75 disabled:border-opacity-75 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:shadow dark:text-gray-200 dark:disabled:bg-gray-700 dark:bg-gray-800 dark:border-gray-900;
     }
     .btn-alert {
         @apply uppercase shadow-lg shadow-black/50 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300
     }
     .icon {
-        @apply text-2xl hover:scale-110 opacity-80 transition duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+        @apply text-3xl hover:scale-110 opacity-80 transition duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
     }
 }

@@ -11,7 +11,10 @@ const CVClassic = () => {
             {/* Header */}
             <div className={`col-span-4 mb-16`}>
                 {data.map(
-                    (section) => section.id === "0" && <Section {...section} />
+                    (section) =>
+                        section.id === "0" && (
+                            <Section {...{ ...section, title: "" }} />
+                        )
                 )}
             </div>
             {/* Body */}

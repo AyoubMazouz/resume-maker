@@ -1,6 +1,6 @@
 # RESUME MAKER
 
-##### An application made with react that helps you create profetionnal looking resumes fast (less than 3 min) and for free.
+##### An application made with react that helps you create professional looking resumes fast (less than 3 min) and for free.
 
 ##### You have many choices when it comes to colors and designs all uniq.
 

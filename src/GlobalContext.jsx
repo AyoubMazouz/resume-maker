@@ -5,11 +5,15 @@ import CVClassic from "./resumes/Classic/CVClassic";
 import CVDefault from "./resumes/Default/CVDefault";
 import CVSide from "./resumes/Side/CVSide";
 import { DEFAULT_DATA } from "./data";
+import CVSimple from "./resumes/simple/CVSimple";
+import CVNoImg from "./resumes/NoImg/CVNoImg";
 
 const cvComps = {
     default: <CVDefault />,
     classic: <CVClassic />,
     side: <CVSide />,
+    simple: <CVSimple />,
+    noImg: <CVNoImg />,
 };
 
 const cps = [
@@ -19,7 +23,31 @@ const cps = [
     "gray",
     "carmine-pink",
     "viridian-green",
+    "caput-mortuum",
+    "dark-turquoise",
+    "fiery-rose",
+    "usla-blue",
+    "carolina-blue",
+    "camouflage-green",
     "light-taupe",
+    "oxley",
+    "flame",
+    "msu-green",
+    "eggshell",
+    "rose-red",
+    "venetian-red",
+    "patriarch",
+    "green-sheen",
+    "medium-vermilion",
+    "space-cadet",
+    "japanese-laurel",
+    "davy-grey",
+    "violets-are-blue",
+    "brilliant-rose",
+    "strawberry",
+    "deep-chestnut",
+    "carmine",
+    "l",
 ];
 
 const cvs = Object.keys(cvComps);
@@ -35,7 +63,7 @@ export function GlobalContextProvider({ children }) {
     const [darkMode, setDarkMode] = useState(false);
 
     const [cp, setCp] = useState(cps[0]);
-    const [cv, setCv] = useState(cvs[0]);
+    const [cv, setCv] = useState(cvs[4]);
 
     const [data, setData] = useState(DEFAULT_DATA);
 

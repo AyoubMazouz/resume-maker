@@ -1,5 +1,11 @@
 import React from "react";
-import { LEVEL_LABELS } from "../../data";
+import {
+    ICEmail,
+    ICLocation,
+    ICPerson,
+    ICPhone,
+    LEVEL_LABELS,
+} from "../../data";
 import { useGlobalContext } from "../../GlobalContext";
 
 const Container = ({ content, type }) => {
@@ -7,34 +13,52 @@ const Container = ({ content, type }) => {
 
     if (type === "header")
         return (
-            <>
-                <div className="w-full shadow col-span-4">
+            <div className="mb-6">
+                <div className="w-full shadow col-span-4 overflow-hidden rounded-sm">
+                    <div
+                        className={`text-4xl text-center text-${cp}-light uppercase`}
+                    >
+                        <div className="font-semibold text-center">
+                            {content.firstName}
+                        </div>
+                        <div className="">{content.lastName}</div>
+                    </div>
                     <img
                         src={content.img}
-                        className="h-full w-full object-cover aspect-square"
+                        className="h-full w-full object-cover aspect-square rounded mt-3"
                     />
                 </div>
-                <div className="text-center mt-8">
-                    <div className={`text-3xl space-x-2 text-${cp}-light`}>
-                        <span className="font-semibold">
-                            {content.firstName}
-                        </span>
-                        <span>{content.lastName}</span>
-                    </div>
-                    <div className={`text-lg capitalize`}>{content.title}</div>
+                <div className={`uppercase text-center mt-2 font-bold`}>
+                    {content.title}
                 </div>
-                <div className="flex flex-col flex-wrap gap-y-1 my-24">
-                    <div
-                        className={`text-2xl mb-2 font-semibold text-${cp}-secondary`}
-                    >
-                        Contact
-                    </div>
-                    <div>{content.age}</div>
-                    <div>{content.phone}</div>
-                    <div>{content.email}</div>
-                    <div>{content.address}</div>
+            </div>
+        );
+    else if (type === "details")
+        return (
+            <div className="flex flex-col flex-wrap gap-y-3 font-semibold underline">
+                <div className="flex gap-x-2 items-end">
+                    <ICPerson
+                        className={`text-2xl text-${cp}-dark scale-[.9]`}
+                    />
+                    {content.age}
                 </div>
-            </>
+                <div className="flex gap-x-2 items-end">
+                    <ICPhone className={`text-2xl text-${cp}-dark`} />{" "}
+                    {content.phone}
+                </div>
+                <div className="flex gap-x-2 items-end">
+                    <ICEmail
+                        className={`text-2xl text-${cp}-dark scale-[1.1] mt-0.5`}
+                    />{" "}
+                    {content.email}
+                </div>
+                <div className="flex gap-x-2 items-end">
+                    <ICLocation
+                        className={`text-2xl text-${cp}-dark scale-[1.25] mb-0.5`}
+                    />
+                    {content.address}
+                </div>
+            </div>
         );
     else if (type === "date_list")
         return (
@@ -63,19 +87,30 @@ const Container = ({ content, type }) => {
         );
     else if (type === "slider")
         return content.map((item) => (
-            <div className="-my-3">
-                <span>{item.name}</span>
+            <div className="">
+                <span className="font-semibold capitalize text-lg">
+                    {item.name}
+                </span>
                 <div
-                    className={`relative bg-${cp}-secondary h-2 w-full  rounded-full`}
+                    className={`relative flex justify-between w-full rounded-full mt-1`}
                 >
-                    <div
-                        className={`bg-${cp}-dark h-full w-${
-                            item.level === "6" ? "full" : item.level + "/6"
-                        } absolute top-0 left-0 rounded-full`}
-                    ></div>
+                    {new Array(6).fill(0).map((_, i) => {
+                        if (i < item.level) {
+                            return (
+                                <div
+                                    className={`bg-${cp}-dark h-2.5 w-8 rounded-sm shadow`}
+                                ></div>
+                            );
+                        } else
+                            return (
+                                <div
+                                    className={`bg-${cp}-secondary h-2.5 w-8 rounded-sm shadow`}
+                                ></div>
+                            );
+                    })}
                 </div>
                 <div
-                    className={`text-${cp}-secondary text-right uppercase text-[.60rem]`}
+                    className={`text-${cp}-secondary text-right uppercase text-[.60rem] underline`}
                 >
                     {LEVEL_LABELS[item.level]}
                 </div>

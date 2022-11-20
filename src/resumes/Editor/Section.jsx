@@ -86,7 +86,7 @@ const Section = ({ title, content, type, id }) => {
                     <input
                         id={id}
                         type="text"
-                        placeholder="Title..."
+                        placeholder="Titre..."
                         value={title}
                         onChange={titleHandler}
                         className={`input bg-${cp}-primary ring-0 shadow-0 font-bold text-lg text-gray-100 dark:text-gray-400`}
