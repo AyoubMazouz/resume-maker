@@ -1,11 +1,5 @@
 import React from "react";
-import {
-    ICEmail,
-    ICLocation,
-    ICPerson,
-    ICPhone,
-    LEVEL_LABELS,
-} from "../../data";
+import { ICLocation } from "../../data/icons";
 import { useGlobalContext } from "../../GlobalContext";
 
 const Container = ({ content, type }) => {

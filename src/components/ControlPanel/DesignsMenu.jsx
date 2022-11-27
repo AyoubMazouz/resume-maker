@@ -1,22 +1,19 @@
 import React from "react";
-import { ICMenu } from "../../data";
+import { CV_LABELS } from "../../data";
+import { ICMenu } from "../../data/icons";
+import { useGlobalContext } from "../../GlobalContext";
 
-const designsMenu = ({
-    cp,
-    cvs,
-    cv,
-    setCv,
-    currModel,
-    setCurrModel,
-    dataRef,
-}) => {
+const DesignsMenu = ({ dataRef, currModel, setCurrModel }) => {
+    const { currDesign, setCurrDesign, cp } = useGlobalContext();
     return (
         <div className="relative">
             <button
                 onClick={() => setCurrModel("design")}
                 className="btn flex gap-x-2 items-center justify-between max-w-[13rem] md:w-[13rem]"
             >
-                <span className="max-w-[16ch]">{cv.replace("-", " ")}</span>
+                <span className="max-w-[16ch]">
+                    {CV_LABELS[currDesign].replace("-", " ")}
+                </span>
                 <div className="flex gap-x-2 items-center">
                     <ICMenu className="icon" />
                 </div>
@@ -24,19 +21,19 @@ const designsMenu = ({
             {currModel === "design" && (
                 <div
                     ref={dataRef}
-                    className="absolute top-[3rem] py-6 px-3 w-[13rem] right-100 bg-gray-100 dark:bg-gray-800 dark:border-gray-600 border-gray-300 border-2 rounded-md shadow-md flex flex-wrap items-center justify-center gap-4 transition-all duration-300"
+                    className="absolute top-[3rem] py-6 px-3 w-[13rem] right-[50%] translate-x-[50%] bg-gray-100 dark:bg-gray-800 dark:border-gray-600 border-gray-300 border-2 rounded-md shadow-md flex flex-wrap items-center justify-center gap-4 transition-all duration-300 z-[6]"
                 >
-                    {cvs.map((_cv) => {
-                        if (_cv === cvs[0])
+                    {CV_LABELS.map((cv, index) => {
+                        if (index === 0)
                             return (
                                 <div className="text-center">
                                     <button
-                                        key={_cv}
+                                        key={cv}
                                         className={`capitalize rounded w-[2.5rem] h-[3.75rem] bg-${cp}-light shadow-md relative border-success overflow-hidden transition-all duration-300 hover:opacity-75 ${
-                                            cv === _cv &&
+                                            index === currDesign &&
                                             "border-2 scale-[1.25] shadow-lg"
                                         }`}
-                                        onClick={() => setCv(_cv)}
+                                        onClick={() => setCurrDesign(index)}
                                     >
                                         <div
                                             className={`absolute top-[0] right-[50%] translate-x-[50%] h-[1.25rem] w-full bg-${cp}-primary`}
@@ -69,20 +66,20 @@ const designsMenu = ({
                                         ></div>
                                     </button>
                                     <div className="text-gray-800 dark:text-gray-100 uppercase text-xs font-semibold mt-3">
-                                        {cvs[0]}
+                                        {cv}
                                     </div>
                                 </div>
                             );
-                        else if (_cv === cvs[1])
+                        else if (index === 1)
                             return (
                                 <div className="text-center">
                                     <button
-                                        key={_cv}
+                                        key={cv}
                                         className={`capitalize rounded w-[2.5rem] h-[3.75rem] bg-${cp}-light shadow-md relative border-success overflow-hidden transition-all duration-300 hover:opacity-75 ${
-                                            cv === _cv &&
+                                            index === currDesign &&
                                             "border-2 scale-[1.25] shadow-lg"
                                         }`}
-                                        onClick={() => setCv(_cv)}
+                                        onClick={() => setCurrDesign(index)}
                                     >
                                         <div
                                             className={`absolute top-[.25rem] left-[.25rem] h-[.70rem] w-[.70rem] bg-${cp}-dark`}
@@ -118,20 +115,20 @@ const designsMenu = ({
                                         ></div>
                                     </button>
                                     <div className="text-gray-800 dark:text-gray-100 uppercase text-xs font-semibold mt-3">
-                                        {cvs[1]}
+                                        {cv}
                                     </div>
                                 </div>
                             );
-                        else if (_cv === cvs[2])
+                        else if (index === 2)
                             return (
                                 <div className="text-center">
                                     <button
-                                        key={_cv}
+                                        key={cv}
                                         className={`capitalize rounded w-[2.5rem] h-[3.75rem] bg-${cp}-light shadow-md relative border-success overflow-hidden transition-all duration-300 hover:opacity-75 grid grid-cols-12 ${
-                                            cv === _cv &&
+                                            index === currDesign &&
                                             "border-2 scale-[1.25] shadow-lg"
                                         }`}
-                                        onClick={() => setCv(_cv)}
+                                        onClick={() => setCurrDesign(index)}
                                     >
                                         <div
                                             className={`bg-${cp}-primary col-span-5 py-2 px-0.5`}
@@ -179,20 +176,20 @@ const designsMenu = ({
                                         </div>
                                     </button>
                                     <div className="text-gray-800 dark:text-gray-100 uppercase text-xs font-semibold mt-3">
-                                        {cvs[2]}
+                                        {cv}
                                     </div>
                                 </div>
                             );
-                        else if (_cv === cvs[3])
+                        else if (index === 3)
                             return (
                                 <div className="text-center">
                                     <button
-                                        key={_cv}
+                                        key={cv}
                                         className={`capitalize rounded w-[2.5rem] h-[3.75rem] bg-${cp}-light shadow-md relative border-success overflow-hidden transition-all duration-300 hover:opacity-75 grid grid-cols-12 ${
-                                            cv === _cv &&
+                                            index === currDesign &&
                                             "border-2 scale-[1.25] shadow-lg"
                                         }`}
-                                        onClick={() => setCv(_cv)}
+                                        onClick={() => setCurrDesign(index)}
                                     >
                                         <div
                                             className={`col-span-7 py-2 px-0.5`}
@@ -238,20 +235,20 @@ const designsMenu = ({
                                         </div>
                                     </button>
                                     <div className="text-gray-800 dark:text-gray-100 uppercase text-xs font-semibold mt-3">
-                                        {cvs[3]}
+                                        {cv}
                                     </div>
                                 </div>
                             );
-                        else if (_cv === cvs[4])
+                        else if (index === 4)
                             return (
                                 <div className="text-center">
                                     <button
-                                        key={_cv}
+                                        key={cv}
                                         className={`capitalize rounded w-[2.5rem] h-[3.75rem] bg-${cp}-light shadow-md relative border-success overflow-hidden transition-all duration-300 hover:opacity-75 ${
-                                            cv === _cv &&
+                                            index === currDesign &&
                                             "border-2 scale-[1.25] shadow-lg"
                                         }`}
-                                        onClick={() => setCv(_cv)}
+                                        onClick={() => setCurrDesign(index)}
                                     >
                                         <div
                                             className={`absolute top-[0] right-[50%] translate-x-[50%] h-[1.25rem] w-full bg-${cp}-primary`}
@@ -282,7 +279,7 @@ const designsMenu = ({
                                         ></div>
                                     </button>
                                     <div className="text-gray-800 dark:text-gray-100 uppercase text-xs font-semibold mt-3">
-                                        {cvs[4]}
+                                        {cv}
                                     </div>
                                 </div>
                             );
@@ -293,4 +290,4 @@ const designsMenu = ({
     );
 };
 
-export default designsMenu;
+export default DesignsMenu;

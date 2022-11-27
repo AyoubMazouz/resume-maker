@@ -77,10 +77,22 @@
         "type": "slider",
         "title": "Langues",
         "content": [
-            { "name": "Français", "level": "3" },
-            { "name": "Anglais", "level": "5" },
-            { "name": "Arabe", "level": "6" }
+            {
+                "name": "Français",
+                "level": "3"
+            },
+            {
+                "name": "Anglais",
+                "level": "5"
+            },
+            {
+                "name": "Arabe",
+                "level": "6"
+            }
         ]
     },
-    { "idCount": 6, "type": "add_section" }
+    {
+        "idCount": 6,
+        "type": "add_section"
+    }
 ]

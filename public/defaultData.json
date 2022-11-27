@@ -1,0 +1,76 @@
+[
+    {
+        "id": "0",
+        "title": "details",
+        "type": "header",
+        "content": {
+            "img": "/assets/profile.png",
+            "firstName": "",
+            "lastName": "",
+            "title": "",
+            "age": "",
+            "phone": "",
+            "email": "",
+            "address": ""
+        }
+    },
+    {
+        "id": "-1",
+        "title": "Lettre motivation",
+        "type": "letter",
+        "content": {
+            "companyName": "",
+            "subject": "",
+            "paragraphs": [""]
+        }
+    },
+    {
+        "id": "1",
+        "type": "date_list",
+        "title": "Formation",
+        "content": [
+            {
+                "date": "",
+                "text": ""
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Experience",
+        "type": "date_list",
+        "content": [
+            {
+                "date": "",
+                "text": ""
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "type": "list",
+        "title": "Competence",
+        "content": [""]
+    },
+    {
+        "id": "4",
+        "type": "labels",
+        "title": "Loisir",
+        "content": [""]
+    },
+    {
+        "id": "5",
+        "type": "slider",
+        "title": "Langues",
+        "content": [
+            {
+                "name": "",
+                "level": "3"
+            }
+        ]
+    },
+    {
+        "idCount": 6,
+        "type": "add_section"
+    }
+]

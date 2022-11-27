@@ -1,35 +1,33 @@
-import {
-    MdClose,
-    MdKeyboardArrowUp,
-    MdKeyboardArrowDown,
-    MdDarkMode,
-    MdLightMode,
-    MdLocationPin,
-} from "react-icons/md";
-import {
-    BsFillFileEarmarkExcelFill,
-    BsFillFileEarmarkDiffFill,
-    BsPersonBoundingBox,
-} from "react-icons/bs";
-import { FaTrash, FaPhoneSquareAlt } from "react-icons/fa";
-import { RiFolderAddFill, RiMailUnreadFill } from "react-icons/ri";
-import { BiMenuAltLeft } from "react-icons/bi";
-import { ImMail } from "react-icons/hi";
+import CVClassic from "../resumes/Classic/CVClassic";
+import CVDefault from "../resumes/Default/CVDefault";
+import CVSide from "../resumes/Side/CVSide";
+import CVSimple from "../resumes/simple/CVSimple";
+import CVNoImg from "../resumes/NoImg/CVNoImg";
+import LetterDefault from "../resumes/Default/LetterDefault";
 
-export const ICClose = MdClose;
-export const ICDeleteItem = BsFillFileEarmarkExcelFill;
-export const ICDeleteSection = FaTrash;
-export const ICAddItem = BsFillFileEarmarkDiffFill;
-export const ICAddSection = RiFolderAddFill;
-export const ICArrowUp = MdKeyboardArrowUp;
-export const ICArrowDown = MdKeyboardArrowDown;
-export const ICMenu = BiMenuAltLeft;
-export const ICDarkMode = MdDarkMode;
-export const ICLightMode = MdLightMode;
-export const ICPerson = BsPersonBoundingBox;
-export const ICPhone = FaPhoneSquareAlt;
-export const ICEmail = RiMailUnreadFill;
-export const ICLocation = MdLocationPin;
+// <- Components Start
+
+export const CV_OBJ = {
+    default: <CVDefault />,
+    classic: <CVClassic />,
+    side: <CVSide />,
+    simple: <CVSimple />,
+    noImg: <CVNoImg />,
+};
+export const LETTERS_OBJ = {
+    default: <LetterDefault />,
+    classic: <CVClassic />,
+    side: <CVSide />,
+    simple: <CVSimple />,
+    noImg: <CVNoImg />,
+};
+
+export const CV_LABELS = Object.keys(CV_OBJ);
+export const LETTER_LABELS = Object.keys(LETTERS_OBJ);
+export const CV_COMPS = Object.values(CV_OBJ);
+export const LETTER_COMPS = Object.values(LETTERS_OBJ);
+
+// Components End ->
 
 export const MESSAGES = {
     moveSection: "Vous avez atteint la fin !",
@@ -40,6 +38,56 @@ export const MESSAGES = {
     imgAspectRatio:
         "L'image n'est pas au format carré, le format d'image 1:1 est recommandé.",
 };
+
+export const STYLES = {
+    fontSize: {
+        0: "text-xs",
+        1: "text-sm",
+        2: "text-base",
+        3: "text-lg",
+    },
+    leading: {
+        0: "leading-4",
+        1: "leading-5",
+        2: "leading-6",
+        3: "leading-7",
+        4: "leading-8",
+    },
+};
+
+export const CPS = [
+    "steel-blue",
+    "alabaster",
+    "cyber-grape",
+    "gray",
+    "carmine-pink",
+    "viridian-green",
+    "caput-mortuum",
+    "dark-turquoise",
+    "fiery-rose",
+    "usla-blue",
+    "carolina-blue",
+    "camouflage-green",
+    "light-taupe",
+    "oxley",
+    "flame",
+    "msu-green",
+    "eggshell",
+    "rose-red",
+    "venetian-red",
+    "patriarch",
+    "green-sheen",
+    "medium-vermilion",
+    "space-cadet",
+    "japanese-laurel",
+    "davy-grey",
+    "violets-are-blue",
+    "brilliant-rose",
+    "strawberry",
+    "deep-chestnut",
+    "carmine",
+    "l",
+];
 
 export const LEVEL_LABELS = [
     "donkey",
@@ -90,181 +138,6 @@ export const INIT_SECTION = {
 
 export const AVAILABLE_TYPES = Object.keys(INIT_SECTION);
 
-export const DEFAULT_DATA = [
-    {
-        id: "0",
-        type: "header",
-        content: {
-            img: "/assets/profile.png",
-            firstName: "",
-            lastName: "",
-            title: "",
-            age: "",
-            phone: "",
-            email: "",
-            address: "",
-        },
-    },
-    {
-        id: "-1",
-        title: "Lettre motivation",
-        type: "letter",
-        content: {
-            companyName: "",
-            subject: "",
-            paragraphs: ["hello world"],
-        },
-    },
-    {
-        id: "1",
-        type: "date_list",
-        title: "Formation",
-        content: [
-            {
-                date: "",
-                text: "",
-            },
-        ],
-    },
-    {
-        id: "2",
-        title: "Experience",
-        type: "date_list",
-        content: [
-            {
-                date: "",
-                text: "",
-            },
-        ],
-    },
-    {
-        id: "3",
-        type: "list",
-        title: "Competence",
-        content: [""],
-    },
-    {
-        id: "4",
-        type: "labels",
-        title: "Loisir",
-        content: [""],
-    },
-    {
-        id: "5",
-        type: "slider",
-        title: "Langues",
-        content: [
-            {
-                name: "",
-                level: "3",
-            },
-        ],
-    },
-    {
-        idCount: 6,
-        type: "add_section",
-    },
-];
-
-const PREVIEW_DATA = [
-    {
-        id: "0",
-        type: "header",
-        content: {
-            img: "/assets/profile.png",
-            firstName: "Ayoub",
-            lastName: "Mazouz",
-            title: "software developer",
-            age: "22 ans",
-            phone: "07 70 75 91 06",
-            email: "ayoub2000mazouz@gmail.com",
-            address: "Sidi-Maârouf Lot Anna 4, 14_6, Casablanca.",
-        },
-    },
-    {
-        id: "1",
-        type: "date_list",
-        title: "Formation",
-        content: [
-            {
-                date: "2019 - 2020",
-                text: "Baccalauréat branche Science de la Vie et la Terre (SVT) à lycée Qadi Ayad.",
-            },
-            {
-                date: "2021 - 2023",
-                text: "Technicien Spécialisé en Infrastructure Informatique à ISFO (OFPPT) à Sidi Maârouf, Casablanca.",
-            },
-        ],
-    },
-    {
-        id: "2",
-        title: "Experience",
-        type: "date_list",
-        content: [
-            {
-                date: "Juil - Août 2022",
-                text: "PHP/Laravel Backend Développeur à Sirecom.ma.",
-            },
-        ],
-    },
-    {
-        id: "3",
-        type: "list",
-        title: "Competence",
-        content: [
-            "Travailler efficacement dans les environnements Windows et Linux.",
-            "Algorithmes et structures de données.",
-            "Travaillez avec des APIs, des bases de données relationnelles et basées sur des documents.",
-            "Automatisation et virtualisation.",
-            "Tests unitaires et débogage.",
-            "Apprenant vite, tant que la documentation est disponible.",
-            "Résolution de problèmes et pensée critique.",
-            "Auditeur actif, apprentissage continu.",
-            "Efficient: JavaScript, Python, Git, ReactJs, NodeJs, TailwindCSS.",
-            "Familiar: C#, C, Lua, TypeScript, Bash, PowerShell, SASS, FireBase, BootStrap, Flask, ReactNative, Electron, PHP, Laravel.",
-        ],
-    },
-    {
-        id: "4",
-        type: "labels",
-        title: "Loisir",
-        content: [
-            "écouter des histoires",
-            "regarder des films",
-            "Documentaires",
-            "Podcasts",
-            "Technologie",
-            "Astronomie",
-            "Dessin",
-            "Jeux vidéos",
-            "cuisine",
-        ],
-    },
-    {
-        id: "5",
-        type: "slider",
-        title: "Langues",
-        content: [
-            {
-                name: "Français",
-                level: "3",
-            },
-            {
-                name: "Anglais",
-                level: "5",
-            },
-            {
-                name: "Arabe",
-                level: "6",
-            },
-        ],
-    },
-    {
-        idCount: 6,
-        type: "add_section",
-    },
-];
-
 export const ABOUT = {
     content: [
         "Une application créée avec React qui vous aide à créer des CV professionnelle rapidement (moins de 3 minutes) et gratuitement.",
@@ -274,8 +147,6 @@ export const ABOUT = {
     version: "BETA V1.7.3",
     repository: "https://github.com/ayoubmazouz/resume-maker",
 };
-
-//
 
 export const DOCUMENTATION = (
     <div className="text-gray-800 dark:text-gray-100 space-y-4">

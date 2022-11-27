@@ -1,5 +1,5 @@
-import { AVAILABLE_TYPES, DEFAULT_DATA, INIT_SECTION, MESSAGES } from "./data";
-import { useGlobalContext } from "./GlobalContext";
+import { AVAILABLE_TYPES, INIT_SECTION, MESSAGES } from "../../data";
+import { useGlobalContext } from "../../GlobalContext";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
@@ -235,7 +235,7 @@ const useEditor = () => {
         const copiedData = copyData();
 
         const didMove = copiedData.some((section, index) => {
-            if (section.id === id && dir === "up" && index !== 1) {
+            if (section.id === id && dir === "up" && [0, 1].includes(index)) {
                 [copiedData[index], copiedData[index - 1]] = [
                     copiedData[index - 1],
                     copiedData[index],
@@ -262,12 +262,13 @@ const useEditor = () => {
     const saveToLocalStorage = (e) =>
         localStorage.setItem("resumeMakerData", JSON.stringify(data));
 
-    const resetLocalStorage = (defaultData) =>
-        localStorage.setItem("resumeMakerData", JSON.stringify(defaultData));
-
     const resetData = () => {
-        resetLocalStorage(DEFAULT_DATA);
-        setData(DEFAULT_DATA);
+        fetch("/defaultData.json")
+            .then((response) => response.json())
+            .then((json) => {
+                setData(json);
+                localStorage.setItem("resumeMakerData", JSON.stringify(json));
+            });
     };
 
     const exportToJSON = (e) => {

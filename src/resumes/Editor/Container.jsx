@@ -1,12 +1,8 @@
 import React from "react";
-import {
-    AVAILABLE_TYPES,
-    ICAddItem,
-    ICAddSection,
-    ICDeleteItem,
-} from "../../data";
+import { AVAILABLE_TYPES } from "../../data";
+import { ICAddItem, ICAddSection, ICDeleteItem } from "../../data/icons";
 import { useGlobalContext } from "../../GlobalContext";
-import useEditor from "../../useEditor";
+import useEditor from "../../resumes/Editor/useEditor";
 
 const Container = ({ content, type, id }) => {
     const { cp, letterEnabled } = useGlobalContext();

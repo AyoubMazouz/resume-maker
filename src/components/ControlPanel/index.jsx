@@ -1,24 +1,14 @@
 import React from "react";
-import { ICDarkMode, ICLightMode, ICMenu, MESSAGES } from "../../data";
+import { MESSAGES } from "../../data";
+import { ICDarkMode, ICLightMode, ICMenu } from "../../data/icons";
 import { useGlobalContext } from "../../GlobalContext";
-import useEditor from "../../useEditor";
+import useEditor from "../../resumes/Editor/useEditor";
 import ColorPaletteMenu from "./ColorPaletteMenu";
 import DesignsMenu from "./DesignsMenu";
 
 const ControlPanel = () => {
-    const {
-        cps,
-        setCp,
-        cv,
-        setCv,
-        cvs,
-        cp,
-        setAlert,
-        setDarkMode,
-        darkMode,
-        options,
-        setOptions,
-    } = useGlobalContext();
+    const { setAlert, setDarkMode, darkMode, options, setOptions } =
+        useGlobalContext();
     const {
         saveToLocalStorage,
         exportToJSON,
@@ -96,7 +86,7 @@ const ControlPanel = () => {
                     {currModel === "data" && (
                         <div
                             ref={dataRef}
-                            className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
+                            className="absolute top-[3rem] right-[50%] translate-x-[50%] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100 z-[6]"
                         >
                             <button className="btn" onClick={exportToPDF}>
                                 télécharger
@@ -135,7 +125,7 @@ const ControlPanel = () => {
                     {currModel === "help" && (
                         <div
                             ref={dataRef}
-                            className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
+                            className="absolute top-[3rem] right-[50%] translate-x-[50%] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100 z-[6]"
                         >
                             <button
                                 className="btn"
@@ -177,15 +167,18 @@ const ControlPanel = () => {
                     {currModel === "options" && (
                         <div
                             ref={dataRef}
-                            className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
+                            className="absolute top-[3rem] right-[50%] translate-x-[50%] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100 z-[6]"
                         >
                             <div>
-                                <label
-                                    htmlFor="fontSize"
-                                    className="font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5"
-                                >
-                                    Font size
-                                </label>
+                                <div className="flex justify-between text-gray-700 dark:text-gray-300 mb-0.5">
+                                    <label
+                                        htmlFor="fontSize"
+                                        className="font-semibold capitalize"
+                                    >
+                                        Font size
+                                    </label>
+                                    <div>{options.fontSize}</div>
+                                </div>
                                 <input
                                     type="range"
                                     name="fontSize"
@@ -198,12 +191,15 @@ const ControlPanel = () => {
                                 />
                             </div>
                             <div>
-                                <label
-                                    htmlFor="fontSize"
-                                    className="font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5"
-                                >
-                                    Leading
-                                </label>
+                                <div className="flex justify-between text-gray-700 dark:text-gray-300 mb-0.5">
+                                    <label
+                                        htmlFor="fontSize"
+                                        className="font-semibold capitalize"
+                                    >
+                                        Leading
+                                    </label>
+                                    <div>{options.leading}</div>
+                                </div>
                                 <input
                                     type="range"
                                     name="fontSize"
@@ -219,22 +215,15 @@ const ControlPanel = () => {
                     )}
                 </div>
                 <DesignsMenu
-                    cp={cp}
-                    cv={cv}
-                    cvs={cvs}
-                    setCv={setCv}
-                    currModel={currModel}
-                    setCurrModel={setCurrModel}
                     dataRef={dataRef}
+                    setCurrModel={setCurrModel}
+                    currModel={currModel}
                 />
 
                 <ColorPaletteMenu
-                    cps={cps}
-                    cp={cp}
-                    setCp={setCp}
-                    currModel={currModel}
-                    setCurrModel={setCurrModel}
                     dataRef={dataRef}
+                    setCurrModel={setCurrModel}
+                    currModel={currModel}
                 />
             </div>
         </div>

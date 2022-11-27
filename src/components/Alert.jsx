@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../GlobalContext";
-import { ABOUT, DOCUMENTATION, ICClose } from "../data";
+import { ABOUT, DOCUMENTATION } from "../data";
+import { ICClose } from "../data/icons";
 
 const Alert = () => {
     const { setAlert, alert } = useGlobalContext(false);

@@ -1,14 +1,14 @@
 import React from "react";
 import Container from "./Container";
 import { useGlobalContext } from "../../GlobalContext";
-import useEditor from "../../useEditor";
+import useEditor from "../../resumes/Editor/useEditor";
+import { MESSAGES } from "../../data";
 import {
     ICAddItem,
     ICArrowDown,
     ICArrowUp,
     ICDeleteSection,
-    MESSAGES,
-} from "../../data";
+} from "../../data/icons";
 
 const Section = ({ title, content, type, id }) => {
     const { cp, setAlert, letterEnabled, setLetterEnabled } =
@@ -71,7 +71,7 @@ const Section = ({ title, content, type, id }) => {
                     : "space-y-6"
             }`}
         >
-            {title !== undefined && (
+            {title && (
                 <div
                     className={`px-3 w-full h-10 font-semibold bg-${cp}-primary text-${cp}-light rounded shadow grid grid-cols-12 items-center`}
                 >
@@ -99,11 +99,13 @@ const Section = ({ title, content, type, id }) => {
                             </span>
                         </div>
                         <span className="font-bold rounded w-[2px] h-4/6 bg-gray-300 dark:bg-gray-700"></span>
-                        <ICAddItem
-                            className="icon text-success"
-                            onClick={(e) => addItem[type](id)}
-                        />
-                        {id !== "-1" ? (
+                        {id !== "0" && (
+                            <ICAddItem
+                                className="icon text-success"
+                                onClick={(e) => addItem[type](id)}
+                            />
+                        )}
+                        {!["-1", "0"].includes(id) ? (
                             <>
                                 <ICArrowUp
                                     onClick={(e) => moveHandler("up")}
@@ -119,20 +121,22 @@ const Section = ({ title, content, type, id }) => {
                                 />
                             </>
                         ) : (
-                            <div className="flex items-center gap-x-1">
-                                <label htmlFor="letter">
-                                    Lettre motivation
-                                </label>
-                                <input
-                                    type="checkbox"
-                                    name="letter"
-                                    className="h-6 w-6"
-                                    checked={letterEnabled}
-                                    onChange={(e) =>
-                                        setLetterEnabled((prev) => !prev)
-                                    }
-                                />
-                            </div>
+                            "-1" === id && (
+                                <div className="flex items-center gap-x-1 text-xs">
+                                    <label htmlFor="letter">
+                                        Lettre motivation
+                                    </label>
+                                    <input
+                                        type="checkbox"
+                                        name="letter"
+                                        className="h-6 w-6"
+                                        checked={letterEnabled}
+                                        onChange={(e) =>
+                                            setLetterEnabled((prev) => !prev)
+                                        }
+                                    />
+                                </div>
+                            )
                         )}
                     </div>
                 </div>

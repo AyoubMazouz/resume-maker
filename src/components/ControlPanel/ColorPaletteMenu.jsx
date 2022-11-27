@@ -1,14 +1,10 @@
 import React from "react";
-import { ICMenu } from "../../data";
+import { useGlobalContext } from "../../GlobalContext";
+import { CPS } from "../../data";
+import { ICMenu } from "../../data/icons";
 
-const ColorPaletteMenu = ({
-    cps,
-    cp,
-    setCp,
-    currModel,
-    setCurrModel,
-    dataRef,
-}) => {
+const ColorPaletteMenu = ({ dataRef, currModel, setCurrModel }) => {
+    const { cp, setCp } = useGlobalContext();
     return (
         <div className="relative">
             <button
@@ -29,9 +25,9 @@ const ColorPaletteMenu = ({
             {currModel === "cp" && (
                 <div
                     ref={dataRef}
-                    className="absolute top-[3rem] py-6 px-3 w-[22rem] right-0 bg-gray-100 dark:bg-gray-800 dark:border-gray-600 border-gray-300 border-2 rounded-md shadow-md flex flex-wrap items-center justify-center gap-4 transition-all duration-300"
+                    className="absolute top-[3rem] py-6 px-3 w-[22rem] right-[50%] translate-x-[50%] bg-gray-100 dark:bg-gray-800 dark:border-gray-600 border-gray-300 border-2 rounded-md shadow-md flex flex-wrap items-center justify-center gap-4 transition-all duration-300 z-[6]"
                 >
-                    {cps.map((_cp) => (
+                    {CPS.map((_cp) => (
                         <button
                             key={_cp}
                             className={`capitalize rounded w-[2.5rem] h-[3.75rem] bg-${_cp}-light shadow relative border-success dark:gray-600 overflow-hidden transition-all duration-300 hover:opacity-75 ${

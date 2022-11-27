@@ -1,56 +1,6 @@
 // React Imports.
 import React, { createContext, useContext, useEffect, useState } from "react";
-
-import CVClassic from "./resumes/Classic/CVClassic";
-import CVDefault from "./resumes/Default/CVDefault";
-import CVSide from "./resumes/Side/CVSide";
-import { DEFAULT_DATA } from "./data";
-import CVSimple from "./resumes/simple/CVSimple";
-import CVNoImg from "./resumes/NoImg/CVNoImg";
-
-const cvComps = {
-    default: <CVDefault />,
-    classic: <CVClassic />,
-    side: <CVSide />,
-    simple: <CVSimple />,
-    noImg: <CVNoImg />,
-};
-
-const cps = [
-    "steel-blue",
-    "alabaster",
-    "cyber-grape",
-    "gray",
-    "carmine-pink",
-    "viridian-green",
-    "caput-mortuum",
-    "dark-turquoise",
-    "fiery-rose",
-    "usla-blue",
-    "carolina-blue",
-    "camouflage-green",
-    "light-taupe",
-    "oxley",
-    "flame",
-    "msu-green",
-    "eggshell",
-    "rose-red",
-    "venetian-red",
-    "patriarch",
-    "green-sheen",
-    "medium-vermilion",
-    "space-cadet",
-    "japanese-laurel",
-    "davy-grey",
-    "violets-are-blue",
-    "brilliant-rose",
-    "strawberry",
-    "deep-chestnut",
-    "carmine",
-    "l",
-];
-
-const cvs = Object.keys(cvComps);
+import { CPS } from "./data";
 
 const GlobalContext = createContext();
 
@@ -58,15 +8,15 @@ export function useGlobalContext() {
     return useContext(GlobalContext);
 }
 export function GlobalContextProvider({ children }) {
+    // Global Alert.
     const [alert, setAlert] = useState(false);
 
+    // Stats.
     const [darkMode, setDarkMode] = useState(false);
     const [letterEnabled, setLetterEnabled] = useState(true);
 
-    const [cp, setCp] = useState(cps[0]);
-    const [cv, setCv] = useState(cvs[0]);
-
-    const [data, setData] = useState(DEFAULT_DATA);
+    const [cp, setCp] = useState(CPS[0]);
+    const [currDesign, setCurrDesign] = useState(0);
 
     // Options.
     const [fontSize, setFontSize] = React.useState("1");
@@ -81,9 +31,24 @@ export function GlobalContextProvider({ children }) {
         setLeading,
     };
 
+    // Get Saved data if available.
+    // setDefault Data OBJ Structure.
+    const [data, setData] = useState([]);
     useEffect(() => {
         const localData = localStorage.getItem("resumeMakerData");
-        if (localData) setData(JSON.parse(localData));
+        if (localData?.length >= 2) {
+            setData(JSON.parse(localData));
+        } else {
+            fetch("/defaultData.json")
+                .then((response) => response.json())
+                .then((json) => {
+                    setData(json);
+                    localStorage.setItem(
+                        "resumeMakerData",
+                        JSON.stringify(json)
+                    );
+                });
+        }
     }, []);
 
     return (
@@ -93,11 +58,8 @@ export function GlobalContextProvider({ children }) {
                 setDarkMode,
                 cp,
                 setCp,
-                cps,
-                cv,
-                setCv,
-                cvs,
-                cvComps,
+                currDesign,
+                setCurrDesign,
                 data,
                 setData,
                 alert,

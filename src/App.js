@@ -1,10 +1,10 @@
-import "./App.css";
+import "./css/App.css";
 import React from "react";
-import ControlPanel from "./components/ControlPanel";
-import Curr from "./Curr";
-import Editor from "./resumes/Editor/Editor";
-import Alert from "./components/Alert";
 import { useGlobalContext } from "./GlobalContext";
+import ControlPanel from "./components/ControlPanel";
+import Alert from "./components/Alert";
+import Editor from "./resumes/Editor/Editor";
+import CurrCv from "./components/CurrCv";
 
 function App() {
     const { darkMode, cp } = useGlobalContext();
@@ -15,7 +15,7 @@ function App() {
                 <ControlPanel />
                 <div className="max-w-[1700px] flex justify-center flex-wrap gap-12 pb-12 mt-4 w-full bg-gray-100 dark:bg-gray-800">
                     <Editor />
-                    <Curr />
+                    <CurrCv />
                 </div>
             </div>
         </div>
