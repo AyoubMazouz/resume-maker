@@ -57,7 +57,7 @@ const Container = ({ content, type, id }) => {
                         )}
                         <input
                             id={id}
-                            className="input col-span-11"
+                            className="input col-span-10 sm:col-span-11"
                             type="text"
                             placeholder="..."
                             value={p}

@@ -10,7 +10,7 @@ const CVDefault = () => {
         <div
             className={`${STYLES.fontSize[options.fontSize]} ${
                 STYLES.leading[options.leading]
-            } cv-responsive bg-${cp}-light text-${cp}-dark font-semibold`}
+            } cv bg-${cp}-light text-${cp}-dark font-semibold`}
         >
             {/* Header */}
             <div className={`col-span-4 bg-${cp}-primary px-4`}>

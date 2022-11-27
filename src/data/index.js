@@ -16,10 +16,10 @@ export const CV_OBJ = {
 };
 export const LETTERS_OBJ = {
     default: <LetterDefault />,
-    classic: <CVClassic />,
-    side: <CVSide />,
-    simple: <CVSimple />,
-    noImg: <CVNoImg />,
+    classic: <LetterDefault />,
+    side: <LetterDefault />,
+    simple: <LetterDefault />,
+    noImg: <LetterDefault />,
 };
 
 export const CV_LABELS = Object.keys(CV_OBJ);

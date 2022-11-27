@@ -14,6 +14,25 @@
         }
     },
     {
+        "id": "-1",
+        "title": "Lettre motivation",
+        "type": "letter",
+        "content": {
+            "companyName": "<COMPANY_NAME>",
+            "subject": "Demande de stage",
+            "recipient": "Monsieur/Madam",
+            "date": "27 november 2022",
+            "signature": "Veuillez trouver ci-joint mon CV à l'appui de ma candidature.",
+            "paragraphs": [
+                "J'ai l'honneur de vous demander m'accorder un stage conventionné d'une durée de trois mois, au sein de votre société <COMPANY NAME>.",
+                "Après avoir fait des recherches sur votre organisation, j'ai été attiré par votre solide bilan de réalisations et les valeurs de votre entreprise.",
+                "En plus d'être un bon auditeur, un collaborateur, un apprenant rapide qui nécessite peu de supervision et prêt à assumer toutes les tâches, quelle que soit leur complexité.",
+                "Je suis disponible pour un entretien à court terme et j'apprécierais beaucoup l'opportunité de vous démontrer mes compétences et mes qualités.",
+                "Veulliez recevoir, mes salutations distinguées."
+            ]
+        }
+    },
+    {
         "id": "1",
         "type": "date_list",
         "title": "Formation",

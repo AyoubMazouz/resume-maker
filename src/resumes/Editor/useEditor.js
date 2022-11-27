@@ -288,29 +288,30 @@ const useEditor = () => {
         };
     };
 
-    const exportToPDF = (e) => {
+    const exportToPDF = async (e) => {
         const name = data[0].content.firstName + data[0].content.lastName;
-
-        const input = document.getElementById("App");
-        html2canvas(input, {
+        const canvasParams = {
             logging: true,
             letterRendering: true,
             useCORS: true,
-        }).then((canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF("p", "mm", "a4");
-            pdf.addImage(
-                imgData,
-                "png",
-                0,
-                0,
-                210,
-                297,
-                "resume-maker",
-                "FAST"
-            );
-            pdf.save(name + ".pdf");
-        });
+        };
+
+        const pdf = new jsPDF("p", "mm", "a4");
+
+        const cvEle = document.getElementById("cv");
+        const letterEle = document.getElementById("letter");
+
+        const canvas1 = await html2canvas(cvEle, canvasParams);
+        const imgData1 = canvas1.toDataURL("image/png");
+        pdf.addImage(imgData1, "png", 0, 0, 210, 297, "resume", "FAST");
+
+        if (letterEnabled) {
+            pdf.addPage();
+            const canvas2 = await html2canvas(letterEle, canvasParams);
+            const imgData2 = canvas2.toDataURL("image/png");
+            pdf.addImage(imgData2, "png", 0, 0, 210, 297, "letter", "FAST");
+        }
+        pdf.save(name + ".pdf");
     };
 
     const validateJSONData = (data) => {

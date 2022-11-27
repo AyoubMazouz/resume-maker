@@ -9,7 +9,7 @@ const DesignsMenu = ({ dataRef, currModel, setCurrModel }) => {
         <div className="relative">
             <button
                 onClick={() => setCurrModel("design")}
-                className="btn flex gap-x-2 items-center justify-between max-w-[13rem] md:w-[13rem]"
+                className="btn flex gap-x-2 items-center justify-between w-[8rem]"
             >
                 <span className="max-w-[16ch]">
                     {CV_LABELS[currDesign].replace("-", " ")}

@@ -30,7 +30,7 @@ const Container = ({ content, type }) => {
                             {content.title}
                         </div>
                     </div>
-                    <div className="flex flex-col flex-wrap gap-y-1">
+                    <div className="flex flex-col flex-wrap gap-y-1 text-sm">
                         <div
                             className={`bg-${cp}-light rounded px-2 py-1 text-${cp}-primary`}
                         >

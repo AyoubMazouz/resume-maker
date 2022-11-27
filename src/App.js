@@ -7,13 +7,13 @@ import Editor from "./resumes/Editor/Editor";
 import CurrCv from "./components/CurrCv";
 
 function App() {
-    const { darkMode, cp } = useGlobalContext();
+    const { darkMode } = useGlobalContext();
     return (
         <div className={darkMode ? "dark" : ""}>
             <div className="bg-gray-100 dark:bg-gray-800 max-w-[1920px] flex flex-col items-center">
                 <Alert />
                 <ControlPanel />
-                <div className="max-w-[1700px] flex justify-center flex-wrap gap-12 pb-12 mt-4 w-full bg-gray-100 dark:bg-gray-800">
+                <div className="max-w-[1700px] flex justify-center flex-wrap gap-12 my-4 print:my-0 w-full bg-gray-100 dark:bg-gray-800">
                     <Editor />
                     <CurrCv />
                 </div>

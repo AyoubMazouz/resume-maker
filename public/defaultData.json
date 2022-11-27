@@ -21,6 +21,19 @@
         "content": {
             "companyName": "",
             "subject": "",
+            "recipient": "",
+            "date": "",
+            "signature": "",
+            "paragraphs": []
+        }
+    },
+    {
+        "id": "-1",
+        "title": "Lettre motivation",
+        "type": "letter",
+        "content": {
+            "companyName": "",
+            "subject": "",
             "paragraphs": [""]
         }
     },

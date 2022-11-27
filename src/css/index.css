@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+    #editor, #cv, #letter {
+        @apply scroll-mt-[9rem]
+    }
+}
 
 @layer components {
     .input-div {
@@ -15,7 +23,7 @@
         @apply font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5
     }
     .btn {
-        @apply bg-gray-100 text-sm uppercase border-[1px] border-b-[4px] border-gray-300 text-gray-700 shadow-md shadow-black/25 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300 disabled:text-opacity-75 disabled:border-opacity-75 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:shadow dark:text-gray-200 dark:disabled:bg-gray-700 dark:bg-gray-800 dark:border-gray-900;
+        @apply bg-gray-100 text-center text-sm uppercase border-[1px] border-b-[4px] border-gray-300 text-gray-700 shadow-md shadow-black/25 px-4 rounded-md font-bold hover:translate-y-[-5px] transition duration-300 disabled:text-opacity-75 disabled:border-opacity-75 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:shadow dark:text-gray-200 dark:disabled:bg-gray-700 dark:bg-gray-800 dark:border-gray-900;
     }
     .btn-alert {
         @apply uppercase shadow-lg shadow-black/50 px-5 py-1 rounded-md font-bold hover:translate-y-[-5px] transition duration-300
@@ -26,7 +34,10 @@
 }
 
 @layer utilities {
-    .cv-responsive {
-        @apply w-[210mm] h-[295mm] scale-[.42] sm:scale-[.70] translate-x-[-220px] sm:translate-x-[-100px] translate-y-[-25%] sm:translate-y-[-10%] md:static md:scale-[1] md:translate-y-0 md:translate-x-0 mx-auto;
+    .cv {
+        @apply w-[210mm] h-[295mm];
     }
+    /* .letter-responsive {
+        @apply w-[210mm] h-[295mm] scale-[.43] sm:scale-[.70] absolute right-[50%] translate-x-[50%] translate-y-[26%] md:static md:scale-[1] md:translate-y-0 md:translate-x-0 mx-auto;
+    } */
 }

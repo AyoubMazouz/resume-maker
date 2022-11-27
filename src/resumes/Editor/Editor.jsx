@@ -3,9 +3,10 @@ import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
 const CVDefault = () => {
-    const { cp, data } = useGlobalContext();
+    const { data } = useGlobalContext();
     return (
         <div
+            id="editor"
             className={`max-w-[210mm] w-full mx-auto rounded-lg shadow-lg print:hidden text-sm leading-5 font-montserrat `}
         >
             <div className={`px-4`}>

@@ -9,7 +9,7 @@ const ColorPaletteMenu = ({ dataRef, currModel, setCurrModel }) => {
         <div className="relative">
             <button
                 onClick={() => setCurrModel("cp")}
-                className="btn flex gap-x-2 items-center justify-between w-[16rem] md:w-[22rem]"
+                className="btn flex gap-x-2 items-center justify-between w-[16rem]"
             >
                 <span className="">{cp.replace("-", " ")}</span>
                 <div className="flex gap-x-2 items-center">

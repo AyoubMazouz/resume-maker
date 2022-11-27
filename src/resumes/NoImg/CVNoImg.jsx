@@ -37,13 +37,13 @@ const CVNoImg = () => {
                             <div
                                 className={`border-[8px] border-${cp}-light relative pt-10 pb-14 text-center`}
                             >
-                                <div className="text-3xl font-bold uppercase">
+                                <div className="text-2xl font-bold uppercase">
                                     {section.content.firstName +
                                         " " +
                                         section.content.lastName}
                                 </div>
                                 <div
-                                    className={`bg-${cp}-light px-8 py-2 text-${cp}-primary text-base font-bold uppercase text-center absolute bottom-0 translate-y-[50%] translate-x-[50%] right-[50%]`}
+                                    className={`bg-${cp}-light px-8 py-2 text-${cp}-primary text-sm font-bold uppercase text-center absolute bottom-0 translate-y-[50%] translate-x-[50%] right-[50%]`}
                                 >
                                     {section.content.title}
                                 </div>
