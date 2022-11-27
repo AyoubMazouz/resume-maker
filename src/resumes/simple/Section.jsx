@@ -8,7 +8,7 @@ const Section = ({ title, content, type, id }) => {
         <div className={`relative pt-4 pb-3`}>
             {title && (
                 <div
-                    className={`text-${cp}-primary capitalize text-lg font-bold mb-2`}
+                    className={`text-${cp}-primary capitalize text-xl font-bold mb-2`}
                 >
                     {title}
                 </div>

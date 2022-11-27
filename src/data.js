@@ -106,6 +106,16 @@ export const DEFAULT_DATA = [
         },
     },
     {
+        id: "-1",
+        title: "Lettre motivation",
+        type: "letter",
+        content: {
+            companyName: "",
+            subject: "",
+            paragraphs: ["hello world"],
+        },
+    },
+    {
         id: "1",
         type: "date_list",
         title: "Formation",

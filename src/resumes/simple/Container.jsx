@@ -21,12 +21,10 @@ const Container = ({ content, type }) => {
                     />
                 </div>
                 <div className="col-span-9 space-y-1">
-                    <div className={`font-semibold text-3xl capitalize`}>
+                    <div className={`font-semibold text-2xl capitalize`}>
                         {content.firstName + " " + content.lastName}
                     </div>
-                    <div
-                        className={`uppercase text-sm text-${cp}-primary font-semibold`}
-                    >
+                    <div className={`uppercase text-sm text-${cp}-primary`}>
                         {content.title}
                     </div>
                     <div className={`flex gap-x-1 items-center text-xs`}>
@@ -38,7 +36,7 @@ const Container = ({ content, type }) => {
         );
     if (type === "details")
         return (
-            <div className={`text-${cp}-dark space-y-4`}>
+            <div className={`text-${cp}-dark space-y-4 text-sm`}>
                 <div>{content.age}</div>
                 <div>{content.phone}</div>
                 <div>{content.email}</div>

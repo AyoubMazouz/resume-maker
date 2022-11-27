@@ -3,10 +3,26 @@ import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
 const CVNoImg = () => {
-    const { cp, data } = useGlobalContext();
+    const { cp, data, options } = useGlobalContext();
 
     const [main, setMain] = React.useState([]);
     const [side, setSide] = React.useState([]);
+
+    const styles = {
+        fontSize: {
+            0: "text-xs",
+            1: "text-sm",
+            2: "text-base",
+            3: "text-lg",
+        },
+        leading: {
+            0: "leading-4",
+            1: "leading-5",
+            2: "leading-6",
+            3: "leading-7",
+            4: "leading-8",
+        },
+    };
 
     React.useEffect(() => {
         const [main, side] = [[], []];
@@ -22,7 +38,9 @@ const CVNoImg = () => {
 
     return (
         <div
-            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-dark leading-5 font-[montserrat] font-semibold`}
+            className={`${styles.fontSize[options.fontSize]} ${
+                styles.leading[options.leading]
+            } cv-responsive bg-${cp}-light text-${cp}-dark font-montserrat font-semibold`}
         >
             {/* Header */}
             <div

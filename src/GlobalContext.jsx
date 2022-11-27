@@ -61,11 +61,25 @@ export function GlobalContextProvider({ children }) {
     const [alert, setAlert] = useState(false);
 
     const [darkMode, setDarkMode] = useState(false);
+    const [letterEnabled, setLetterEnabled] = useState(true);
 
     const [cp, setCp] = useState(cps[0]);
-    const [cv, setCv] = useState(cvs[4]);
+    const [cv, setCv] = useState(cvs[0]);
 
     const [data, setData] = useState(DEFAULT_DATA);
+
+    // Options.
+    const [fontSize, setFontSize] = React.useState("1");
+    const [leading, setLeading] = React.useState("1");
+
+    const options = {
+        fontSize,
+        leading,
+    };
+    const setOptions = {
+        setFontSize,
+        setLeading,
+    };
 
     useEffect(() => {
         const localData = localStorage.getItem("resumeMakerData");
@@ -88,6 +102,10 @@ export function GlobalContextProvider({ children }) {
                 setData,
                 alert,
                 setAlert,
+                options,
+                setOptions,
+                letterEnabled,
+                setLetterEnabled,
             }}
         >
             {children}

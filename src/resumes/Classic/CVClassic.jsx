@@ -3,10 +3,29 @@ import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
 const CVClassic = () => {
-    const { cp, data } = useGlobalContext();
+    const { cp, data, options } = useGlobalContext();
+
+    const styles = {
+        fontSize: {
+            0: "text-xs",
+            1: "text-sm",
+            2: "text-base",
+            3: "text-lg",
+        },
+        leading: {
+            0: "leading-4",
+            1: "leading-5",
+            2: "leading-6",
+            3: "leading-7",
+            4: "leading-8",
+        },
+    };
+
     return (
         <div
-            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light px-8 py-2 text-sm text-${cp}-dark leading-5 font-mono font-semibold`}
+            className={`${styles.fontSize[options.fontSize]} ${
+                styles.leading[options.leading]
+            } cv-responsive bg-${cp}-light px-8 py-2 text-${cp}-dark font-roboto-mono font-semibold`}
         >
             {/* Header */}
             <div className={`col-span-4 mb-16`}>

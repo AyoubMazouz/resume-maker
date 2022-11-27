@@ -16,26 +16,26 @@ const Container = ({ content, type }) => {
             <div className="mb-6">
                 <div className="w-full shadow col-span-4 overflow-hidden rounded-sm">
                     <div
-                        className={`text-4xl text-center text-${cp}-light uppercase`}
+                        className={`text-3xl text-center text-${cp}-light uppercase`}
                     >
                         <div className="font-semibold text-center">
                             {content.firstName}
                         </div>
-                        <div className="">{content.lastName}</div>
+                        <div>{content.lastName}</div>
                     </div>
                     <img
                         src={content.img}
                         className="h-full w-full object-cover aspect-square rounded mt-3"
                     />
                 </div>
-                <div className={`uppercase text-center mt-2 font-bold`}>
+                <div className={`uppercase text-center text-base mt-2`}>
                     {content.title}
                 </div>
             </div>
         );
     else if (type === "details")
         return (
-            <div className="flex flex-col flex-wrap gap-y-3 font-semibold underline">
+            <div className="flex flex-col flex-wrap gap-y-3 text-sm font-semibold underline">
                 <div className="flex gap-x-2 items-end">
                     <ICPerson
                         className={`text-2xl text-${cp}-dark scale-[.9]`}

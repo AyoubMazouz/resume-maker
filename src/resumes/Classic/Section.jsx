@@ -13,7 +13,7 @@ const Section = ({ title, content, type }) => {
         >
             {title && (
                 <div
-                    className={`absolute -top-5 right-[50%] translate-x-[50%] bg-${cp}-dark text-${cp}-secondary px-6 py-1 uppercase text-base font-['bodoni-moda']`}
+                    className={`absolute -top-5 right-[50%] translate-x-[50%] bg-${cp}-dark text-${cp}-secondary px-6 py-1 uppercase text-base font-lora`}
                 >
                     {title}
                 </div>

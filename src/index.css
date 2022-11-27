@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Lora:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Roboto+Mono:wght@400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,7 +9,7 @@
         @apply flex flex-col justify-end
     }
     .input {
-        @apply py-1 px-3 shadow rounded focus:outline-none ring-2 ring-gray-300 focus:ring-amber-500 font-semibold dark:bg-gray-800 dark:ring-gray-600 dark:text-gray-200;
+        @apply py-1 px-3 shadow rounded focus:outline-none ring-2 ring-gray-300 focus:ring-amber-500 font-semibold dark:bg-gray-800 dark:ring-gray-600 dark:text-gray-200 disabled:text-gray-500 disabled:bg-gray-200 disabled:dark:bg-gray-700;
     }
     .input-div > label {
         @apply font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5
@@ -22,5 +22,11 @@
     }
     .icon {
         @apply text-3xl hover:scale-110 opacity-80 transition duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+    }
+}
+
+@layer utilities {
+    .cv-responsive {
+        @apply w-[210mm] h-[295mm] scale-[.42] sm:scale-[.70] translate-x-[-220px] sm:translate-x-[-100px] translate-y-[-25%] sm:translate-y-[-10%] md:static md:scale-[1] md:translate-y-0 md:translate-x-0 mx-auto;
     }
 }

@@ -13,9 +13,9 @@ const ColorPaletteMenu = ({
         <div className="relative">
             <button
                 onClick={() => setCurrModel("cp")}
-                className="btn flex gap-x-2 items-center justify-between w-[22rem]"
+                className="btn flex gap-x-2 items-center justify-between w-[16rem] md:w-[22rem]"
             >
-                <span className="max-w-[25ch]">{cp.replace("-", " ")}</span>
+                <span className="">{cp.replace("-", " ")}</span>
                 <div className="flex gap-x-2 items-center">
                     <div className="h-6 w-10 grid grid-flow-col gird-cols-12">
                         <div className={`bg-${cp}-primary col-span-6`}></div>

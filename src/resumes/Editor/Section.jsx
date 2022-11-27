@@ -6,21 +6,19 @@ import {
     ICAddItem,
     ICArrowDown,
     ICArrowUp,
-    ICDeleteItem,
     ICDeleteSection,
     MESSAGES,
 } from "../../data";
 
 const Section = ({ title, content, type, id }) => {
-    const { cp, setAlert, alert } = useGlobalContext();
+    const { cp, setAlert, letterEnabled, setLetterEnabled } =
+        useGlobalContext();
     const {
         titleHandler,
         addListItem,
         addDateListItem,
         addSliderItem,
-        deleteDateListItem,
-        deleteListItem,
-        deleteSliderItem,
+        AddLetterParagraph,
         moveSection,
         deleteSection,
     } = useEditor();
@@ -30,13 +28,7 @@ const Section = ({ title, content, type, id }) => {
         list: addListItem,
         labels: addListItem,
         slider: addSliderItem,
-    };
-
-    const deleteItem = {
-        date_list: deleteDateListItem,
-        list: deleteListItem,
-        labels: deleteListItem,
-        slider: deleteSliderItem,
+        letter: AddLetterParagraph,
     };
 
     const moveHandler = (dir) => {
@@ -81,7 +73,7 @@ const Section = ({ title, content, type, id }) => {
         >
             {title !== undefined && (
                 <div
-                    className={`px-3 w-full h-10 font-semibold bg-${cp}-primary text-${cp}-light rounded shadow flex justify-between items-center`}
+                    className={`px-3 w-full h-10 font-semibold bg-${cp}-primary text-${cp}-light rounded shadow grid grid-cols-12 items-center`}
                 >
                     <input
                         id={id}
@@ -89,18 +81,17 @@ const Section = ({ title, content, type, id }) => {
                         placeholder="Titre..."
                         value={title}
                         onChange={titleHandler}
-                        className={`input bg-${cp}-primary ring-0 shadow-0 font-bold text-lg text-gray-100 dark:text-gray-400`}
+                        className={`input bg-${cp}-primary ring-0 shadow-0 font-bold text-lg text-gray-100 dark:text-gray-400 col-span-5`}
                     />
                     <div
-                        className={`flex items-center justify-end gap-x-3 bg-gray-100 h-full w-7/12 px-3 text-gray-500 dark:bg-gray-900`}
+                        className={`flex items-center justify-end gap-x-3 bg-gray-100 h-full px-3 text-gray-500 dark:bg-gray-900 col-span-7`}
                     >
-                        <div>
+                        <div className="hidden sm:block">
                             Type:{" "}
                             <span className={`text-${cp}-primary font-bold`}>
                                 {type}
                             </span>
                         </div>
-                        <span className="font-bold rounded w-[2px] h-4/6 bg-gray-300 dark:bg-gray-700"></span>
                         <div>
                             ID:{" "}
                             <span className={`text-${cp}-primary font-bold`}>
@@ -112,23 +103,37 @@ const Section = ({ title, content, type, id }) => {
                             className="icon text-success"
                             onClick={(e) => addItem[type](id)}
                         />
-                        <ICDeleteItem
-                            className="icon text-error"
-                            onClick={(e) => deleteItem[type](id)}
-                        />
-                        <span className="font-bold rounded w-[2px] h-4/6 bg-gray-300 dark:bg-gray-700"></span>
-                        <ICArrowUp
-                            onClick={(e) => moveHandler("up")}
-                            className="icon text-info text-4xl -mx-2"
-                        />
-                        <ICArrowDown
-                            onClick={(e) => moveHandler("down")}
-                            className="icon text-info text-4xl -mx-2"
-                        />
-                        <ICDeleteSection
-                            className="icon text-error"
-                            onClick={deleteSectionHandler}
-                        />
+                        {id !== "-1" ? (
+                            <>
+                                <ICArrowUp
+                                    onClick={(e) => moveHandler("up")}
+                                    className="icon text-info text-4xl -mx-2"
+                                />
+                                <ICArrowDown
+                                    onClick={(e) => moveHandler("down")}
+                                    className="icon text-info text-4xl -mx-2"
+                                />
+                                <ICDeleteSection
+                                    className="icon text-error"
+                                    onClick={deleteSectionHandler}
+                                />
+                            </>
+                        ) : (
+                            <div className="flex items-center gap-x-1">
+                                <label htmlFor="letter">
+                                    Lettre motivation
+                                </label>
+                                <input
+                                    type="checkbox"
+                                    name="letter"
+                                    className="h-6 w-6"
+                                    checked={letterEnabled}
+                                    onChange={(e) =>
+                                        setLetterEnabled((prev) => !prev)
+                                    }
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             )}

@@ -14,9 +14,9 @@ const designsMenu = ({
         <div className="relative">
             <button
                 onClick={() => setCurrModel("design")}
-                className="btn flex gap-x-2 items-center justify-between w-[13rem]"
+                className="btn flex gap-x-2 items-center justify-between max-w-[13rem] md:w-[13rem]"
             >
-                <span className="max-w-[25ch]">{cv.replace("-", " ")}</span>
+                <span className="max-w-[16ch]">{cv.replace("-", " ")}</span>
                 <div className="flex gap-x-2 items-center">
                     <ICMenu className="icon" />
                 </div>
@@ -24,7 +24,7 @@ const designsMenu = ({
             {currModel === "design" && (
                 <div
                     ref={dataRef}
-                    className="absolute top-[3rem] py-6 px-3 w-[13rem] right-0 bg-gray-100 dark:bg-gray-800 dark:border-gray-600 border-gray-300 border-2 rounded-md shadow-md flex flex-wrap items-center justify-center gap-4 transition-all duration-300"
+                    className="absolute top-[3rem] py-6 px-3 w-[13rem] right-100 bg-gray-100 dark:bg-gray-800 dark:border-gray-600 border-gray-300 border-2 rounded-md shadow-md flex flex-wrap items-center justify-center gap-4 transition-all duration-300"
                 >
                     {cvs.map((_cv) => {
                         if (_cv === cvs[0])

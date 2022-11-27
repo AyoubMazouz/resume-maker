@@ -1,8 +1,10 @@
 import { AVAILABLE_TYPES, DEFAULT_DATA, INIT_SECTION, MESSAGES } from "./data";
 import { useGlobalContext } from "./GlobalContext";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 const useEditor = () => {
-    const { data, setData, setAlert } = useGlobalContext();
+    const { data, setData, setAlert, letterEnabled } = useGlobalContext();
 
     // Helper Functions.
     const copyData = () => JSON.parse(JSON.stringify(data));
@@ -104,6 +106,20 @@ const useEditor = () => {
         setData(copiedData);
     };
 
+    const letterHandler = (e, index) => {
+        const copiedData = copyData();
+
+        copiedData.forEach((section) => {
+            if (section.id === "-1")
+                section.content.paragraphs.forEach((_, i) => {
+                    if (index === i)
+                        section.content.paragraphs[i] = e.target.value;
+                });
+        });
+
+        setData(copiedData);
+    };
+
     // Add Item/Section Functions.
     const addSection = (type) => {
         const copiedData = copyData();
@@ -155,41 +171,62 @@ const useEditor = () => {
         setData(copiedData);
     };
 
+    const AddLetterParagraph = () => {
+        if (!letterEnabled) return;
+
+        const copiedData = copyData();
+
+        copiedData.forEach((section) => {
+            if (section.id === "-1") section.content.paragraphs.push("");
+        });
+
+        setData(copiedData);
+    };
+
     // delete Item/Section Functions.
     const deleteSection = (id) => {
         const copiedData = copyData().filter((section) => section.id !== id);
         setData(copiedData);
     };
 
-    const deleteDateListItem = (id) => {
+    const deleteDateListItem = (sectionId, itemId) => {
         const copiedData = copyData();
 
         copiedData.forEach((section) => {
-            if (section.id === id) {
-                section.content.pop();
+            if (section.id === sectionId) {
+                section.content.map((_, index) => {
+                    if (index === itemId) section.content.splice(index, 1);
+                });
             }
         });
 
         setData(copiedData);
     };
 
-    const deleteListItem = (id) => {
+    const deleteListItem = (sectionId, itemId) => {
         const copiedData = copyData();
 
         copiedData.forEach((section) => {
-            if (section.id === id) section.content.pop();
+            if (section.id === sectionId) {
+                section.content.map((_, index) => {
+                    if (index === itemId) section.content.splice(index, 1);
+                });
+            }
         });
-
         setData(copiedData);
     };
 
-    const deleteSliderItem = (id) => {
+    const deleteLetterParagraph = (itemId) => {
         const copiedData = copyData();
 
         copiedData.forEach((section) => {
-            if (section.id === id) section.content.pop();
+            if (section.id === "-1") {
+                section.content.paragraphs.map((_, index) => {
+                    if (index === itemId)
+                        section.content.paragraphs.splice(index, 1);
+                });
+            }
         });
-
         setData(copiedData);
     };
 
@@ -250,6 +287,31 @@ const useEditor = () => {
         };
     };
 
+    const exportToPDF = (e) => {
+        const name = data[0].content.firstName + data[0].content.lastName;
+
+        const input = document.getElementById("App");
+        html2canvas(input, {
+            logging: true,
+            letterRendering: true,
+            useCORS: true,
+        }).then((canvas) => {
+            const imgData = canvas.toDataURL("image/png");
+            const pdf = new jsPDF("p", "mm", "a4");
+            pdf.addImage(
+                imgData,
+                "png",
+                0,
+                0,
+                210,
+                297,
+                "resume-maker",
+                "FAST"
+            );
+            pdf.save(name + ".pdf");
+        });
+    };
+
     const validateJSONData = (data) => {
         const errorAlert = {
             type: "error",
@@ -295,18 +357,21 @@ const useEditor = () => {
         dateListHandler,
         listHandler,
         sliderHandler,
+        letterHandler,
         addSection,
         addDateListItem,
         addListItem,
         addSliderItem,
+        AddLetterParagraph,
         deleteSection,
         deleteDateListItem,
         deleteListItem,
-        deleteSliderItem,
+        deleteLetterParagraph,
         moveSection,
         saveToLocalStorage,
         exportToJSON,
         importFromJSON,
+        exportToPDF,
         resetData,
     };
 };

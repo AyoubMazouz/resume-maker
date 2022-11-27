@@ -3,10 +3,26 @@ import { useGlobalContext } from "../../GlobalContext";
 import Section from "./Section";
 
 const CVSimple = () => {
-    const { cp, data } = useGlobalContext();
+    const { cp, data, options } = useGlobalContext();
 
     const [main, setMain] = React.useState([]);
     const [side, setSide] = React.useState([]);
+
+    const styles = {
+        fontSize: {
+            0: "text-xs",
+            1: "text-sm",
+            2: "text-base",
+            3: "text-lg",
+        },
+        leading: {
+            0: "leading-4",
+            1: "leading-5",
+            2: "leading-6",
+            3: "leading-7",
+            4: "leading-8",
+        },
+    };
 
     useEffect(() => {
         const [main, side] = [[], []];
@@ -25,9 +41,12 @@ const CVSimple = () => {
         setSide(side);
         console.log(side);
     }, [data]);
+
     return (
         <div
-            className={`w-[210mm] h-[295mm] mx-auto bg-${cp}-light text-sm text-${cp}-light grid grid-cols-12 font-montserrat leading-4 font-[montserrat]`}
+            className={`${styles.fontSize[options.fontSize]} ${
+                styles.leading[options.leading]
+            } cv-responsive bg-${cp}-light text-${cp}-light grid grid-cols-12 font-montserrat`}
         >
             {/* Body */}
             <div className={`col-span-8 pl-12 pr-4 py-8 text-${cp}-dark`}>

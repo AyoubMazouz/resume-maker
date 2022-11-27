@@ -4,6 +4,12 @@ module.exports = {
     darkMode: "class",
     theme: {
         extend: {
+            fontFamily: {
+                "roboto-mono": ["'Roboto Mono'", "monospace"],
+                roboto: ["'Roboto'", "sans-serif"],
+                montserrat: ["'Montserrat'", "sans-serif"],
+                lora: ["'Lora'", "serif"],
+            },
             colors: {
                 success: "#36D399",
                 "success-dark": "#003320",

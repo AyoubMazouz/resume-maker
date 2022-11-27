@@ -6,10 +6,26 @@ import ColorPaletteMenu from "./ColorPaletteMenu";
 import DesignsMenu from "./DesignsMenu";
 
 const ControlPanel = () => {
-    const { cps, setCp, cv, setCv, cvs, cp, setAlert, setDarkMode, darkMode } =
-        useGlobalContext();
-    const { saveToLocalStorage, exportToJSON, importFromJSON, resetData } =
-        useEditor();
+    const {
+        cps,
+        setCp,
+        cv,
+        setCv,
+        cvs,
+        cp,
+        setAlert,
+        setDarkMode,
+        darkMode,
+        options,
+        setOptions,
+    } = useGlobalContext();
+    const {
+        saveToLocalStorage,
+        exportToJSON,
+        importFromJSON,
+        resetData,
+        exportToPDF,
+    } = useEditor();
 
     const saveHandler = () => {
         saveToLocalStorage();
@@ -66,107 +82,160 @@ const ControlPanel = () => {
 
     return (
         <div className="print:hidden flex justify-center p-4 sticky top-0 w-full bg-gray-100 dark:bg-gray-800 border-b-2 border-gray-300 shadow z-10 transition-all duration-300 dark:border-gray-800/50">
-            <div className="w-full max-w-[1400px] flex flex-wrap gap-6 justify-between items-center px-2">
-                <div className="flex gap-3 items-center z-[5]">
-                    <div className="relative flex items-center gap-3">
-                        <div>
-                            <button
-                                onClick={() => setCurrModel("data")}
-                                className="btn flex gap-x-2 items-center"
-                            >
-                                Menu
-                                <ICMenu className="icon" />
+            <div className="w-full max-w-[1400px] flex flex-wrap gap-3 justify-center items-center px-2 z-[5]">
+                <div className="relative flex items-center gap-3">
+                    <div>
+                        <button
+                            onClick={() => setCurrModel("data")}
+                            className="btn flex gap-x-2 items-center"
+                        >
+                            Menu
+                            <ICMenu className="icon" />
+                        </button>
+                    </div>
+                    {currModel === "data" && (
+                        <div
+                            ref={dataRef}
+                            className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
+                        >
+                            <button className="btn" onClick={exportToPDF}>
+                                télécharger
+                            </button>
+                            <button className="btn" onClick={saveHandler}>
+                                sauvegarder
+                            </button>
+                            <button className="btn" onClick={ResetHandler}>
+                                réinitialiser
+                            </button>
+                            <button className="btn" onClick={exportHandler}>
+                                exporter
+                            </button>
+                            <button className="btn relative overflow-hidden">
+                                importer
+                                <input
+                                    type="file"
+                                    accept=".json"
+                                    className="absolute w-[16rem] h-full top-0 left-0 cursor-pointer opacity-0"
+                                    onChange={importFromJSON}
+                                />
                             </button>
                         </div>
-                        {currModel === "data" && (
-                            <div
-                                ref={dataRef}
-                                className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
-                            >
-                                <button className="btn" onClick={saveHandler}>
-                                    sauvegarder
-                                </button>
-                                <button className="btn" onClick={ResetHandler}>
-                                    réinitialiser
-                                </button>
-                                <button className="btn" onClick={exportHandler}>
-                                    exporter
-                                </button>
-                                <button className="btn relative overflow-hidden">
-                                    importer
-                                    <input
-                                        type="file"
-                                        accept=".json"
-                                        className="absolute w-[16rem] h-full top-0 left-0 cursor-pointer opacity-0"
-                                        onChange={importFromJSON}
-                                    />
-                                </button>
-                            </div>
-                        )}
+                    )}
+                </div>
+                <div className="relative flex items-center gap-3">
+                    <div>
+                        <button
+                            onClick={() => setCurrModel("help")}
+                            className="btn flex gap-x-2 items-center"
+                        >
+                            à propos
+                            <ICMenu className="icon" />
+                        </button>
                     </div>
-                    <div className="relative flex items-center gap-3">
-                        <div>
+                    {currModel === "help" && (
+                        <div
+                            ref={dataRef}
+                            className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
+                        >
                             <button
-                                onClick={() => setCurrModel("help")}
-                                className="btn flex gap-x-2 items-center"
+                                className="btn"
+                                onClick={() => setAlert({ type: "docs" })}
+                            >
+                                Documentation
+                            </button>
+                            <button
+                                className="btn"
+                                onClick={() => setAlert({ type: "about" })}
                             >
                                 à propos
-                                <ICMenu className="icon" />
                             </button>
                         </div>
-                        {currModel === "help" && (
-                            <div
-                                ref={dataRef}
-                                className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
-                            >
-                                <button
-                                    className="btn"
-                                    onClick={() => setAlert({ type: "docs" })}
+                    )}
+                </div>
+                <div
+                    className={`${
+                        darkMode ? "bg-gray-100" : "bg-gray-700"
+                    } h-8 w-8 rounded-full shadow flex justify-center items-center`}
+                    onClick={() => setDarkMode((prev) => !prev)}
+                >
+                    {darkMode ? (
+                        <ICDarkMode className="icon text-gray-700" />
+                    ) : (
+                        <ICLightMode className="icon text-gray-100" />
+                    )}
+                </div>
+                <div className="relative flex items-center gap-3">
+                    <div>
+                        <button
+                            onClick={() => setCurrModel("options")}
+                            className="btn flex gap-x-2 items-center"
+                        >
+                            Options
+                            <ICMenu className="icon" />
+                        </button>
+                    </div>
+                    {currModel === "options" && (
+                        <div
+                            ref={dataRef}
+                            className="absolute top-[3rem] flex flex-col py-6 px-3 gap-y-3 border-2 dark:bg-gray-800 dark:border-gray-600 border-gray-300 rounded-md shadow-md bg-gray-100"
+                        >
+                            <div>
+                                <label
+                                    htmlFor="fontSize"
+                                    className="font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5"
                                 >
-                                    Documentation
-                                </button>
-                                <button
-                                    className="btn"
-                                    onClick={() => setAlert({ type: "about" })}
-                                >
-                                    à propos
-                                </button>
+                                    Font size
+                                </label>
+                                <input
+                                    type="range"
+                                    name="fontSize"
+                                    min="0"
+                                    max="3"
+                                    value={options.fontSize}
+                                    onChange={(e) =>
+                                        setOptions.setFontSize(e.target.value)
+                                    }
+                                />
                             </div>
-                        )}
-                    </div>
-                    <div
-                        className={`${
-                            darkMode ? "bg-gray-100" : "bg-gray-700"
-                        } h-8 w-8 rounded-full shadow flex justify-center items-center`}
-                        onClick={() => setDarkMode((prev) => !prev)}
-                    >
-                        {darkMode ? (
-                            <ICDarkMode className="icon text-gray-700" />
-                        ) : (
-                            <ICLightMode className="icon text-gray-100" />
-                        )}
-                    </div>
+                            <div>
+                                <label
+                                    htmlFor="fontSize"
+                                    className="font-semibold capitalize text-gray-700 dark:text-gray-300 mb-0.5"
+                                >
+                                    Leading
+                                </label>
+                                <input
+                                    type="range"
+                                    name="fontSize"
+                                    min="0"
+                                    max="4"
+                                    value={options.leading}
+                                    onChange={(e) =>
+                                        setOptions.setLeading(e.target.value)
+                                    }
+                                />
+                            </div>
+                        </div>
+                    )}
                 </div>
-                <div className="flex items-center gap-x-3">
-                    <DesignsMenu
-                        cp={cp}
-                        cv={cv}
-                        cvs={cvs}
-                        setCv={setCv}
-                        currModel={currModel}
-                        setCurrModel={setCurrModel}
-                        dataRef={dataRef}
-                    />
+                <DesignsMenu
+                    cp={cp}
+                    cv={cv}
+                    cvs={cvs}
+                    setCv={setCv}
+                    currModel={currModel}
+                    setCurrModel={setCurrModel}
+                    dataRef={dataRef}
+                />
 
-                    <ColorPaletteMenu
-                        cps={cps}
-                        cp={cp}
-                        setCp={setCp}
-                        currModel={currModel}
-                        setCurrModel={setCurrModel}
-                        dataRef={dataRef}
-                    />
-                </div>
+                <ColorPaletteMenu
+                    cps={cps}
+                    cp={cp}
+                    setCp={setCp}
+                    currModel={currModel}
+                    setCurrModel={setCurrModel}
+                    dataRef={dataRef}
+                />
             </div>
         </div>
     );
