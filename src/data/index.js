@@ -149,16 +149,16 @@ export const ABOUT = {
 };
 
 export const DOCUMENTATION = (
-    <div className="text-gray-800 dark:text-gray-100 space-y-4">
-        <h1 className="text-xl font-semibold text-center">RESUME MAKER</h1>
+    <div className="docs text-gray-800 dark:text-gray-100 space-y-4">
+        <h1 className="text-center">RESUME MAKER</h1>
         <p>
             <img
-                src="/screenshots/darkmode.png"
+                src="/screenshots/app.png"
                 className="my-2 rounded-md shadow-md w-full"
             />
         </p>
-        <h3>COMMENT UTILISER:</h3>
-        <h5>PANNEAU DE CONTRÔLE:</h5>
+        <h2>COMMENT UTILISER:</h2>
+        <h3>PANNEAU DE CONTRÔLE:</h3>
         <p>
             En haut de la page, vous trouverez le panneau de contrôle vous
             permet de faire plusieurs choses différentes.
@@ -171,40 +171,59 @@ export const DOCUMENTATION = (
         </p>
         <p>
             Commençons par le plus à gauche, vous y trouverez quelques
-            paramètres :
+            paramètres <b>(MENU)</b>:
         </p>
         <p>
-            <strong>enregistrer:</strong> vous permet d&#39;enregistrer votre CV
-            dans le stockage de votre navigateur local.
+            <b>Télécharger:</b> c'est la dernière étape, il vous donne votre CV
+            et votre lettre de motivation s'il est inclus sous forme de fichier{" "}
+            <b>pdf</b>.
         </p>
         <p>
-            <strong>réinitialiser:</strong> cette option supprime toutes les
-            informations stockées dans le stockage local et efface les champs de
-            saisie, prêt pour un nouveau CV.
+            <b>enregistrer:</b> vous permet d&#39;enregistrer votre CV dans le
+            stockage de votre navigateur local.
         </p>
         <p>
-            <strong>exporter:</strong> exportez votre CV sous forme de chaîne
-            JSON copiée dans votre presse-papiers, cela vous permet
-            d&#39;enregistrer plusieurs CV.
+            <b>réinitialiser:</b> cette option supprime toutes les informations
+            stockées dans le stockage local et efface les champs de saisie, prêt
+            pour un nouveau CV.
         </p>
         <p>
-            <strong>importer:</strong> cette option vous permet de fournir une
-            chaîne JSON donnée par l&#39;option d&#39;exportation, pour charger
-            les CV précédents.
+            <b>exporter:</b> exportez votre CV sous forme de chaîne JSON copiée
+            dans votre presse-papiers, cela vous permet d&#39;enregistrer
+            plusieurs CV.
         </p>
         <p>
-            <strong>darkmode / lightmode:</strong> bascule entre les modes clair
-            et sombre.
+            <b>importer:</b> cette option vous permet de fournir une chaîne JSON
+            donnée par l&#39;option d&#39;exportation, pour charger les CV
+            précédents.
         </p>
         <p>
-            Au centre, tous les modèles disponibles, vous pouvez basculer entre
-            eux en un clin d&#39;œil. Et à l&#39;extrême droite, vous avez le
-            choix entre différentes options en matière de palette de couleurs.
+            <b>darkmode / lightmode:</b> bascule entre les modes clair et
+            sombre.
         </p>
-        <h5>ÉDITEUR:</h5>
+        <p>
+            <b>aller à</b> vous permet de sauter rapidement entre l'éditeur, le
+            CV et la lettre de motivation.
+        </p>
+        <p>
+            <b>A propos</b> contient de la documentation et des informations sur
+            l'application
+        </p>
+        <p>
+            au milieu, vous avez le commutateur <b>LightMode/DarkMode</b>
+        </p>
+        <p>
+            <b>OPTIONS</b> vous permet de contrôler la taille de la police et
+            l'interlignage
+        </p>
+        <p>
+            Et les deux derniers menus contiennent différents designs et
+            palettes de couleurs
+        </p>
+        <h3>ÉDITEUR:</h3>
         <p>
             L&#39;éditeur est divisé en sections, chaque section a
-            <strong> (titre, identifiant et type) </strong>
+            <b> (titre, identifiant et type) </b>
             Vous pouvez manipuler une section à l&#39;aide de ces options :
         </p>
         <p>
@@ -220,9 +239,23 @@ export const DOCUMENTATION = (
             </li>
             <li>Le supprimer en cliquant sur l&#39;icône de la corbeille.</li>
             <li>Changer le titre du titre.</li>
-            <li>Supprimer / ajouter de nouveaux champs de saisie.</li>
+            <li>ajouter de nouveaux champs de saisie.</li>
         </ul>
-        <h6>AJOUTER UNE NOUVELLE SECTION:</h6>
+        <h3>Lettre Motivation</h3>
+        <img
+            src="/screenshots/letter-section.png"
+            className="my-2 rounded-md shadow-md w-full"
+        />
+        <p>
+            Pour ajouter une lettre de motivation vous devez cocher la case qui
+            dit lettre de motivation, décochez la case si vous ne souhaitez pas
+            l'inclure, vous pourrez ensuite saisir vos informations.
+        </p>
+        <p>
+            Les informations incluent le sujet, le nom de l'entreprise et la
+            lettre d'accompagnement dans forme de paragraphes
+        </p>
+        <h3>AJOUTER UNE NOUVELLE SECTION:</h3>
         <p>
             Pour ajouter une nouvelle section, il vous suffit de sélectionner le
             type à l&#39;aide de la liste déroulante au milieu, puis de cliquer
@@ -241,8 +274,8 @@ export const DOCUMENTATION = (
             certains modèles peuvent beuguer, lorsque vous remplissez beaucoup
             d&#39;informations, c&#39;est à tu!
         </p>
-        <h5>TYPES DISPONIBLES:</h5>
-        <h6>DATE LIST:</h6>
+        <h3>TYPES DISPONIBLES:</h3>
+        <h4>DATE LIST:</h4>
         <p>Ce type vous permet de fournir deux champs de saisie.</p>
         <p>
             <img
@@ -254,7 +287,7 @@ export const DOCUMENTATION = (
             This type could be used for sections such as: Experience,
             Education...
         </p>
-        <h6>LIST:</h6>
+        <h4>LIST:</h4>
         <p>This one gives you a list and it is displayed vertically.</p>
         <p>
             <img
@@ -266,7 +299,7 @@ export const DOCUMENTATION = (
             Ce type pourrait être utilisé pour des sections telles que :
             Expérience, Éducation...
         </p>
-        <h6>labels:</h6>
+        <h4>labels:</h4>
         <p>Identique à la liste mais elle est affichée en ligne.</p>
         <p>
             <img
@@ -278,7 +311,7 @@ export const DOCUMENTATION = (
             Ce type peut être utilisé pour des sections telles que : loisirs,
             logiciels, langages de programmation...
         </p>
-        <h6>Slider:</h6>
+        <h4>Slider:</h4>
         <p>Le type Slider prend un nom et un nombre entre 0 et 6.</p>
         <p>
             <img
@@ -295,9 +328,9 @@ export const DOCUMENTATION = (
             L&#39;impression du produit final est très simple, vous devez
             modifier certaines variables d&#39;impression dans votre navigateur.
         </p>
-        <h5>margin: none</h5>
-        <h5>background graphic: true</h5>
-        <h5>paper size: A4</h5>
+        <h4>marge: none</h4>
+        <h4>graphique de fond: true</h4>
+        <h4>taille de papier: A4</h4>
         <p>
             <img
                 src="/screenshots/print.png"
@@ -305,7 +338,7 @@ export const DOCUMENTATION = (
             />
         </p>
         <p>
-            <strong>THIS IS IT, YOU DID IT!!</strong>
+            <b>THIS IS IT, YOU DID IT!!</b>
         </p>
     </div>
 );

@@ -28,16 +28,6 @@
         }
     },
     {
-        "id": "-1",
-        "title": "Lettre motivation",
-        "type": "letter",
-        "content": {
-            "companyName": "",
-            "subject": "",
-            "paragraphs": [""]
-        }
-    },
-    {
         "id": "1",
         "type": "date_list",
         "title": "Formation",

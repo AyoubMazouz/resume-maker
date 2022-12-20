@@ -119,7 +119,7 @@ const ControlPanel = () => {
                             onClick={() => setCurrModel("goto")}
                             className="btn flex gap-x-2 items-center"
                         >
-                            GoTo
+                            Aller à
                             <ICMenu className="icon" />
                         </button>
                     </div>

@@ -10,6 +10,27 @@
     #editor, #cv, #letter {
         @apply scroll-mt-[9rem]
     }
+    .docs h1 {
+        @apply text-2xl font-bold
+    }
+    .docs h2 {
+        @apply text-xl font-semibold underline
+    } 
+    .docs h3 {
+        @apply text-lg font-semibold underline
+    }
+    .docs h4 {
+        @apply text-base font-semibold underline
+    }
+    .docs h5 {
+        @apply text-sm 
+    }
+    .docs h6 {
+        @apply text-xs font-light
+    }
+    .docs p {
+        @apply indent-2
+    }
 }
 
 @layer components {
